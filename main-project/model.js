@@ -14,4 +14,9 @@ const model = [
         url: './rotating-navigation/index.html',
         img: './main-project/img/rotating-navigation.png'
     },
+        {
+        title: 'Hidden search',
+        url: './hidden-search/index.html',
+        img: './main-project/img/hidden-search.png'
+    },
 ]

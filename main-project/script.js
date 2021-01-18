@@ -19,5 +19,3 @@ model.forEach(elemData => {
     const elem = createElem(elemData);
     $container.append(elem);
 });
-
-console.log(model);
