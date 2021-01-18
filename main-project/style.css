@@ -46,9 +46,12 @@ header {
 }
 
 .card a {
+    display: block;
+    padding-bottom: 10px;
     text-decoration: none;
     text-align: center;
     color: #3498db;
+    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.2);
 }
 .card a:hover {
     color: #07588e;
