@@ -101,7 +101,7 @@ footer a:hover {
     }
 
     h2 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
@@ -109,11 +109,19 @@ footer a:hover {
     .card {
         width: 50%;
     }
+    
+    .card img {
+        opacity: 1;
+    })
 }
 
 @media (max-width: 480px) {
     .card {
         width: 100%;
+    }
+    
+    .card img {
+        opacity: 1;
     }
 
     h2 {
