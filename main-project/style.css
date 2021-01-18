@@ -14,23 +14,64 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
     margin: 0;
-    overflow: hidden;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 0.8rem;
 }
 
 header {
     width: 100%;
     min-height: 10vh;
     padding: 10px;
-    background-color: #97fdab;
+    background-color: #3498db;
     text-align: center;
+    color: #fff;
 }
 
 .container {
     flex-grow: 1;
     width: 100%;
-    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.card {
+    width: 10%;
+    padding: 15px;
+}
+
+.card a {
+    text-decoration: none;
+    text-align: center;
+    color: #3498db;
+}
+.card a:hover {
+    color: #07588e;
+}
+
+.card-img {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 0 0 88% 0;
+    overflow: hidden;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.card a:hover img {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
 }
 
 footer {
@@ -50,4 +91,32 @@ footer a {
 }
 footer a:hover {
     color: #eae38b;
+}
+
+
+/*Responsive design*/
+@media (max-width: 1100px) {
+    .card {
+        width: 20%;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }
