@@ -9,4 +9,9 @@ const model = [
         url: './progress-steps/index.html',
         img: './main-project/img/progress-steps.png'
     },
+    {
+        title: 'Rotating navigation',
+        url: './rotating-navigation/index.html',
+        img: './main-project/img/rotating-navigation.png'
+    },
 ]
