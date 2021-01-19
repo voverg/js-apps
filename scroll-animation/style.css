@@ -10,13 +10,13 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #efedd6;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header {
@@ -27,21 +27,31 @@ header {
     text-align: center;
 }
 
-.bg {
-    background: url('https://www.arabianbusiness.com/public/images/2017/03/07/Robot-1.jpg') no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    width: calc(100vw + 60px);
-    height: calc(100vh + 60px);
-    z-index: -1;
-    filter: blur(0px);
+.box {
+    background-color: steelblue;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(400%);
+    transition: transform 0.4s ease;
 }
 
-.loading-text {
-    font-size: 50px;
-    color: #fff;
+.box:nth-of-type(even) {
+    transform: translateX(-400%);
+}
+
+.box.show {
+    transform: translateX(0);
+}
+
+.box h2 {
+    font-size: 45px;
 }
 
 footer {
