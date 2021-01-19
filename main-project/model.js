@@ -19,4 +19,9 @@ const model = [
         url: './hidden-search/index.html',
         img: './main-project/img/hidden-search.png'
     },
+            {
+        title: 'Blurry loading',
+        url: './blurry-loading/index.html',
+        img: './main-project/img/blurry-loading.png'
+    },
 ]
