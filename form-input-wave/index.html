@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Some keywords">
+    <!-- <meta name="og:image" content="social-img.jpg"> -->
+    <title>Form input wave</title>
+    <link rel="shortcut icon" href="../main-project/favicon.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Form input wave</h1>
+        <p>Click any input to check out a form input wave.</p>
+    </header>
+    
+    <div class="container">
+        <form>
+            <h2>Please login</h2>
+            <div class="form-control">
+              <input type="text" id="email" autocomplete="off" required>
+              <label for="email">Email</label>
+              <!-- <label>
+                <span style="transition-delay: 0ms">E</span>
+                  <span style="transition-delay: 50ms">m</span>
+                  <span style="transition-delay: 100ms">a</span>
+                  <span style="transition-delay: 150ms">i</span>
+                  <span style="transition-delay: 200ms">l</span>
+            </label> -->
+            </div>
+
+            <div class="form-control">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <button class="btn">Login</button>
+
+            <p class="text">Don't have an account? <a href="#">Register</a> </p>
+        </form>
+    </div>
+
+    <footer>
+        <p>Created by <a href="https://github.com/voverg" target="_blank">Voverg</a></p>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

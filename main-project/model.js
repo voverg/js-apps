@@ -29,4 +29,9 @@ const model = [
         url: './scroll-animation/index.html',
         img: './main-project/img/scroll-animation.png'
     },
+    {
+        title: 'Form input wave',
+        url: './form-input-wave/index.html',
+        img: './main-project/img/form-input-wave.png'
+    },
 ]
