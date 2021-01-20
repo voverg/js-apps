@@ -14,14 +14,19 @@ const model = [
         url: './rotating-navigation/index.html',
         img: './main-project/img/rotating-navigation.png'
     },
-        {
+    {
         title: 'Hidden search',
         url: './hidden-search/index.html',
         img: './main-project/img/hidden-search.png'
     },
-            {
+    {
         title: 'Blurry loading',
         url: './blurry-loading/index.html',
         img: './main-project/img/blurry-loading.png'
+    },
+    {
+        title: 'Scroll animation',
+        url: './scroll-animation/index.html',
+        img: './main-project/img/scroll-animation.png'
     },
 ]
