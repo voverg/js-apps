@@ -34,4 +34,9 @@ const model = [
         url: './form-input-wave/index.html',
         img: './main-project/img/form-input-wave.png'
     },
+    {
+        title: 'Animated navigation',
+        url: './animated-navigation/index.html',
+        img: './main-project/img/animated-navigation.png'
+    },
 ]
