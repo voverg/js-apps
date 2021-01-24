@@ -39,4 +39,9 @@ const model = [
         url: './animated-navigation/index.html',
         img: './main-project/img/animated-navigation.png'
     },
+    {
+        title: 'Event keyCode',
+        url: './event-keycode/index.html',
+        img: './main-project/img/event-keycode.png'
+    },
 ]
