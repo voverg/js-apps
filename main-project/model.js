@@ -44,4 +44,9 @@ const model = [
         url: './event-keycode/index.html',
         img: './main-project/img/event-keycode.png'
     },
+    {
+        title: 'FAQ collaps',
+        url: './faq-collaps/index.html',
+        img: './main-project/img/faq-collaps.png'
+    },
 ]

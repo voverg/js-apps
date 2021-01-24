@@ -27,12 +27,6 @@ header {
     text-align: center;
 }
 
-.container {
-    flex-grow: 1;
-    width: 100%;
-    background-color: yellow;
-}
-
 .key {
     border: 1px solid #999;
     background-color: #eee;
