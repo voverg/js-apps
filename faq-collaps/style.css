@@ -50,6 +50,7 @@ h2 {
     position: relative;
     overflow: hidden;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .faq.active {
@@ -83,6 +84,7 @@ h2 {
 .faq-text {
     display: none;
     margin: 30px 0 0;
+    transition: 1s ease;
 }
 
 .faq.active .faq-text {

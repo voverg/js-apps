@@ -49,4 +49,9 @@ const model = [
         url: './faq-collaps/index.html',
         img: './main-project/img/faq-collaps.png'
     },
+    {
+        title: 'Notes app',
+        url: './notes-app/index.html',
+        img: './main-project/img/notes-app.png'
+    },
 ]

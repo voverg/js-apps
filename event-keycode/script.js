@@ -1,6 +1,7 @@
 const $insert = document.querySelector('#insert');
 
 function keyHandler(event) {
+    event.preventDefault();
     $insert.innerHTML = `
         <div class="key">
         ${event.key === ' ' ? 'Space' : event.key}

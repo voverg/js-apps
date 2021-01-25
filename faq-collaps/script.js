@@ -2,14 +2,14 @@ const $faqContainer = document.querySelector('.faq-container');
 
 function createBlock(data) {
     const block = `
-    <div class="faq">
-        <h3 class="faq-title">
+    <div class="faq" data-btn="toggle">
+        <h3 class="faq-title" data-btn="toggle">
             ${data.title}
         </h3>
-        <p class="faq-text">
+        <p class="faq-text" data-btn="toggle">
             ${data.text}
         </p>
-        <button class="faq-toggle">
+        <button class="faq-toggle" data-btn="toggle">
             <i class="fas fa-chevron-down" data-btn="toggle"></i>
             <i class="fas fa-times" data-btn="toggle"></i>
         </button>
