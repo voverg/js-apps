@@ -54,4 +54,9 @@ const model = [
         url: './notes-app/index.html',
         img: './main-project/img/notes-app.png'
     },
+    {
+        title: 'Drag n Drop',
+        url: './drag-n-drop/index.html',
+        img: './main-project/img/drag-n-drop.png'
+    },
 ]
