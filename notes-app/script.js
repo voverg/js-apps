@@ -53,8 +53,10 @@ function addCard(text='') {
 function addNote() {
     const text = addCard();
     data.push(text);
-
     setToLocalStorage();
+
+    const lastCard = notesEl.children[data.length - 1];
+    lastCard.querySelector('textarea').focus();
 }
 
 addBtn.addEventListener('click', () => addNote());
@@ -79,6 +81,8 @@ function notesHandler(event) {
     }
 }
 
+notesEl.addEventListener('click', notesHandler);
+
 function textHandler(event) {
     const elem = event.target;
     const parent = elem.closest('.note');
@@ -93,4 +97,3 @@ function textHandler(event) {
 }
 
 notesEl.addEventListener('focusout', textHandler);
-notesEl.addEventListener('click', notesHandler);
