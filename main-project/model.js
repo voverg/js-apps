@@ -64,4 +64,9 @@ const model = [
         url: './svg-animation/index.html',
         img: './main-project/img/svg-animation.png'
     },
+    {
+        title: 'Piano',
+        url: './piano/index.html',
+        img: './main-project/img/piano.png'
+    },
 ]
