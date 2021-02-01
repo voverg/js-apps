@@ -59,4 +59,9 @@ const model = [
         url: './drag-n-drop/index.html',
         img: './main-project/img/drag-n-drop.png'
     },
+    {
+        title: 'SVG Animation',
+        url: './svg-animation/index.html',
+        img: './main-project/img/svg-animation.png'
+    },
 ]
