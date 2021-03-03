@@ -69,4 +69,9 @@ const model = [
         url: './piano/index.html',
         img: './main-project/img/piano.png'
     },
+    {
+        title: 'Speed reading test',
+        url: './speed-reading-test/index.html',
+        img: './main-project/img/speed-reading-test.png'
+    },
 ]

@@ -48,14 +48,23 @@ header p {
 
 .add {
     position: fixed;
-    top: 6rem;
+    top: 1rem;
     right: 1rem;
-    background-color: #9ec862;
+    background-color: #f57d1f;
     color: #fff;
     border: none;
     border-radius: 3px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+}
+
+.small-screen {
+    display: none;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .add:active {
@@ -140,14 +149,29 @@ footer a:hover {
     .note {
         width: 50%;
     }
-
-    .add {
-        top: 7rem;
-    }
 }
 
 @media (max-width: 480px) {
     .note {
         width: 100%;
+    }
+    
+    .note__tools button {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    
+    .add {
+        top: inherit;
+        bottom: 2rem;
+        border-radius: 50%;
+    }
+    
+    .big-screen {
+        display: none;
+    }
+    
+    .small-screen {
+        display: block;
     }
 }
