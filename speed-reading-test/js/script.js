@@ -12,12 +12,6 @@ function start() {
 
 function createBlock(block, blockContent) {
     block.innerHTML = blockContent;
-    // Object.keys(obj).forEach(item => {
-    //     const elem = document.createElement(item);
-    //     elem.classList.add(...obj[item][0]);
-    //     elem.innerHTML = obj[item][1];
-    //     block.append(elem);
-    // });
 }
 
 function changeTab(tab1, block1, tab2, block2) {

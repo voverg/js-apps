@@ -9,14 +9,13 @@ function findReadingTime() {
     findBtn.addEventListener('click', () => {
         const checkForm = formValidate(inputEl, textAreaEl);
         if (!checkForm) {
-            console.log(resultEl);
             resultEl.textContent = 'Заполните все поля';
             return;
         }
 
         const textLength = getCharacterAmount(textAreaEl.value);
-        const result = textLength / +inputEl.value;
-        resultEl.innerHTML = `Данный текст содержит <strong>${textLength}</strong> знаков без пробелов. <br> Вы прочитаете этот текст примерно за <strong>${Math.round(result)}</strong> минут.`;
+        const result = Math.round(textLength / +inputEl.value);
+        resultEl.innerHTML = `Данный текст содержит <strong>${textLength}</strong> знаков без пробелов. <br> Вы прочитаете этот текст примерно за <strong>${Math.floor(result / 60)}</strong> час(ов) и <strong>${result % 60}</strong> минут.`;
     });
 }
 

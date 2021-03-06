@@ -37,7 +37,6 @@ header {
 .container {
     flex-grow: 1;
     width: 100%;
-    background-color: var(--active-color);
 }
 
 .tabs {
@@ -49,20 +48,29 @@ header {
     padding: 10px;
     flex-grow: 1;
     text-align: center;
+    color: #999;
     cursor: pointer;
     background-color: #fff;
     transition: color 0.3s ease;
+    border-bottom: 1px solid #333;
 }
 .tab:hover {
     color: #f39432;
 }
 
 .tab--active {
-    background-color: var(--active-color);
+    color: #333;
+    font-weight: bold;
+    border-bottom: none;
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .block {
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 .block__description {
@@ -76,6 +84,7 @@ header {
 .block p {
     color: var(--main-color);
     padding-top: 15px;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -92,7 +101,7 @@ header {
     min-height: 20vh;
     border: 1px solid #999;
     border-radius: 3px;
-    margin: 20px 0;
+    margin: 20px 0 0;
     padding: 5px;
 }
 
@@ -113,6 +122,8 @@ span.result {
 }
 
 .btn {
+    display: block;
+    margin: 0 auto;
     padding: 10px;
     background-color: #f39432;
     border: none;
@@ -121,15 +132,18 @@ span.result {
     color: #fff;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 .btn:hover {
-    opacity: 0.8;
+    background-color: #f9871b;
 }
 
-.start, .stop {
-    display: block;
-    margin: 0 auto;
+.finish-result {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px -5px rgba(0, 0, 0, .4);
 }
 
 footer {
@@ -157,13 +171,34 @@ footer a:hover {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 720px) {
+    .block {
+        padding: 20px;
+    }
+
+    .block h2 {
+        font-size: 1.2rem;
+    }
+
+    .block textarea {
+        min-height: 10vh;
+    }
+
     .block__result {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: 5px 0;
+    }
+
+    .btn {
+        padding: 10px 50px;
+        font-size: 1.3rem;
     }
 
     span.result {
         padding: 10px;
+    }
+
+    .finish-result {
+        width: 100%;
     }
 }
