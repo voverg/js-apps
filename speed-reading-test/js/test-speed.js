@@ -42,7 +42,7 @@ function showResults(textLength, minutes, seconds, result) {
                 <h2>Результаты теста</h2>
                 <p>Количество знаков в тексте: ${textLength}</p>
                 <p><strong>Время чтения:</strong> ${minutes} минут и ${seconds} секунд</p>
-                <p><strong>Скорость чтения:</strong> ${result} знаков в минуту</p>
+                <p><strong>Скорость чтения:</strong> ${result} знаков в минуту <br> (это примерно ${Math.floor(result / 5)} слов в минуту)</p>
             </div>
             <div class="block__result">
                 <button class="btn start-again">Начать заново</button>

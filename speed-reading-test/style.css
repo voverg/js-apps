@@ -37,6 +37,8 @@ header {
 .container {
     flex-grow: 1;
     width: 100%;
+    max-width: 960px;
+    box-shadow: 0 40px 2px #333;
 }
 
 .tabs {
@@ -141,7 +143,7 @@ span.result {
 .finish-result {
     width: 80%;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px -5px rgba(0, 0, 0, .4);
 }
