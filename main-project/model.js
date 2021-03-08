@@ -74,4 +74,9 @@ const model = [
         url: './speed-reading-test/index.html',
         img: './main-project/img/speed-reading-test.png'
     },
+    {
+        title: 'Frontend quiz',
+        url: './frontend-quiz/index.html',
+        img: './main-project/img/frontend-quiz.png'
+    },
 ]

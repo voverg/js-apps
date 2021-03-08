@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Это простое приложение-викторина на знание основ fronend разработки. Здесь вы можете пройти тесты по HTML, CSS и JavaScript.">
+    <meta name="keywords" content="Some keywords">
+    <meta name="og:image" content="frontend-quiz-social.png">
+    <title>Frontend quiz</title>
+    <link rel="shortcut icon" href="../main-project/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Frontend quiz</h1>
+        <p>Здесь вы можете пройти тесты по HTML, CSS и JavaScript</p>
+    </header>
+    
+    <div class="container">
+        
+        <div class="tabs">
+            <div class="tab tab--active" id="tab-1" data-block="block-html" data-flag="html">HTML</div>
+            <div class="tab" id="tab-2" data-block="block-css" data-flag="css">CSS</div>
+            <div class="tab" id="tab-3" data-block="block-js" data-flag="js">JavaScript</div>
+        </div>
+
+        <div class="blocks">
+            <div class="block" id="block-html"></div>
+            <div class="block hidden" id="block-css"></div>
+            <div class="block hidden" id="block-js"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Created by <a href="https://github.com/voverg" target="_blank">Voverg</a></p>
+    </footer>
+
+
+    <script src="js/model.js"></script>
+    <script src="js/get.components.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
