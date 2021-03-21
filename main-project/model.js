@@ -79,4 +79,9 @@ const model = [
         url: './frontend-quiz/index.html',
         img: './main-project/img/frontend-quiz.png'
     },
+    {
+        title: 'Game',
+        url: './game/index.html',
+        img: './main-project/img/game.png'
+    },
 ]
