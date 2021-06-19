@@ -16,6 +16,7 @@ const titles = [
     'speed-reading-test',
     'frontend-quiz',
     'game',
+    'shine-board'
 ]
 
 function getData(list) {
@@ -38,6 +39,7 @@ const model = getData(titles);
 
 /* const modelExample = [
     {
+        id: 2,
         title: 'Expanding cards',
         url: './expanding-cards/index.html',
         img: './main-project/img/expanding-cards.png'
