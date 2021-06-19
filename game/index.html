@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="styles.css">
-  <title>JS Game</title>
-</head>
-<body>
-
-
-  <div class="app">
-    <div class="app__header">
-      <h1 id="time-header">Время игры: <span id="time">5.0</span></h1>
-      <h1 id="result-header" class="hidden">Ваш результат: <span id="result"></span></h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Clicker</title>
+  </head>
+  <body>
+    <div class="screen">
+      <h1>Clicker</h1>
+      <p>Накликай как можно больше шариков за выбранное время.</p>
+      <a href="#" class="start" id="start">Начать игру</a>
     </div>
 
-    <div class="app__content">
-      <button class="btn" id="start">Начать</button>
-
-      <div class="game" id="game"></div>
+    <div class="screen">
+      <h1>Выберите время</h1>
+      <ul class="time-list" id="time-list">
+        <li>
+          <button class="time-btn" data-time="5">
+            5 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="10">
+            10 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="20">
+            20 сек
+          </button>
+        </li>
+        <li>
+          <button class="time-btn" data-time="30">
+            30 сек
+          </button>
+        </li>
+      </ul>
     </div>
 
-    <div class="app__footer">
-      <div class="input">
-        <label for="game-time">Время игры, (сек)</label>
-        <input type="number" id="game-time" min="5" step="1" value="5">
-      </div>
+    <div class="screen">
+      <h3>Осталось <span id="time">00:00</span></h3>
+      <div class="board" id="board"></div>
     </div>
-  </div>
-  
 
-  <script src="script.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

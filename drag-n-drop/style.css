@@ -3,99 +3,112 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 header {
-    width: 100%;
-    min-height: 10vh;
-    padding: 10px;
-    background-color: #97fdab;
-    text-align: center;
+  width: 100%;
+  min-height: 10vh;
+  padding: 10px;
+  background-color: #97fdab;
+  text-align: center;
 }
 
 .container {
-    flex-grow: 1;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: steelblue;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: steelblue;
 }
 
 
 .empty {
-    height: 150px;
-    width: 150px;
-    margin: 10px;
-    border: solid 3px black;
-    background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+  border: solid 3px black;
+  border-radius: 10px;
+  background: white;
 }
 
 .fill {
-    background: url('https://source.unsplash.com/random/150x150');
-    background-size: cover;
-    height: 145px;
-    width: 145px;
-    cursor: move;
-}
-
-.hold {
-    border: solid 5px #ccc;
-}
-
-.hovered {
-    background-color: #333;
-    border-color: white;
-    border-style: dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background-color: aqua;
+  box-shadow: 0 0 2px #999;
+  border-radius: 10px;
+  cursor: move;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 5vh;
-    background: #215249;
-    color: #999;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  background: #215249;
+  color: #999;
+  text-align: center;
 }
 
 footer a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 footer a:hover {
-    color: #eae38b;
+  color: #eae38b;
+}
+
+.selected {
+  border: solid 5px #ccc;
+}
+
+.hovered {
+  background-color: #777;
+  border-color: white;
+  border-style: dashed;
+}
+
+.invisible {
+  /*visibility: hidden;*/
+  opacity: 0.6;
 }
 
 
 @media (max-width: 720px) {
-    .empty {
-        width: 45%;
-    }
+  .empty {
+    width: 45%;
+  }
 
-    .fill {
-        width: 100%;
-    }
+  .fill {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-    .empty {
-        width: 95%;
-    }
+  .empty {
+    width: 95%;
+  }
 }
