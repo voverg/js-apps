@@ -111,24 +111,16 @@ h1 {
   flex-grow: 1;
   width: 100%;
 }
-/*
-.new-game {
-  border: none;
-  background-color: inherit;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  border-bottom: 1px dashed #fff;
-}
-
-.new-game:hover {
-  color: #16D9E3;
-  border-color: #16D9E3;
-}*/
 
 .circle {
   background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%);
   position: absolute;
   border-radius: 50%;
   cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .board {
+    width: 90%;
+  }
 }
