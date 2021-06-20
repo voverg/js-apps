@@ -16,7 +16,8 @@ const titles = [
     'speed-reading-test',
     'frontend-quiz',
     'game',
-    'shine-board'
+    'shine-board',
+    'split-landing-page'
 ]
 
 function getData(list) {
