@@ -23,7 +23,8 @@ header {
     width: 100%;
     min-height: 10vh;
     padding: 10px;
-    background-color: #97fdab;
+    background-color: #403075;
+    color: #fff;
     text-align: center;
 }
 
@@ -61,8 +62,8 @@ header {
 .black-key {
     width: 70%;
     height: 60%;
-    margin-left: -35px;
-    margin-right: -35px;
+    margin-left: -45px;
+    margin-right: -45px;
     background: #000;
     color: #fff;
     z-index: 2;

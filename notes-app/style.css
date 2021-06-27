@@ -23,12 +23,9 @@ header {
     width: 100%;
     min-height: 10vh;
     padding: 10px;
-    background-color: #97fdab;
+    background-color: #215249;
+    color: #fff;
     text-align: center;
-}
-
-header p {
-    color: #333;
 }
 
 .container {
@@ -74,6 +71,7 @@ header p {
 .note {
     padding: 30px 20px;
     width: 25%;
+    color: #555;
 }
 
 .note__content {
@@ -84,7 +82,7 @@ header p {
 }
 
 .note__tools {
-    background-color: #9ec862;
+    background-color: #215249;
     display: flex;
     justify-content: flex-end;
     padding: 0.5rem;
@@ -155,22 +153,22 @@ footer a:hover {
     .note {
         width: 100%;
     }
-    
+
     .note__tools button {
         font-size: 1.5rem;
         margin-left: 1rem;
     }
-    
+
     .add {
         top: inherit;
         bottom: 2rem;
         border-radius: 50%;
     }
-    
+
     .big-screen {
         display: none;
     }
-    
+
     .small-screen {
         display: block;
     }

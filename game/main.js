@@ -8,6 +8,7 @@ let time = 0;
 let score = 0;
 let intervalId;
 const colors = ['skyblue', 'aqua', 'tomato', 'gold', 'lime', 'orange'];
+const clickSound = new Audio('sound/sound-1.mp3');
 
 startBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -29,6 +30,7 @@ boardEl.addEventListener('click', (event) => {
 
   score++;
   circleEl.remove();
+  playSound(clickSound);
   createRandomCircle();
 });
 
@@ -98,4 +100,10 @@ function startNewGame() {
   screenEls[1].classList.remove('up');
   timeEl.closest('h3').classList.remove('invisible');
   boardEl.innerHTML = '';
+}
+
+// Utils
+function playSound(soundObj) {
+  const clone = soundObj.cloneNode();
+  clone.play();
 }
