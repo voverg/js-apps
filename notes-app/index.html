@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Description">
-    <meta name="keywords" content="Some keywords">
-    <!-- <meta name="og:image" content="social-img.jpg"> -->
-    <title>Notes</title>
-    <link rel="shortcut icon" href="../main-project/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Description">
+  <meta name="keywords" content="Some keywords">
+  <!-- <meta name="og:image" content="social-img.jpg"> -->
+  <title>Notes</title>
+  <link rel="shortcut icon" href="../main-project/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Notes app</h1>
-        <p>This is a note app. Click on the [+Add note] button to add a new note. You can use markdown sintax to decorate your text</p>
-    </header>
-    
-    <div class="container">
-        <button class="add big-screen" id="add">
-            <i class="fas fa-plus"></i> Add note
-        </button>
-        
-        <button class="add small-screen" id="add">+</button>
+  <header>
+    <h1>Notes app</h1>
+    <p>This is a note app. Click on the [+Add note] button to add a new note. You can use markdown sintax to decorate your text</p>
+  </header>
 
-        <div class="notes" id="notes">
+  <div class="container">
+    <button class="add big-screen" id="add">
+      <i class="fas fa-plus"></i>
+      <span class="add__text">Add note<span>
+    </button>
+
+    <div class="notes" id="notes">
 <!--             <div class="note">
                 <div class="note__tools">
                     <button class="note--edit">
@@ -36,15 +35,15 @@
                 </div>
                 <div class="hidden"></div>
                 <textarea></textarea>
-            </div> -->
-        </div>
-    </div>
+              </div> -->
+            </div>
+          </div>
 
-    <footer>
-        <p>Created by <a href="https://github.com/voverg" target="_blank">Voverg</a></p>
-    </footer>
+          <footer>
+            <p>Created by <a href="https://github.com/voverg" target="_blank">Voverg</a></p>
+          </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js"></script>
+          <script src="script.js"></script>
+        </body>
+        </html>
