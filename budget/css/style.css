@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 16px;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body {
+    background-color: #d4d4d4;
+}
+
+small {
+    font-size: 0.6rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 700px;
+    height: 100vh;
+    background-color: #34006a;
+}
+
+.header {
+    color: white;
+    padding-bottom: 30px;
+}
+
+.app-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+h1 {
+    flex-basis: 60%;
+    font-size: 1.7rem;
+    text-align: center;
+}
+.balance {
+    flex-basis: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.balance__value {
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+.account {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0;
+    text-align: left;
+}
+.income, .chart, .outcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+}
+.income__title, .outcome__title {
+    opacity: 0.5;
+}
+.income__total, .outcome__total{
+    padding-top: 10px;
+    font-size: 1.3rem;
+}
+.income__total {
+    color: #39C55DFF;
+}
+.outcome__total{
+    color: #f0624d;
+}
+
+/*---- Content ----------*/
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*---------- Dashboard ----------*/
+.dashboard {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 30px 30px 0 0;
+}
+
+.dashboard__title {
+    display: inline-block;
+    color: #1a0034;
+    font-size: 1.7rem;
+    margin: 10px 20px 0;
+}
+
+.dashboard__toggle {
+    margin: 10px 20px;
+}
+
+.expense-tab, .income-tab, .all-tab {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #1a0034;
+    opacity: 0.4;
+    cursor: pointer;
+}
+.income-tab, .all-tab {
+    margin-left: 10px;
+}
+
+.dashboard__expense, .dashboard__income, .dashboard__all {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    height: 40vh;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+.dashboard__all ul {
+    height: 50vh;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+.entry {
+    flex-grow: 1;
+    align-self: center;
+    padding-right: 10px;
+    color: #10882f;
+/*    font-weight: bold;*/
+}
+.li__expense .entry {
+    color: #f0624d;
+    font-weight: normal;
+}
+.edit {
+    background: url('../img/edit.png') no-repeat;
+}
+.dashboard__all li .edit {
+    display: none;
+}
+.delete {
+    background: url('../img/trash.png') no-repeat;
+    margin-left: 10px;
+}
+.edit, .delete {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    cursor: pointer;
+}
+
+/*------------- inputns ------------*/
+div.input {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-top: 1px solid #ccc;
+}
+div.input input {
+    width: 50%;
+    margin: 0 10px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #777;
+    font-size: 1rem;
+    outline: none;
+}
+div.input input[name="amount"] {
+    width: 20%;
+}
+div.input input::placeholder {
+    font-size: 1rem;
+    color: #39C55DFF;
+}
+.add-expense, .add-income {
+    width: 40px;
+    height: 40px;
+    background: url('../img/plus.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+
+
+.disabled {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hide {
+    display: none;
+}
+.active {
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+/*--------- Footer --------*/
+.footer {
+    padding: 10px;
+    background-color: #515175;
+    color: #aaa;
+    text-align: center;
+}
+.footer a {
+    color: white;
+}
+
+/*--------- Responsive ------------*/
+@media (max-width: 720px) {
+    .container {
+        width: 100%;
+    }
+    h1, .balance {
+        font-size: 1.2rem;
+    }
+    .balance {
+        flex-basis: 40%;
+    }
+    .chart {
+    width: 20%;
+    }
+    .income, .outcome{
+        width: 40%;
+    }
+    ul {
+        height: 45vh;
+    }
+    div.input input {
+        padding-left: 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    * {
+        font-size: 12px;
+    }
+    div.input input {
+        padding: 0;
+    }
+}

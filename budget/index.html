@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Это простое приложение для ведения учёта личных финансов, написанный на html, css и чистом javascript.">
+    <meta name="keywords" content="Some keywords">
+    <meta name="og:image" content="img/social_budget_large_screenshot.png">
+    <title>Budget</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="app-title">
+            <h1>Учёт финансов</h1>
+            <div class="balance">
+                <div class="balance__title">Баланс</div>
+                <div class="balance__value">
+                    0<small> RUR</small>
+                </div>
+            </div>
+        </div>
+        <div class="account">
+            <div class="income">
+                <div class="income__title">Доход</div>
+                <div class="income__total">
+                    0<small> RUR</small>
+                </div>
+            </div>
+            <div class="chart"></div>
+            <div class="outcome">
+                <div class="outcome__title">Расход</div>
+                <div class="outcome__total">
+                    0<small> RUR</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="dashboard">
+            <div class="dashboard__title">Денежные операции</div>
+            <div class="dashboard__toggle">
+                <div class="expense-tab">Расходы</div>
+                <div class="income-tab">Доходы</div>
+                <div class="all-tab active">Все операции</div>
+            </div>
+
+            <div class="dashboard__expense hide">
+                <ul class="list"></ul>
+                <div class="input">
+                    <input type="text" class="expense-title-input" name="title" placeholder="На что расходы" autofocus>
+                    <input type="number" class="expense-amount-input" name="amount" placeholder="Сумма">
+                    <div class="add-expense"></div>
+                </div>
+            </div>
+            <div class="dashboard__income hide">
+                <ul class="list"></ul>
+                <div class="input">
+                    <input type="text" class="income-title-input" name="title" placeholder="С чего доход" autofocus>
+                    <input type="number" class="income-amount-input" name="amount" placeholder="Сумма">
+                    <div class="add-income"></div>
+                </div>
+            </div>
+            <div class="dashboard__all">
+                <ul class="list"></ul>
+<!--                 <div class="input disabled">
+                    <input type="text" class="all-title-input" name="title">
+                    <input type="number" class="all-amount-input" name="amount">
+                    <div class="add-income"></div>
+                </div> -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            Created by <a href="https://github.com/voverg" target="_blank">Voverg</a>
+        </footer>
+    </div>
+
+</div>
+
+
+    <script src="js/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
