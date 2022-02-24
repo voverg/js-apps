@@ -9,13 +9,14 @@ const titles = [
     'animated-navigation',
     'event-keycode',
     'faq-collaps',
+    'good-todo',
+    'budget',
     'notes-app',
     'drag-n-drop',
     'svg-animation',
     'piano',
     'speed-reading-test',
     'frontend-quiz',
-    'game',
     'shine-board',
     'split-landing-page'
 ]
