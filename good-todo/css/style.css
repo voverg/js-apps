@@ -1,0 +1,249 @@
+*, html, body {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ------------ container ------------ */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    width: 700px;
+    height: 100vh;
+    margin:0 auto;
+}
+
+/* ------------ header ------------ */
+.header {
+    width: 100%;
+    height:150px;
+    background-image: url('../img/bg.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+}
+.signature {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: #ccc;
+}
+.signature a {
+    text-decoration: none;
+    color: #eee;
+}
+.clear {
+    width : 30px;
+    height: 30px;
+    position: absolute;
+    right:20px;
+    top: 20px;
+}
+.clear i {
+    font-size: 30px;
+    color: #FFF;
+}
+.clear i:hover {
+    cursor: pointer;
+    text-shadow: 1px 3px 5px #000;
+    transform: rotate(45deg);
+}
+#date {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #FFF;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+/* --------- filters --------------- */
+.filter {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.filter__item {
+    height: 100%;
+    padding: 10px;
+    color: #4162f6;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.filter__item-active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+/* -------------- wiki -------------*/
+.wiki {
+    padding: 10px 30px;
+    color: #555;
+}
+.wiki p {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+/* ------------ content ------------ */
+.content {
+    width:100%;
+    height:100%;
+    background-color: #FFF;
+    overflow: auto;
+}
+.content::-webkit-scrollbar { 
+    display: none; 
+}
+.content ul {
+    padding:0;
+    margin:0;
+}
+.item {
+    display: flex;
+    width:100%;
+    min-height: 45px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.item i {
+    padding: 10px 20px;
+}
+.item i.co, .item i.de {
+    font-size: 25px;
+}
+.item i.co:hover {
+    cursor: pointer;
+}
+.fa-check-circle {
+    color:#6eb200;
+}
+.item p.text {
+    align-self: center;
+    width: 100%;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 20px;
+    background-color: #FFF;
+    outline: none;
+}
+.lineThrough {
+    text-decoration: line-through;
+    color : #ccc;
+}
+.item i.de:hover {
+    color:#af0000;
+    cursor: pointer;
+}
+
+/* ------------ add item ------------ */
+.add-to-do {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: #FFF;
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.add-to-do i {
+    position: absolute;
+    font-size: 40px;
+    color: #4162f6;
+}
+
+.add-to-do input {
+    position: absolute;
+    left: 55px;
+    height: 35px;
+    width: 90%;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding-left:10px;
+    outline: none;
+}
+.add-to-do input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #4162f6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+.add-to-do input::-moz-placeholder { /* Firefox 19+ */
+    color: #4162f6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+.add-to-do input:-ms-input-placeholder { /* IE 10+ */
+    color: #4162f6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+.add-to-do input:-moz-placeholder { /* Firefox 18- */
+    color: #4162f6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+
+/* -------------Responsive design ---------------*/
+@media (max-width: 720px) {
+    .container {
+        width: 100%;
+        height: 90vh;
+    }
+    .header {
+        height: 250px;
+    }
+    .signature {
+        top: 10px;
+    }
+    .add-to-do {
+        height: 90px;
+        padding: 15px 10px;
+    }
+    .add-to-do i {
+        top: 15px;
+    }
+    .add-to-do input {
+        width: 80%;
+        height: 45px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

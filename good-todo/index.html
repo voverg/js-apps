@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Это простой список задач, написанный на html, css и чистом javascript.">
+    <meta name="keywords" content="Some keywords">
+    <meta name="og:image" content="img/social-todo.png">
+    <title>Good Todo</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="signature">
+                Created by <a href="https://github.com/voverg" target="_blank">Voverg</a>
+            </div>
+            <div class="clear">
+                <i class="fa fa-refresh"></i>
+            </div>
+            <div id="date"></div>
+        </div>
+
+        <div class="filter">
+            <span class="filter__item filter__item-active" data-status="current">Текущие</span>
+            <span class="filter__item" data-status="done">Выполненные</span>
+            <span class="filter__item" data-status="deleted">Удалённые</span>
+        </div>
+
+        <div class="content">
+            <ul id="list">
+                <div class="wiki hide"><p>У вас пока нет ни одной задачи</p>
+                                1. Начните писать задачу в поле ввода внизу, затем
+                                нажмите клавишу 'Enter' или кнопку 'Плюсик' в левом
+                                нижем углу, чтобы добавить задачу.<br><br>
+                                2. Чтобы отредактировать созданную задачу, просто кликните
+                                по ней. Затем в конце просто нажмите "Enter".<br><br>
+                                3. Чтобы воспользоваться поиском по задачам, в поле ввода
+                                наберите символ '/', затем начните набирать текст. Поиск
+                                будет осуществлятся автоматически. Чтобы выйти из режима
+                                поиска, очистите поле ввода, нажав кнопку 'Крестик' в
+                                левом нижнем углу.<br><br>
+                                4. Чтобы удалить все задачи, нажмите на круглую иконку в 
+                                правом верхнем углу.
+                                <p>Подробную документацию можно почитать вот по
+                                    <a href="https://github.com/voverg/50-simple-projects/good-todo" target="blank_">этой ссылке</a>
+                                (откроется в новой вкладке)</p>
+                </div>
+            </ul>
+        </div>
+
+        <div class="add-to-do">
+            <i class="fa fa-plus-circle" id="plus-button"></i>
+            <input type="text" id="input" placeholder="Новая задача" autofocus>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
