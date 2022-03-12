@@ -91,7 +91,7 @@ function clickHandler(event) {
     const text = habits.find(getId()).text;
     console.log(text);
     // editHabit(getId(), text);
-  } else if (target.hasClass('habit__check')) {
+  } else if (target.hasClass('habit__check') || target.hasClass('habit__text')) {
     palySound(soundCheck);
     target.getParent('.habit').find('.habit__text').addClass('habit--checked');
     target.getParent('.habit').find('.habit__check').html('&#10004;');
@@ -131,10 +131,12 @@ function handleModal() {
 
   // Закрывает форму обратной связи
   // По нажатию клавиши Escape
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', escapeHandler);
+
+  function escapeHandler(event) {
     if (event.code !== 'Escape') return;
       closeModal();
-  });
+  }
   //По клику на тёмной области
   $modal.on('click', closeModal);
 
@@ -143,6 +145,7 @@ function handleModal() {
     $modal.removeClass('open');
     $modal.off('submit', submitHandler);
     $modal.off('click', closeModal);
+    document.removeEventListener('keydown', escapeHandler);
   }
 }
 

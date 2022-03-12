@@ -235,12 +235,20 @@ footer a:hover {
     border-radius: 0;
   }
 
-  .container {
-    padding: 15px 10px;
+  .habit__check {
+    margin-right: 5px;
   }
-  
+  .habit__edit {
+    margin: 0 10px;
+  }
+
   .add-btn {
     width: 40px;
     height: 40px;
+  }
+
+  .modal__content {
+    min-width: 300px;
+    max-width: 600px;
   }
 }
