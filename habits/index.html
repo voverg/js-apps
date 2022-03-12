@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a simple habits app">
+  <meta name="keywords" content="habits">
+  <!-- <meta name="og:image" content="social-img.jpg"> -->
+  <title>Habits</title>
+  <link rel="shortcut icon" href="img/habits.png" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Habits tracker</h1>
+      <p>Приложение для отслеживания привычек</p>
+      <span class="refresh">
+        <img src="img/refresh.png" title="Удалить все привычки" alt="refresh icon">
+      </span>
+    </header>
+
+    <div class="container">
+      <div class="current-day">
+        <div class="date current-date">Today</div>
+        <ul class="habit-list current-habits"></ul>
+        <button class="add-btn" title="Добавить привычку">+</button>
+      </div>
+
+      <div class="next-day">
+        <div class="date next-date"></div>
+        <ul class="habit-list next-habits"></ul>
+      </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Created by <a href="https://github.com/voverg" target="_blank">Voverg</a></p>
+    </footer>
+  </main>
+
+  <div class="modal">
+    <form class="modal__content">
+      <input
+        type="text"
+        class="modal__text"
+        placeholder="Новая привычка..."
+      >
+      <button class="modal__add" type="submit">Добавить привычку</button>
+    </form>
+  </div>
+
+
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/dom.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

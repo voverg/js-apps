@@ -1,0 +1,11 @@
+Tasks:
+ ✔ Create the app layout @done (22-03-11 11:34)
+ ✔ Create a model of data @done (22-03-11 14:22)
+ ✔ Create a function working with date @done (22-03-11 15:06)
+ ✔ Create a function working with localstorage @done (22-03-11 15:19)
+ ✔ Create a function working with DOM @done (22-03-11 19:03)
+ ✔ Create a Class Habit for working with data @done (22-03-12 09:13)
+ ✔ Create a function for delete habit @done (22-03-12 09:13)
+ ✔ Create a function for check habit @done (22-03-12 10:46)
+ ☐ Create a function for edit habit
+ ☐ Create a function add habit
