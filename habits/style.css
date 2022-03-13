@@ -185,7 +185,7 @@ header {
   border-radius: 5px;
   background-color: #fff;
   opacity: 0;
-  transform: perspective(600px) translateY(-200%) rotateX(45deg);
+  transform: perspective(300px) translateY(-200%) rotateX(45deg);
   transition: all .5s ease-in-out;
 }
 

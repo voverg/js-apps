@@ -12,12 +12,12 @@ const $modalText = $('.modal__text');
 // Звуки
 const soundCheck = new Audio('sound/right_7.mp3');
 const soundClick = new Audio('sound/click.mp3');
-// Работа с датой
-const currentDate = getCurrentDate();
-const lastDate = getData('lastDate') ? getLastDate('lastDate') : currentDate;
-compareDates(lastDate, currentDate);
 // Работа с классом массива привычек
 const habits = new Habits();
+// Работа с датой
+const currentDate = getCurrentDate();
+const lastDate = getData('lastDate') ? getData('lastDate') : currentDate;
+compareDates(lastDate, currentDate);
 
 // Обработка всех событий внутри блока .container
 $container.on('click', eventHandler);
@@ -34,9 +34,6 @@ function render() {
 
   const nextDayTitle = $nextHabits.has('.habit') ? 'Tomorrow' : '';
   $nextDate.html(nextDayTitle);
-
-  // Снова навешиваем событие для добавление новой задачи
-  document.addEventListener('keydown', eventHandler);
 }
 
 render();

@@ -18,9 +18,10 @@ function getCurrentDate() {
 
 function compareDates(lastDate, currentDate) {
   if (lastDate.day !== currentDate.day || lastDate.month !== currentDate.month || lastDate.year !== currentDate.year) {
-    setData('lastDate', currentDate);
     habits.newDay();
   }
+
+  setData('lastDate', currentDate);
 }
 
 // Work with localStorage
@@ -69,10 +70,6 @@ function clearHabitBlocks() {
 
 // Обрабатывает все события по .container
 function eventHandler(event) {
-  if (event.code && event.code !== 'KeyN') return;
-  // Удаляем прослушивание событий для добавления новой задачи
-  document.removeEventListener('keydown', eventHandler);
-
   const target = $(event.target);
   const getId = () => target.getParent('.habit').dataSet('id');
   

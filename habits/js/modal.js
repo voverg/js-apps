@@ -7,6 +7,7 @@ class Modal {
   }
 
   init() {
+    document.removeEventListener('keydown', eventHandler);
     this.open();
     this.close();
   }
