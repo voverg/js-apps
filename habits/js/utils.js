@@ -79,22 +79,18 @@ function eventHandler(event) {
     const text = habits.find(id).text;
 
     const modal = new Modal(id, text);
-    modal.open();
     modal.editHabit(id, text);
-    modal.close();
   } else if (target.hasClass('habit__check') || target.hasClass('habit__text')) {
-    playSound(soundCheck);
     target.getParent('.habit').find('.habit__text').addClass('habit--checked');
     target.getParent('.habit').find('.habit__check').html('&#10004;');
+    playSound(soundCheck);
 
     const pauseId = setTimeout(() => {
       habits.check(getId());
     }, 200);
   } else if (target.hasClass('add-btn') || event.code === 'KeyN') {
     const modal = new Modal();
-    modal.open();
     modal.addHabit();
-    modal.close();
   }
 }
 

@@ -11,7 +11,6 @@ const $modalContent = $('.modal__content');
 const $modalText = $('.modal__text');
 // Звуки
 const soundCheck = new Audio('sound/right_7.mp3');
-const soundClick = new Audio('sound/click.mp3');
 // Работа с датой
 const currentDate = getCurrentDate();
 const lastDate = getData('lastDate') ? getLastDate('lastDate') : currentDate;
@@ -29,7 +28,7 @@ function render() {
   habits.show();
 
   if (!$currentHabits.has('.habit')) {
-    $currentHabits.html('<div class="empty-text">На сегодня привычек нет</div>');
+    $currentHabits.html('<div class="empty-text">На сегодня задач нет</div>');
   }
 
   const nextDayTitle = $nextHabits.has('.habit') ? 'Tomorrow' : '';

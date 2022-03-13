@@ -2,6 +2,13 @@ class Modal {
   constructor(id = null, text = '') {
     this.id = id;
     this.value = text;
+
+    this.init();
+  }
+
+  init() {
+    this.open();
+    this.close();
   }
 
   open() {
@@ -52,6 +59,7 @@ class Modal {
     event.preventDefault();
 
     this.value = $modalText.value() ? $modalText.value() : 'Новая задача' ;
+    console.log(this.value);
     habits.add(this.value);
 
     this._closeModal();
