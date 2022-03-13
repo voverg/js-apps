@@ -11,6 +11,7 @@ const $modalContent = $('.modal__content');
 const $modalText = $('.modal__text');
 // Звуки
 const soundCheck = new Audio('sound/right_7.mp3');
+const soundClick = new Audio('sound/click.mp3');
 // Работа с датой
 const currentDate = getCurrentDate();
 const lastDate = getData('lastDate') ? getLastDate('lastDate') : currentDate;
@@ -33,6 +34,9 @@ function render() {
 
   const nextDayTitle = $nextHabits.has('.habit') ? 'Tomorrow' : '';
   $nextDate.html(nextDayTitle);
+
+  // Снова навешиваем событие для добавление новой задачи
+  document.addEventListener('keydown', eventHandler);
 }
 
 render();

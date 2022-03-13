@@ -67,12 +67,17 @@ function clearHabitBlocks() {
   $nextHabits.html('');
 }
 
-// Обрабатывает все клики по .container
+// Обрабатывает все события по .container
 function eventHandler(event) {
+  if (event.code && event.code !== 'KeyN') return;
+  // Удаляем прослушивание событий для добавления новой задачи
+  document.removeEventListener('keydown', eventHandler);
+
   const target = $(event.target);
   const getId = () => target.getParent('.habit').dataSet('id');
   
   if (target.hasClass('habit__remove')) {
+    playSound(soundClick);
     habits.remove(getId());
   } else if (target.hasClass('habit__edit')) {
     const id = getId();

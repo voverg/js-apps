@@ -40,9 +40,12 @@ class Modal {
     }
 
   _closeModal = () => {
+    // Снова навешиваем событие для добавление новой задачи
+    document.addEventListener('keydown', eventHandler);
+    // Очищаем текстовое поле и закрываем форму
     $modalText.value('');
     $modal.removeClass('open');
-
+    // Отписываемся от всех событий
     $modal.off('submit', this._addHandler);
     $modal.off('submit', this._editHandler);
     $modal.off('click', this._closeModal);
@@ -59,7 +62,6 @@ class Modal {
     event.preventDefault();
 
     this.value = $modalText.value() ? $modalText.value() : 'Новая задача' ;
-    console.log(this.value);
     habits.add(this.value);
 
     this._closeModal();
