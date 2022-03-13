@@ -66,6 +66,14 @@ class Habits {
     return this.habits.find(habit => +habit.id === +id);
   }
 
+  show() {
+    this.habits.forEach(habit => {
+      const habitElem = createHabit(habit);
+      const $habitsBlock = !habit.checked ? $currentHabits : $nextHabits;
+      $habitsBlock.append(habitElem);
+    });
+  }
+
   newDay() {
     this.habits.forEach(habit => habit.checked = false);
     setData('habitList', this.habits);

@@ -62,24 +62,28 @@ function createHabit(elem) {
 }
 
 // Очищает все блоки с привычками
-function clearHabits() {
+function clearHabitBlocks() {
   $currentHabits.html('');
   $nextHabits.html('');
 }
 
 // Обрабатывает все клики по .container
-function clickHandler(event) {
+function eventHandler(event) {
   const target = $(event.target);
   const getId = () => target.getParent('.habit').dataSet('id');
-
+  
   if (target.hasClass('habit__remove')) {
     habits.remove(getId());
   } else if (target.hasClass('habit__edit')) {
-    const text = habits.find(getId()).text;
-    console.log(text);
-    // editHabit(getId(), text);
+    const id = getId();
+    const text = habits.find(id).text;
+
+    const modal = new Modal(id, text);
+    modal.open();
+    modal.editHabit(id, text);
+    modal.close();
   } else if (target.hasClass('habit__check') || target.hasClass('habit__text')) {
-    palySound(soundCheck);
+    playSound(soundCheck);
     target.getParent('.habit').find('.habit__text').addClass('habit--checked');
     target.getParent('.habit').find('.habit__check').html('&#10004;');
 
@@ -87,53 +91,17 @@ function clickHandler(event) {
       habits.check(getId());
     }, 200);
   } else if (target.hasClass('add-btn') || event.code === 'KeyN') {
-    addHabit();
+    const modal = new Modal();
+    modal.open();
+    modal.addHabit();
+    modal.close();
   }
 }
 
-function addHabit() {
-  handleModal();
-}
-
-function palySound(sound) {
+// Проигрывание звука
+function playSound(sound) {
   const clone = sound.cloneNode();
   clone.play();
-}
-
-function handleModal() {
-  $modal.addClass('open');
-  setTimeout(() => {
-    $modalText.focus();
-  }, 400);
-
-  function submitHandler(event) {
-    event.preventDefault();
-    value = $modalText.value();
-    $modalText.value('');
-    habits.add(value);
-    closeModal();
-  }
-
-  $modal.on('submit', submitHandler);
-
-  // Закрывает форму обратной связи
-  // По нажатию клавиши Escape
-  document.addEventListener('keydown', escapeHandler);
-
-  function escapeHandler(event) {
-    if (event.code !== 'Escape') return;
-      closeModal();
-  }
-  //По клику на тёмной области
-  $modal.on('click', closeModal);
-
-  function closeModal() {
-    $modalText.value('');
-    $modal.removeClass('open');
-    $modal.off('submit', submitHandler);
-    $modal.off('click', closeModal);
-    document.removeEventListener('keydown', escapeHandler);
-  }
 }
 
 // Check an item type
