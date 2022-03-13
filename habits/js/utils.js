@@ -16,43 +16,30 @@ function getCurrentDate() {
   return { year, month, day, format, };
 }
 
-function getLastDate() {
-  const lastDate = getLocalStorage('lastDate');
-  if (isNull(lastDate)) {
-    setLocalStorage('lastDate', getCurrentDate());
-  }
-
-  return lastDate;
-}
-
 function compareDates(lastDate, currentDate) {
   if (lastDate.day !== currentDate.day || lastDate.month !== currentDate.month || lastDate.year !== currentDate.year) {
-    setLocalStorage('lastDate', currentDate);
-
-    habits.forEach(elem => {
-      elem.checked = false;
-    });
-
-    // Записать в localStorage изменённый массив habits
-    setLocalStorage('habitList', habits);
+    setData('lastDate', currentDate);
+    habits.newDay();
   }
 }
 
 // Work with localStorage
-function getLocalStorage(dataName, defaultData = null) {
+function getData(dataName, defaultData = null) {
   let data = localStorage.getItem(dataName);
   data = data ? JSON.parse(data) : defaultData;
 
   return data;
 }
 
-function setLocalStorage(dataName, data) {
+function setData(dataName, data) {
   localStorage.setItem(dataName, JSON.stringify(data));
 }
 
-function clearLocalStorage() {
+function clearData() {
   const answer = confirm('Точно хочешь удалить все привычки?');
   if (answer) {
+    // localStorage.clear();
+    // location.reload();
     habits.removeAll();
   }
 }
@@ -117,7 +104,7 @@ function handleModal() {
   $modal.addClass('open');
   setTimeout(() => {
     $modalText.focus();
-  }, 600);
+  }, 400);
 
   function submitHandler(event) {
     event.preventDefault();

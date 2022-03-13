@@ -1,14 +1,16 @@
 const habitList = [
-  {id: 1, text: 'Чтение английского', checked: false},
-  {id: 2, text: 'Урок по сальфеджио', checked: true},
-  {id: 3, text: 'Ежедневная протирка эл. плитки', checked: false},
-  {id: 4, text: 'Ещё привычка', checked: true},
-  {id: 5, text: 'Тестовая привычка', checked: true},
+  {id: 1, text: 'Круглая кнопка с плюсиком - добавить новую задачу', checked: false},
+  {id: 2, text: 'Кружок слева на задаче - пометить задачу выполненной', checked: false},
+  {id: 3, text: 'Кнопки справа на задаче - редактировать, удалить задачу', checked: false},
+  {id: 4, text: 'В правом верхнем углу приложения круглая кнопка, которая удаляет все задачи', checked: false},
+  {id: 5, text: 'На следующий день все задачи переносятся в раздел Today', checked: false},
+  {id: 6, text: 'Выполненные задачи переносятся на следующий день', checked: true},
+  {id: 7, text: 'Если здесь пометить задачу выполненной, то она снова перенесётся на текущий день', checked: true},
 ];
 
 class Habits {
   constructor() {
-    this.habits = getLocalStorage('habitList', []);
+    this.habits = getData('habitList', habitList);
   }
 
   getList() {
@@ -22,19 +24,19 @@ class Habits {
   add(text) {
     const id = Date.now();
     this.habits.push({id, text, checked: false});
-    setLocalStorage('habitList', this.habits);
+    setData('habitList', this.habits);
     render();
   }
 
   remove(id) {
     this.habits = this.habits.filter(habit => +habit.id !== +id);
-    setLocalStorage('habitList', this.habits);
+    setData('habitList', this.habits);
     render();
   }
 
   removeAll() {
     this.habits = [];
-    setLocalStorage('habitList', this.habits);
+    setData('habitList', this.habits);
     render();
   }
 
@@ -45,7 +47,7 @@ class Habits {
       }
     });
 
-    setLocalStorage('habitList', this.habits);
+    setData('habitList', this.habits);
     render();
   }
 
@@ -56,11 +58,17 @@ class Habits {
       }
     });
 
-    setLocalStorage('habitList', this.habits);
+    setData('habitList', this.habits);
     render();
   }
 
   find(id) {
     return this.habits.find(habit => +habit.id === +id);
+  }
+
+  newDay() {
+    this.habits.forEach(habit => habit.checked = false);
+    setData('habitList', this.habits);
+    render();
   }
 }

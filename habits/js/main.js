@@ -1,5 +1,3 @@
-// setLocalStorage('habitList', habitList);
-
 const $refreshBtn = $('.refresh');
 const $container = $('.container');
 const $currentHabits = $('.current-habits');
@@ -12,8 +10,8 @@ const $modalContent = $('.modal__content');
 const $modalText = $('.modal__text');
 
 const soundCheck = new Audio('sound/right_7.mp3');
-const lastDate = getLastDate();
 const currentDate = getCurrentDate();
+const lastDate = getData('lastDate') ? getLastDate('lastDate') : currentDate;
 const habits = new Habits();
 
 // Сравнивает последнюю и текущую даты открытия приложения
@@ -59,4 +57,4 @@ render();
 
 
 // Очищаем localStorage
-$refreshBtn.on('click', clearLocalStorage);
+$refreshBtn.on('click', clearData);
