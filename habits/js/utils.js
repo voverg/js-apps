@@ -48,15 +48,18 @@ function clearData() {
 // Work with habits
 function createHabit(elem) {
   const habitDateClass = elem.checked ? 'next-habit' : 'current-habit';
+  const habitMarkClass = elem.marked ? 'habit--mark' : 'default';
 
   const $li = $(document.createElement('li'));
-  $li.addClass('habit', habitDateClass);
-  $li.dataSet('id', elem.id);
+  $li.addClass('habit', habitDateClass, habitMarkClass);
+  // $li.dataSet('id', elem.id);
+  $li.attr('id', elem.id);
+  $li.dataSet('type', 'habit');
   $li.html(`
-            <span class="habit__icon habit__check">&#9898;</span>
-            <span class="habit__text">${elem.text}</span>
-            <img src="img/edit.png" title="Редактировать" alt="edit icon" class="habit__icon habit__edit">
-            <img src="img/trash.png" title="Удалить" alt="trash icon" class="habit__icon habit__remove">
+            <span class="habit__icon habit__check" data-type="check">&#9898;</span>
+            <span class="habit__text" data-type="text">${elem.text}</span>
+            <img src="img/edit.png" title="Редактировать" alt="edit icon" class="habit__icon habit__edit" data-type="edit">
+            <img src="img/trash.png" title="Удалить" alt="trash icon" class="habit__icon habit__remove" data-type="remove">
         `);
 
   return $li;
@@ -66,34 +69,6 @@ function createHabit(elem) {
 function clearHabitBlocks() {
   $currentHabits.html('');
   $nextHabits.html('');
-}
-
-// Обрабатывает все события по .container
-function eventHandler(event) {
-  const target = $(event.target);
-  const getId = () => target.getParent('.habit').dataSet('id');
-  
-  if (target.hasClass('habit__remove')) {
-    playSound(soundClick);
-    habits.remove(getId());
-  } else if (target.hasClass('habit__edit')) {
-    const id = getId();
-    const text = habits.find(id).text;
-
-    const modal = new Modal(id, text);
-    modal.editHabit(id, text);
-  } else if (target.hasClass('habit__check') || target.hasClass('habit__text')) {
-    target.getParent('.habit').find('.habit__text').addClass('habit--checked');
-    target.getParent('.habit').find('.habit__check').html('&#10004;');
-    playSound(soundCheck);
-
-    const pauseId = setTimeout(() => {
-      habits.check(getId());
-    }, 200);
-  } else if (target.hasClass('add-btn') || event.code === 'KeyN') {
-    const modal = new Modal();
-    modal.addHabit();
-  }
 }
 
 // Проигрывание звука

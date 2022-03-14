@@ -7,7 +7,7 @@ class Modal {
   }
 
   init() {
-    document.removeEventListener('keydown', eventHandler);
+    document.removeEventListener('keydown', keyHandler);
     this.open();
     this.close();
   }
@@ -42,7 +42,7 @@ class Modal {
 
   _closeModal = () => {
     // Снова навешиваем событие для добавление новой задачи
-    document.addEventListener('keydown', eventHandler);
+    document.addEventListener('keydown', keyHandler);
     // Очищаем текстовое поле и закрываем форму
     $modalText.value('');
     $modal.removeClass('open');

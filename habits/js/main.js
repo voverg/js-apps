@@ -20,8 +20,8 @@ const lastDate = getData('lastDate') ? getData('lastDate') : currentDate;
 compareDates(lastDate, currentDate);
 
 // Обработка всех событий внутри блока .container
-$container.on('click', eventHandler);
-document.addEventListener('keydown', eventHandler);
+$container.on('click', clickHandler);
+document.addEventListener('keydown', keyHandler);
 
 // Функция отрисовки в браузере
 function render() {

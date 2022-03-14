@@ -80,13 +80,17 @@ header {
 .habit-list {
   list-style: none;
 }
+
 .habit {
-  margin-bottom: 5px;
-  padding: 5px 0;
+  padding: 10px 0 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc
+}
+
+.habit--mark {
+  background-color: #eee;
 }
 
 .habit__icon {
@@ -142,6 +146,7 @@ header {
   color: #fff;
 }
 
+/*Стили для блока, в котором написано, что задач на сегодня нет*/
 .empty-text {
   text-align: center;
   color: #999;
