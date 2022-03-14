@@ -90,7 +90,8 @@ header {
 }
 
 .habit--mark {
-  background-color: #eee;
+  background-color: #ecf2ff;
+  border-radius: 5px;
 }
 
 .habit__icon {

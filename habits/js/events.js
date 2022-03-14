@@ -2,7 +2,7 @@
 function keyHandler(event) {
   const keys = {
     KeyN: addHabit,
-    KeyW: markFirstHabit,
+    KeyO: markFirstHabit,
     KeyC: removeAllHabits,
     KeyD: removeHabit,
     KeyE: editHabit,
@@ -63,8 +63,12 @@ function removeAllHabits() {
 
 function removeHabit(id) {
   if (!id) return;
-  playSound(soundClick);
-  habits.remove(id);
+
+  const answer = confirm('Точно хочешь удалить эту задачу?');
+  if (answer) {
+    playSound(soundTrash);
+    habits.remove(id);
+  }
 }
 
 function editHabit(id) {
@@ -83,14 +87,17 @@ function checkHabit(id) {
 
   const pauseId = setTimeout(() => {
     habits.check(id);
-  }, 200);
-  console.log('checkHabit');
+  }, 0);
 }
 
-function upHabit() {
-  console.log('Up habit');
+function upHabit(id) {
+  // if (!id) return;
+  habits.upMarkedHabit()
+  playSound(soundClack);
 }
 
-function downHabit() {
-  console.log('Down habit');
+function downHabit(id) {
+  // if (!id) return;
+  habits.downMarkedHabit()
+  playSound(soundClack);
 }

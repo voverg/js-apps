@@ -12,6 +12,8 @@ const $modalText = $('.modal__text');
 // Звуки
 const soundCheck = new Audio('sound/right_7.mp3');
 const soundClick = new Audio('sound/click.mp3');
+const soundTrash = new Audio('sound/trash.mp3');
+const soundClack = new Audio('sound/clack.mp3');
 // Работа с классом массива привычек
 const habits = new Habits();
 // Работа с датой

@@ -39,8 +39,6 @@ function setData(dataName, data) {
 function clearData() {
   const answer = confirm('Точно хочешь удалить все привычки?');
   if (answer) {
-    // localStorage.clear();
-    // location.reload();
     habits.removeAll();
   }
 }
@@ -58,8 +56,8 @@ function createHabit(elem) {
   $li.html(`
             <span class="habit__icon habit__check" data-type="check">&#9898;</span>
             <span class="habit__text" data-type="text">${elem.text}</span>
-            <img src="img/edit.png" title="Редактировать" alt="edit icon" class="habit__icon habit__edit" data-type="edit">
-            <img src="img/trash.png" title="Удалить" alt="trash icon" class="habit__icon habit__remove" data-type="remove">
+            <img src="img/edit.svg" title="Редактировать" alt="edit icon" class="habit__icon habit__edit" data-type="edit">
+            <img src="img/trash.svg" title="Удалить" alt="trash icon" class="habit__icon habit__remove" data-type="remove">
         `);
 
   return $li;

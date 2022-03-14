@@ -68,6 +68,7 @@ class Habits {
   }
 
   markFirst() {
+    this.getOrder();
     this.unmark();
     this.habits[0].marked = true;
 
@@ -85,6 +86,62 @@ class Habits {
     const marked = this.habits.find(habit => habit.marked);
     const id = marked ? marked.id : null;
     return id;
+  }
+
+  getOrder() {
+    const today = [];
+    const tomorrow = [];
+
+    this.habits.forEach(habit => {
+      const tmpArr = habit.checked ? tomorrow : today;
+      tmpArr.push(habit);
+    });
+
+    this.habits = [...today, ...tomorrow];
+  }
+
+  upMarkedHabit() {
+    this.getOrder();
+
+    for (let i = this.habits.length - 1, len = 0; i >= 0; i--) {
+      const habit = this.habits[i];
+      if (i - 1 < 0) {
+        this.habits[0].marked = false;
+        this.habits[this.habits.length - 1].marked = true;
+        break;
+      }
+
+      if (habit.marked) {
+        habit.marked = false;
+        this.habits[i - 1].marked = true;
+        break;
+      }
+    }
+
+    setData('habitList', this.habits);
+    render();
+  }
+
+  downMarkedHabit() {
+    this.getOrder();
+
+    for (let i = 0, len = this.habits.length; i < len; i++) {
+      const habit = this.habits[i];
+      if (i + 1 === len) {
+        this.habits[len - 1].marked = false;
+        this.habits[0].marked = true;
+        break;
+      }
+
+      if (habit.marked) {
+        habit.marked = false;
+        this.habits[i + 1].marked = true;
+        break;
+      }
+    }
+
+    setData('habitList', this.habits);
+    render();
   }
 
   find(id) {
