@@ -50,7 +50,7 @@ header {
   min-height: 10vh;
   padding: 10px;
   position: relative;
-  background: url('img/bg.png');
+  background: url('../img/bg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 15px 15px 0 0;
@@ -93,7 +93,7 @@ header {
 }
 
 .habit {
-  padding: 10px 0 5px;
+  padding: 7px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -116,6 +116,13 @@ header {
 .habit__icon:hover {
   opacity: 1;
 }
+
+.icon-edit,
+.icon-trash {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 .habit__text {
   flex-grow: 1;
   cursor: pointer;

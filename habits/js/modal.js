@@ -17,7 +17,7 @@ class Modal {
 
     setTimeout(() => {
       $modalText.focus();
-    }, 400);
+    }, 100);
     // Предотвращает всплытие события при нажатии на форму
     $modalContent.on('click', this._stopPropagation);
   }
