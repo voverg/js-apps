@@ -4,6 +4,7 @@
   --green: #b5c7c4;
   --dark-green: #123c35;
   --grey: #555;
+  --link: #1bb2ec;
 }
 
 *,
@@ -12,6 +13,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
+  transition: all .3s ease-in-out;
+}
+
+a:hover {
+  text-shadow: 0 0 5px var(--link);
 }
 
 body {
@@ -178,20 +189,20 @@ header {
 }
 .modal.open .modal__content {
   opacity: 1;
-  transform: perspective(0) translateY(0) rotateX(0deg);
+  transform: translateY(0) scaleY(1);
   transition: all .5s ease-in-out;
 }
 
 .modal__content {
   display: flex;
   flex-direction: column;
-  min-width: 400px;
-  max-width: 700px;
+  min-width: 500px;
+  max-width: 650px;
   padding: 20px;
   border-radius: 5px;
   background-color: #fff;
   opacity: 0;
-  transform: perspective(300px) translateY(-200%) rotateX(45deg);
+  transform: translateY(-200%) scaleY(0);
   transition: all .5s ease-in-out;
 }
 
@@ -236,10 +247,28 @@ footer a:hover {
   text-shadow: 0 0 5px #ff4500;
 }
 
+.key {
+  display: inline-block;
+  min-width: 25px;
+  height: 25px;
+  padding: 3px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  line-height: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #999;
+}
+
 
 /*Responsive*/
 @media (max-width: 768px) {
   header {
+    border-radius: 0;
+  }
+
+  .habit--mark {
+    background-color: transparent;
     border-radius: 0;
   }
 

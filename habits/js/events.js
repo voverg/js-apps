@@ -2,7 +2,6 @@
 function keyHandler(event) {
   const keys = {
     KeyN: addHabit,
-    KeyO: markFirstHabit,
     KeyC: removeAllHabits,
     KeyD: removeHabit,
     KeyE: editHabit,
@@ -48,10 +47,6 @@ function markHabit(id) {
   habits.mark(id);
 }
 
-function markFirstHabit() {
-  habits.markFirst();
-}
-
 function unmarkHabit(id) {
   if (!id) return;
   habits.unmark();
@@ -87,7 +82,7 @@ function checkHabit(id) {
 
   const pauseId = setTimeout(() => {
     habits.check(id);
-  }, 0);
+  }, 200);
 }
 
 function upHabit(id) {
