@@ -17,9 +17,16 @@
 3. Помечайте задачи выполненными. Выполненные задачи переместятся на следующий день (блок Tomorrow).
 4. При наступлении нового дня все задачи перемещаются в блок Today
 5. Управляйте задачами с помощью горячих клавиш
+
 ![habits image](img/habits.png)
 
-## <a name='nav'>Назад к заглавию</a>
+Чтобы добавить задачу во всплывающем окне нажмите на кнопку "Добавить задачу" или клавишу `Enter`
+
+Чтобы отменить добавление новой задачи или редактирование, кликните на затемнённую область или нажмите клавишу `Escape`
+
+![Add habit image](img/add-habit.png)
+
+[Назад к заглавию](#nav)
 
 ## <a name='hotkeys'>Горячие клавиши</a>
 - `n` - добавление новой задачи в блок Today
@@ -30,14 +37,32 @@
 - `c` - удалить все задачи
 - `j` или стрелка вниз - переместиться по задачам вниз
 - `k` или стрелка вверх - переместиться по задачам вверх
-## <a name='nav'>Назад к заглавию</a>
+
+[Назад к заглавию](#nav)
 
 ## <a name='description_eng'>Description</a>
 This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/50-simple-projects/habits 'Look habits tracker demo')
-## <a name='nav'>Back to menu</a>
+
+Habits tracker app:
+1. Add new tasks to the current day (block Today)
+3. Remove one or all tasks
+2. Edit tasks
+3. Get tasks done. All done tasks move to the block Tomorrow
+4. Tomorrow all tasks move to the block Today
+5. Manage tasks with hotkeys
+
+[Back to menu](#nav)
 
 ## <a name='hotkeys_eng'>Hot keys</a>
-This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/50-simple-projects/habits 'Look habits tracker demo')
-## <a name='nav'>Back to menu</a>
+- `n` - add a new task to the block Today
+- Click a task to select it
+- `e` - edit the selected task
+- `Enter` - done the selected task
+- `d` - remove the selected task
+- `c` - remove all tasks
+- `j` or Arrow Down - move on tasks down
+- `k` or Arrow Up - move on tasks up
+
+[Back to menu](#nav)
 
 

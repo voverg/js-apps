@@ -62,7 +62,7 @@ class Modal {
   _addHandler = (event) => {
     event.preventDefault();
 
-    this.value = $modalText.value() ? $modalText.value() : 'Новая задача' ;
+    this.value = $modalText.value().trim() ? $modalText.value() : 'Новая задача' ;
     habits.add(this.value);
 
     this._closeModal();
