@@ -11,12 +11,13 @@
 
 ## <a name='description'>Описание</a>
 Приложение "Трекер привычек":
-1. Добавляйте новые задачи на текущий день (блок Today)
-3. Удаляйте задачи, как по одной, так и все сразу
-2. Редактируйте задачи
-3. Помечайте задачи выполненными. Выполненные задачи переместятся на следующий день (блок Tomorrow).
-4. При наступлении нового дня все задачи перемещаются в блок Today
-5. Управляйте задачами с помощью горячих клавиш
+- Добавляйте новые задачи на текущий день (блок Today)
+- Для добавления ссылки в задачу используйте конструкцию *\[Название ссылки\]\(сама ссылка\)*
+- Удаляйте задачи, как по одной, так и все сразу
+- Редактируйте задачи
+- Помечайте задачи выполненными. Выполненные задачи переместятся на следующий день (блок Tomorrow).
+- При наступлении нового дня все задачи перемещаются в блок Today
+- Управляйте задачами с помощью горячих клавиш
 
 ![habits image](img/habits.png)
 
@@ -40,16 +41,17 @@
 
 [Назад к заглавию](#nav)
 
-## <a name='description_eng'>Description</a>
+## <a name='description_eng'>App description</a>
 This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/50-simple-projects/habits 'Look habits tracker demo')
 
 Habits tracker app:
-1. Add new tasks to the current day (block Today)
-3. Remove one or all tasks
-2. Edit tasks
-3. Get tasks done. All done tasks move to the block Tomorrow
-4. Tomorrow all tasks move to the block Today
-5. Manage tasks with hotkeys
+- Add new tasks to the current day (block Today)
+- To add a link in your task use this construction *\[Link title\]\(link\)*
+- Remove one or all tasks
+- Edit tasks
+- Get tasks done. All done tasks move to the block Tomorrow
+- Tomorrow all tasks move to the block Today
+- Manage tasks with hotkeys
 
 [Back to menu](#nav)
 
