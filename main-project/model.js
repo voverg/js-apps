@@ -20,6 +20,7 @@ const titles = [
     'shine-board',
     'split-landing-page',
     'habits',
+    'sort-slider',
 ]
 
 function getData(list) {
