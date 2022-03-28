@@ -1,6 +1,6 @@
 /* -------------- Slider ---------- */
 .slider {
-  width: 800px;
+  width: 600px;
   /*border: 1px solid black;*/
 }
 
@@ -70,6 +70,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  transform: translateX(-150px);
   /*transition: transform 0.5s ease-in-out*/;
 }
 

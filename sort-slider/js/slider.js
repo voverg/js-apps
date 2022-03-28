@@ -7,7 +7,7 @@ class Slider {
 
     this.slidesCount = this.slides.length;
     this.visibleSlideCount = 3;
-    this.offset = 305;
+    this.offset = 455;
     this.prevIndex = 0;
     this.nextIndex = this.prevIndex + this.visibleSlideCount - 1;
 
@@ -88,7 +88,7 @@ class Slider {
 
     const timeoutID = setTimeout(() => {
       this.slidesElem.style.transition = `transform 0.5s ease-in-out`;
-      this.slidesElem.style.transform = `translateX(0)`;
+      this.slidesElem.style.transform = `translateX(-155px)`;
 
       this.slidesElem.children[this.slidesElem.children.length - 1].remove();
       clearTimeout(timeoutID);
@@ -114,7 +114,7 @@ class Slider {
 
     const timeoutID = setTimeout(() => {
       this.slidesElem.style.transition = `none`;
-      this.slidesElem.style.transform = `translateX(0)`;
+      this.slidesElem.style.transform = `translateX(-155px)`;
 
       this.slidesElem.children[0].remove();
       clearTimeout(timeoutID);
