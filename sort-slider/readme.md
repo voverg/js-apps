@@ -1,6 +1,6 @@
 # <a name='nav'>Sort slider</a>
 
-Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/50-simple-projects/sort-slider/ 'Посмотреть демо-версию')
+Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/js-apps/sort-slider/ 'Посмотреть демо-версию')
 
 - [Описание](#description)
 - [Description(eng)](#description_eng)
@@ -17,7 +17,7 @@
 [Назад к заглавию](#nav)
 
 ## <a name='description_eng'>App description</a>
-This is a simple application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/50-simple-projects/sort-slider/ 'Look at demo')
+This is a simple application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/sort-slider/ 'Look at demo')
 
 Sort slider app:
 - Click on the arrow buttons on the left and right to flip slider

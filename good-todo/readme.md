@@ -8,7 +8,7 @@
 
 ## <a name='description'>Description</a>
 
-This is a simple application written by html, css and clean javascript. In order to see a demo version of this app go to Github Pages [this link](https://voverg.github.io/50-simple-projects/good-todo/ 'Look task manager demo')
+This is a simple application written by html, css and clean javascript. In order to see a demo version of this app go to Github Pages [this link](https://voverg.github.io/js-apps/good-todo/ 'Look task manager demo')
 
 Start write a text in input field and then push the **Enter** on your keyboard or 'Plus' button in bottom left corner next to the input field to add a task to the task list. You can edit any task by clicking to it and push 
 the "Enter" button on your keyboard to apply changes.

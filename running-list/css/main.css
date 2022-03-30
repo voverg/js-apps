@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
 
+:root {
+  --green: #b5c7c4;
+  --dark-green: #123c35;
+  --grey: #555;
+  --link: #1bb2ec;
+}
+
 *,
 *::before,
 *::after {
@@ -16,6 +23,8 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-size: 16px;
+  color: #777;
 }
 
 header {
@@ -23,13 +32,38 @@ header {
   width: 100%;
   min-height: 10vh;
   padding: 10px;
-  background-color: #97fdab;
+  background-color: var(--dark-green);
+  color: #fff;
   text-align: center;
 }
 
 .container {
   flex-grow: 1;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  padding: 20px;
+}
+
+/*App styles*/
+.app {
+  min-width: 320px;
+  width: 700px;
+  max-width: 900px;
+  padding: 10px;
+  border: 1px solid var(--grey);
+  overflow-y: hidden;
+}
+
+.app__header {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--grey);
+}
+
+.app__body {
+  padding: 10px 0;
+  overflow-y: auto;
 }
 
 footer {
@@ -39,7 +73,7 @@ footer {
   align-items: center;
   width: 100%;
   height: 5vh;
-  background: #215249;
+  background: var(--dark-green);
   color: #999;
   text-align: center;
 }

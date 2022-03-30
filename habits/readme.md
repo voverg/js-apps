@@ -1,6 +1,6 @@
 # <a name='nav'>Habits tracker</a>
 
-Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Приложение поможет не забыть выполнить ежедневные задачи, которые вы хотите, чтобы переросли в привычки. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/50-simple-projects/habits 'Посмотреть демо-версию')
+Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Приложение поможет не забыть выполнить ежедневные задачи, которые вы хотите, чтобы переросли в привычки. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/js-apps/habits 'Посмотреть демо-версию')
 
 - [Описание](#description)
 - [Горячие клавиши](#hotkeys)
@@ -42,7 +42,7 @@
 [Назад к заглавию](#nav)
 
 ## <a name='description_eng'>App description</a>
-This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/50-simple-projects/habits 'Look habits tracker demo')
+This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/habits 'Look habits tracker demo')
 
 Habits tracker app:
 - Add new tasks to the current day (block Today)

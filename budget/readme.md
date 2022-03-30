@@ -6,7 +6,7 @@
 
 ## <a name='description'>Description</a>
 
-This is a simple application written by html, css and clean javascript. You can see this app demo version on GitHub Pages [this link](https://voverg.github.io/50-simple-projects/budget/ 'Look budget demo')
+This is a simple application written by html, css and clean javascript. You can see this app demo version on GitHub Pages [this link](https://voverg.github.io/js-apps/budget/ 'Look budget demo')
 
 This application allows you to keep records of personal finances. It's easy, just try it!
 
