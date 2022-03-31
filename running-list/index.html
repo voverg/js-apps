@@ -1,38 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Гибкий планировщик дел на неделю по методике Бегущий Список">
-    <meta name="keywords" content="Some keywords">
-    <!-- <meta name="og:image" content="img/running-list.png"> -->
-    <title>Running list</title>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Гибкий планировщик дел на неделю по методике Бегущий Список">
+  <meta name="keywords" content="Some keywords">
+  <!-- <meta name="og:image" content="img/running-list.png"> -->
+  <title>Running list</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/icon.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header>
-        <h1>Running list</h1>
-        <p>Гибкий планировщик дел на неделю по методу "Бегущий список"</p>
-    </header>
-    
-    <div class="container">
-        <div class="app">
-            <div class="app__header">App header</div>
-            <div class="app__body">App body</div>
+  <header>
+    <h1>Running list</h1>
+    <p>Гибкий планировщик дел на неделю по методу "Бегущий список"</p>
+  </header>
+
+  <div class="container">
+    <div class="app">
+
+      <div class="app__header">
+        <div class="app__header-top">
+          <div class="app__header-dates">
+            <div class="app__header-date date-1 week-day">01</div>
+            <div class="app__header-date date-2 week-day">02</div>
+            <div class="app__header-date date-3 week-day">03</div>
+            <div class="app__header-date date-4 week-day">04</div>
+            <div class="app__header-date date-5 week-day">05</div>
+            <div class="app__header-date date-6 week-day">06</div>
+            <div class="app__header-date date-7 week-day">07</div>
+          </div>
+          <div class="app__header-nav">
+            <button class="btn app__header-faq-btn" title="Посмотреть справку">?</button>
+            <button class="btn app__header-add-btn" title="Добавить новую задачу">+</button>
+          </div>
         </div>
+        <div class="app__header-content">
+          <div class="app__header-days">
+            <div class="app__header-day day-1 week-day">Пн</div>
+            <div class="app__header-day day-2 week-day">Вт</div>
+            <div class="app__header-day day-3 week-day">Ср</div>
+            <div class="app__header-day day-4 week-day">Чт</div>
+            <div class="app__header-day day-5 week-day">Пт</div>
+            <div class="app__header-day day-6 week-day">Сб</div>
+            <div class="app__header-day day-7 week-day">Вс</div>
+          </div>
+          <div class="app__header-title">Running list</div>
+        </div>
+      </div>
+
+      <div class="app__body">
+
+        <div class="app__task">
+          <div class="app__task-days app__task-days--mark">
+            <div class="app__task-day week-day app__task-day--transfer" data-status="transfer"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day app__task-day--new" data-status="new"></div>
+            <div class="app__task-day week-day app__task-day--doing" data-status="doing"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day app__task-day--important" data-status="important"></div>
+          </div>
+          <div class="app__task-category">
+            <span class="category-type" data-type="category"></span>
+          </div>
+          <div class="app__task-title">Тестовая задача</div>
+        </div>
+
+        <div class="app__task">
+          <div class="app__task-days">
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day app__task-day--del" data-status="del"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+            <div class="app__task-day week-day app__task-day--done" data-status="done"></div>
+            <div class="app__task-day week-day" data-status="empty"></div>
+          </div>
+          <div class="app__task-category">
+            <span class="category-type" data-type="category"></span>
+          </div>
+          <div class="app__task-title">Вторая задача</div>
+        </div>
+
+      </div>
     </div>
+  </div>
 
-    <footer>
-        <p>Created by <a href="https://github.com/voverg" rel="noopener noreferrer" target="_blank">Voverg</a></p>
-    </footer>
+  <footer>
+    <p>Created by <a href="https://github.com/voverg" rel="noopener noreferrer" target="_blank">Voverg</a></p>
+  </footer>
 
 
-    <script src="js/data.js"></script>
-    <script src="js/dom.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/dom.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
