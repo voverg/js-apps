@@ -23,13 +23,13 @@
       <div class="app__header">
         <div class="app__header-top">
           <div class="app__header-dates">
-            <div class="app__header-date date-1 week-day">01</div>
-            <div class="app__header-date date-2 week-day">02</div>
-            <div class="app__header-date date-3 week-day">03</div>
-            <div class="app__header-date date-4 week-day">04</div>
-            <div class="app__header-date date-5 week-day">05</div>
-            <div class="app__header-date date-6 week-day">06</div>
-            <div class="app__header-date date-7 week-day">07</div>
+            <div class="app__header-date week-day">01</div>
+            <div class="app__header-date week-day">02</div>
+            <div class="app__header-date week-day">03</div>
+            <div class="app__header-date week-day">04</div>
+            <div class="app__header-date week-day today">05</div>
+            <div class="app__header-date week-day">06</div>
+            <div class="app__header-date week-day">07</div>
           </div>
           <div class="app__header-nav">
             <button class="btn app__header-faq-btn" title="Посмотреть справку">?</button>
@@ -38,13 +38,13 @@
         </div>
         <div class="app__header-content">
           <div class="app__header-days">
-            <div class="app__header-day day-1 week-day">Пн</div>
-            <div class="app__header-day day-2 week-day">Вт</div>
-            <div class="app__header-day day-3 week-day">Ср</div>
-            <div class="app__header-day day-4 week-day">Чт</div>
-            <div class="app__header-day day-5 week-day">Пт</div>
-            <div class="app__header-day day-6 week-day">Сб</div>
-            <div class="app__header-day day-7 week-day">Вс</div>
+            <div class="app__header-day week-day">Пн</div>
+            <div class="app__header-day week-day">Вт</div>
+            <div class="app__header-day week-day">Ср</div>
+            <div class="app__header-day week-day">Чт</div>
+            <div class="app__header-day week-day">Пт</div>
+            <div class="app__header-day week-day">Сб</div>
+            <div class="app__header-day week-day">Вс</div>
           </div>
           <div class="app__header-title">Running list</div>
         </div>
@@ -56,32 +56,33 @@
           <div class="app__task-days app__task-days--mark">
             <div class="app__task-day week-day app__task-day--transfer" data-status="transfer"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
-            <div class="app__task-day week-day app__task-day--new" data-status="new"></div>
+            <div class="app__task-day week-day app__task-day--new" data-status="new">
+            </div>
             <div class="app__task-day week-day app__task-day--doing" data-status="doing"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
             <div class="app__task-day week-day app__task-day--important" data-status="important"></div>
           </div>
-          <div class="app__task-category">
-            <span class="category-type" data-type="category"></span>
-          </div>
-          <div class="app__task-title">Тестовая задача</div>
+          <button class="btn app__task-category" data-type="category"></button>
+          <div class="app__task-title" data-type="text">Тестовая задача</div>
+          <button class="btn icon-edit" data-type="edit"></button>
+          <button class="btn icon-trash" data-type="remove"></button>
         </div>
 
         <div class="app__task">
           <div class="app__task-days">
             <div class="app__task-day week-day" data-status="empty"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
-            <div class="app__task-day week-day app__task-day--del" data-status="del"></div>
+            <div class="app__task-day week-day app__task-day--cancel" data-status="cancel"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
             <div class="app__task-day week-day app__task-day--done" data-status="done"></div>
             <div class="app__task-day week-day" data-status="empty"></div>
           </div>
-          <div class="app__task-category">
-            <span class="category-type" data-type="category"></span>
-          </div>
-          <div class="app__task-title">Вторая задача</div>
+          <button class="btn app__task-category" data-type="category"></button>
+          <div class="app__task-title" data-type="text">Вторая задача</div>
+          <button class="btn icon-edit" data-type="edit"></button>
+          <button class="btn icon-trash" data-type="remove"></button>
         </div>
 
       </div>

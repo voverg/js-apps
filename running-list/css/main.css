@@ -47,7 +47,6 @@ header {
 }
 
 .week-day {
-  flex-grow: 1;
   width: 30px;
   height: 30px;
   display: flex;
@@ -55,12 +54,16 @@ header {
   align-items: center;
   text-align: center;
 }
+.today {
+  background-color: #ccc;
+  color: var(--blue);
+}
 
 .btn {
+  flex-shrink: 0;
   width: 25px;
   height: 25px;
-  border: 1px solid var(--grey);
-  border-radius: 50%;
+  border: none;
   background-color: transparent;
   cursor: pointer;
   transition: all .3s ease-in-out;
@@ -115,6 +118,7 @@ header {
   align-items: center;
   justify-content: space-between;
   width: var(--days-width);
+  font-size: 0.9rem;
 }
 
 .app__header-nav {
@@ -122,14 +126,13 @@ header {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  padding: 5px 20px;
+  padding: 5px 10px;
 }
-/*.app__header-add-btn {
-  padding: 4px 7px;
-}
+.app__header-add-btn,
 .app__header-faq-btn {
-  padding: 4px 7px;
-}*/
+  border: 1px solid var(--grey);
+  border-radius: 50%;
+}
 
 .app__header-title {
   flex-grow: 1;
@@ -144,6 +147,7 @@ header {
 
 .app__task {
   display: flex;
+  /*flex-wrap: wrap;*/
   align-items: center;
 }
 
@@ -174,7 +178,7 @@ header {
 .app__task-day--doing,
 .app__task-day--done,
 .app__task-day--important,
-.app__task-day--del {
+.app__task-day--cancel {
   border: 1px solid var(--grey);
 }
 .app__task-day--doing {
@@ -189,7 +193,7 @@ header {
   font-size: 1.2rem;
   font-weight: 700;
 }
-.app__task-day--del::before {
+.app__task-day--cancel::before {
   content: '\2715';
   line-height: 30px;
   font-size: 2rem;
@@ -202,12 +206,10 @@ header {
 
 /*Task category*/
 .app__task-category {
-  padding: 0 5px 0 10px;
-}
-.category-type {
   display: block;
   width: 10px;
   height: 10px;
+  margin: 0 5px 0 20px;
   border-radius: 50%;
   background-color: var(--blue);
 }
@@ -217,6 +219,12 @@ header {
   flex-grow: 1;
   padding: 5px 0;
   border-bottom: 1px solid #eee;
+}
+
+.icon-edit,
+.icon-trash {
+  font-size: 1.2rem;
+  /*border-bottom: 1px solid #eee;*/
 }
 
 
@@ -238,4 +246,9 @@ footer a {
 }
 footer a:hover {
   color: #eae38b;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 460px) {
+
 }
