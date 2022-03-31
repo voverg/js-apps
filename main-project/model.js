@@ -21,6 +21,7 @@ const titles = [
     'split-landing-page',
     'habits',
     'sort-slider',
+    'running-list',
 ]
 
 function getData(list) {

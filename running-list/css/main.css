@@ -57,7 +57,8 @@ header {
 }
 
 .btn {
-  padding: 5px;
+  width: 25px;
+  height: 25px;
   border: 1px solid var(--grey);
   border-radius: 50%;
   background-color: transparent;
@@ -123,12 +124,12 @@ header {
   gap: 10px;
   padding: 5px 20px;
 }
-.app__header-add-btn {
+/*.app__header-add-btn {
   padding: 4px 7px;
 }
 .app__header-faq-btn {
   padding: 4px 7px;
-}
+}*/
 
 .app__header-title {
   flex-grow: 1;
@@ -214,7 +215,7 @@ header {
 /*App task title*/
 .app__task-title {
   flex-grow: 1;
-  padding-bottom: 5px;
+  padding: 5px 0;
   border-bottom: 1px solid #eee;
 }
 
