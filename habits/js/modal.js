@@ -67,7 +67,7 @@ class Modal {
     this._validateValue();
     habits.add(this.value);
 
-    playSound(soundCheck);
+    playSound(soundClack);
     this._closeModal();
   }
 
@@ -78,7 +78,7 @@ class Modal {
     this._validateValue();
     habits.edit(this.id, this.value);
 
-    playSound(soundCheck);
+    playSound(soundClack);
     this._closeModal();
   }
 

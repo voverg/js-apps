@@ -30,8 +30,8 @@ const tasks = [
 ];
 
 const category = {
-  'тестовая': 'red',
-  home: 'lightblue',
+  red: 'тестовая',
+  lightblue: 'home',
 };
 
 const status = {
