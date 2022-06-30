@@ -18,16 +18,20 @@ class TabsComponent {
 
   onClick = ({target}) => {
     if (isTab(target) && !isCurrentTab(target)) {
-      this.clearCurrentTab();
-      target.classList.add('current-tab');
-
-      const tabStatus = target.dataset.tab;
-      this.store.dispatch({ type: 'tab', payload: {tab: tabStatus} });
+      this.setCurrentTab(target);
     }
   }
 
   clearCurrentTab() {
     Array.from(this.$root.children).forEach(tab => tab.classList.remove('current-tab'));
+  }
+
+  setCurrentTab(target) {
+    this.clearCurrentTab();
+    target.classList.add('current-tab');
+
+    const status = target.dataset.tab;
+    this.store.dispatch({ type: 'tab', payload: {tab: status} });
   }
 
   render() {

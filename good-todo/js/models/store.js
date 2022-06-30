@@ -24,5 +24,10 @@ function rootReducer(state, action) {
     case 'tab':
       state = {...state, ...action.payload}
       return state;
+    case 'modal':
+      state = {...state, ...action.payload}
+      return state;
+    default:
+      return state;
   }
 }

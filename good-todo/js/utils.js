@@ -35,11 +35,11 @@ function setData(dataName, data) {
   localStorage.setItem(dataName, JSON.stringify(data));
 }
 
-function clearData(dataName, dataClass) {
+function clearData(dataName, data) {
   const answer = confirm('Точно хочешь удалить все привычки?');
   if (answer) {
-    dataClass.removeAll();
-    setData(dataName, dataClass.get());
+    data.removeAll();
+    setData(dataName, data.get());
   }
 }
 
@@ -49,15 +49,3 @@ function playSound(sound) {
   clone.play();
 }
 
-// Check an item type
-function isString(item) {
-  return typeof item === 'string';
-}
-
-function isUndefined(item) {
-  return typeof item === 'undefined';
-}
-
-function isNull(item) {
-  return item === null;
-}

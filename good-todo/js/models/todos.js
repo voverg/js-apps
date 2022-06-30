@@ -3,25 +3,27 @@ class Todos {
     this.todos = getData('todoList', todoList);
   }
 
-  get(param = 'current') {
-    if (param === 'current') {
+  get(status = 'current') {
+    if (status === 'current') {
       return this.todos.filter(todo => !todo.deleted && !todo.done);
+    } else if (status === 'all') {
+      return this.todos;
     } else {
-      return this.todos.filter(todo => todo[param] === true);
+      return this.todos.filter(todo => todo[status] === true);
     }
   }
 
   add(text) {
-    // this.unmark();
+    this.unmark();
     const id = Date.now();
-    this.todos.push({id, text, checked: false, marked: true, deleted: false});
+    this.todos.push({id, text, done: false, marked: true, deleted: false});
   }
 
   remove(id) {
-    // this.todos = this.todos.filter(todo => +todo.id !== +id);
     this.todos.forEach(todo => {
       if (+todo.id === +id) {
         todo.done = false;
+        todo.marked = false;
         todo.deleted = todo.deleted ? false : true;
       }
     });
@@ -43,103 +45,103 @@ class Todos {
     this.todos.forEach(todo => {
       if (+todo.id === +id) {
         todo.deleted = false;
+        todo.marked = false;
         todo.done = todo.done ? false : true;
       }
     });
   }
 
   mark(id) {
-    this.todos.forEach(habit => {
-      habit.marked = (+habit.id === +id) ? true : false;
+    this.todos.forEach(todo => {
+      todo.marked = (+todo.id === +id) ? true : false;
     });
-
-    setData('todoList', this.todos);
-    render();
   }
 
   unmark() {
-    this.todos.forEach(habit => habit.marked = false);
-    setData('todoList', this.todos);
-    render();
+    this.todos.forEach(todo => todo.marked = false);
   }
 
   getMarkedId() {
-    const marked = this.todos.find(habit => habit.marked);
+    const marked = this.todos.find(todo => todo.marked);
     const id = marked ? marked.id : null;
     return id;
   }
 
-  getOrder() {
-    const today = [];
-    const tomorrow = [];
+  upMarkedTodo(status) {
+    const list = this.get(status);
 
-    this.todos.forEach(habit => {
-      const tmpArr = habit.checked ? tomorrow : today;
-      tmpArr.push(habit);
-    });
-
-    this.todos = [...today, ...tomorrow];
-  }
-
-  upMarkedHabit() {
-    this.getOrder();
-
-    for (let i = this.todos.length - 1, len = 0; i >= 0; i--) {
-      const habit = this.todos[i];
+    for (let i = list.length - 1, len = 0; i >= 0; i--) {
+      const todo = list[i];
       if (i - 1 < 0) {
-        this.todos[0].marked = false;
-        this.todos[this.todos.length - 1].marked = true;
+        list[0].marked = false;
+        list[list.length - 1].marked = true;
         break;
       }
 
-      if (habit.marked) {
-        habit.marked = false;
-        this.todos[i - 1].marked = true;
+      if (todo.marked) {
+        todo.marked = false;
+        list[i - 1].marked = true;
         break;
       }
     }
-
-    setData('todoList', this.todos);
-    render();
   }
 
-  downMarkedHabit() {
-    this.getOrder();
+  downMarkedTodo(status) {
+    const list = this.get(status);
 
-    for (let i = 0, len = this.todos.length; i < len; i++) {
-      const habit = this.todos[i];
+    for (let i = 0, len = list.length; i < len; i++) {
+      const todo = list[i];
       if (i + 1 === len) {
-        this.todos[len - 1].marked = false;
-        this.todos[0].marked = true;
+        list[len - 1].marked = false;
+        list[0].marked = true;
         break;
       }
 
-      if (habit.marked) {
-        habit.marked = false;
-        this.todos[i + 1].marked = true;
+      if (todo.marked) {
+        todo.marked = false;
+        list[i + 1].marked = true;
         break;
       }
     }
-
-    setData('todoList', this.todos);
-    render();
   }
+
+  // upMarkedTodo(status) {
+  //   for (let i = this.todos.length - 1, len = 0; i >= 0; i--) {
+  //     const todo = this.todos[i];
+  //     if (i - 1 < 0) {
+  //       this.todos[0].marked = false;
+  //       this.todos[this.todos.length - 1].marked = true;
+  //       break;
+  //     }
+
+  //     if (todo.marked) {
+  //       todo.marked = false;
+  //       this.todos[i - 1].marked = true;
+  //       break;
+  //     }
+  //   }
+  // }
+
+  // downMarkedTodo(status) {
+  //   const list = this.get(status);
+  //   for (let i = 0, len = this.todos.length; i < len; i++) {
+  //     const todo = this.todos[i];
+  //     if (i + 1 === len) {
+  //       this.todos[len - 1].marked = false;
+  //       this.todos[0].marked = true;
+  //       break;
+  //     }
+
+  //     if (todo.marked) {
+  //       todo.marked = false;
+  //       this.todos[i + 1].marked = true;
+  //       break;
+  //     }
+  //   }
+  // }
 
   find(id) {
-    return this.todos.find(habit => +habit.id === +id);
+    return this.todos.find(todo => +todo.id === +id);
   }
 
-  show() {
-    this.todos.forEach(habit => {
-      const habitElem = createHabit(habit);
-      const $habitsBlock = !habit.checked ? $currentHabits : $nextHabits;
-      $habitsBlock.append(habitElem);
-    });
-  }
-
-  newDay() {
-    this.todos.forEach(habit => habit.checked = false);
-    setData('todoList', this.todos);
-    render();
-  }
 }

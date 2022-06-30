@@ -202,6 +202,7 @@ body {
 
 /*Стили для блока, в котором написано, что задач на сегодня нет*/
 .empty-text {
+  margin: 200px auto;
   text-align: center;
   color: #999;
   font-style: italic;
@@ -210,17 +211,15 @@ body {
 
 /*Modal window*/
 .modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
-  opacity: 0;
   visibility: hidden;
   transition: opacity .5s ease-in-out;
 }
@@ -235,6 +234,15 @@ body {
   transition: all .5s ease-in-out;
 }
 
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .modal__content {
   display: flex;
   flex-direction: column;
@@ -246,6 +254,7 @@ body {
   opacity: 0;
   transform: translateY(-200%) scaleY(0);
   transition: all .5s ease-in-out;
+  z-index: 1;
 }
 
 .modal__text {

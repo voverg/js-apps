@@ -1,98 +1,86 @@
-// Обрабатывает все события keydown по $container
-function keyHandler(event) {
-  const keys = {
-    KeyN: addHabit,
-    KeyC: removeAllHabits,
-    KeyD: removeHabit,
-    KeyE: editHabit,
-    Escape: unmarkHabit,
-    Enter: checkHabit,
-    KeyJ: downHabit,
-    KeyK: upHabit,
-    ArrowDown: downHabit,
-    ArrowUp: upHabit,
-  }
-  // console.log(event.code);
+class KeyHandler {
+  constructor(options) {
+    this.data = options.data;
+    this.store = options.store;
+    this.state = {};
+    this.status = '';
+    this.keys = {
+      KeyN: this.addTask,
+      KeyC: this.removeAllTasks,
+      KeyD: this.removeTask,
+      KeyE: this.editTask,
+      Enter: this.doneTask,
+      KeyJ: this.downTask,
+      KeyK: this.upTask,
+      ArrowDown: this.downTask,
+      ArrowUp: this.upTask,
+    };
 
-  if (!Object.keys(keys).includes(event.code)) return;
-  const id = habits.getMarkedId();
-  keys[event.code](id);
-}
-
-// Обрабатывает все события click по $container
-function clickHandler(event) {
-  const types = {
-    add: addHabit,
-    remove: removeHabit,
-    edit: editHabit,
-    check: checkHabit,
-    text: markHabit,
+    this.init();
   }
 
-  const target = $(event.target);
-  const type = target.dataSet('type') ? target.dataSet('type') : null;
-
-  if (!Object.keys(types).includes(type)) return;
-  const id = (type !== 'add') ? target.getParent('.habit').attr('id') : null;
-  types[type](id);
-}
-
-// Функции обработчики
-function addHabit() {
-  const modal = new Modal();
-  modal.addHabit();
-}
-
-function markHabit(id) {
-  habits.mark(id);
-}
-
-function unmarkHabit(id) {
-  if (!id) return;
-  habits.unmark();
-}
-
-function removeAllHabits() {
-  clearData();
-}
-
-function removeHabit(id) {
-  if (!id) return;
-
-  const answer = confirm('Точно хочешь удалить эту задачу?');
-  if (answer) {
-    playSound(soundTrash);
-    habits.remove(id);
+  init() {
+    this.store.subscribe(() => {
+      this.state = this.store.getState();
+      this.status = this.state.tab;
+    });
   }
-}
 
-function editHabit(id) {
-  if (!id) return;
-  const text = habits.find(id).text;
-  const modal = new Modal(id, text);
-  modal.editHabit(id, text);
-}
+  handleEvent(event) {
+    this.event = event;
+    this.code = event.code;
 
-function checkHabit(id) {
-  if (!id) return;
-  const habit = $(`[id="${id}"]`)
-  habit.find('.habit__text').addClass('habit--checked');
-  habit.find('.habit__check').html('&#10004;');
-  playSound(soundCheck);
+    if (!Object.keys(this.keys).includes(this.code)) return;
+    const id = this.data.getMarkedId();
+    this.keys[this.code](id); // Запускаем функцию из объекта keys по ключу кода клавиши
+  }
 
-  const pauseId = setTimeout(() => {
-    habits.check(id);
-  }, 200);
-}
+  addTask = (id) => {
+    this.store.dispatch({ type: 'modal', payload: {id: null, text: '', modalIsOpen: true} });
+  }
 
-function upHabit(id) {
-  // if (!id) return;
-  habits.upMarkedHabit()
-  playSound(soundClack);
-}
+  editTask = (id) => {
+    if (!id) return;
 
-function downHabit(id) {
-  // if (!id) return;
-  habits.downMarkedHabit()
-  playSound(soundClack);
+    const text = this.data.find(id).text;
+    this.store.dispatch({ type: 'modal', payload: {id, text, modalIsOpen: true} });
+  }
+
+  doneTask = (id) => {
+    if (!id) return;
+
+    const text = this.data.find(id).text;
+    this.data.done(id);
+    this.store.dispatch({ type: 'modal', payload: {id} });
+    playSound(soundDone);
+  }
+
+  removeTask = (id) => {
+    if (!id) return;
+
+    const answer = confirm('Точно хочешь удалить эту задачу?');
+    if (answer) {
+      this.data.remove(id);
+      this.store.dispatch({ type: 'modal', payload: {id} });
+      playSound(soundTrash);
+    }
+  }
+
+  removeAllTasks = (id) => {
+    clearData('todoList', this.data);
+    this.store.dispatch({ type: 'modal', payload: {id} });
+  }
+
+  upTask = (id) => {
+    this.data.upMarkedTodo(this.status);
+    this.store.dispatch({ type: 'modal', payload: {id} });
+    playSound(soundClack);
+  }
+
+  downTask = (id) => {
+    this.data.downMarkedTodo(this.status);
+    this.store.dispatch({ type: 'modal', payload: {id} });
+    playSound(soundClack);
+  }
+
 }

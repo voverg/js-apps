@@ -12,6 +12,7 @@ class App {
   init() {
     const initialState = {
       tab: 'current',
+      modalIsOpen: false,
     }
 
     const componentOptions = {
@@ -24,6 +25,7 @@ class App {
       component.init();
     });
   }
+
 }
 
 const app = new App({
@@ -32,6 +34,7 @@ const app = new App({
     {class: HeaderComponent, elem: document.querySelector('.header')},
     {class: TabsComponent, elem: document.querySelector('.tabs')},
     {class: TodosComponent, elem: document.querySelector('.todos')},
+    {class: AddBtnComponent, elem: document.querySelector('.add-btn')},
     {class: ModalComponent, elem: document.querySelector('.modal')},
   ],
 });

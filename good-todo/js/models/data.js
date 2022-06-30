@@ -4,7 +4,7 @@ const todoList = [
     text: 'Кнопка с плюсиком или клавиша <span class="key">n</span> - добавить новую задачу',
     done: false,
     deleted: false,
-    marked: false,
+    marked: true,
   },
   {
     id: 2,
