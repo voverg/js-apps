@@ -1,38 +1,70 @@
-# <a name='nav'>ToDo application</a>
+# <a name='nav'>Habits tracker</a>
 
-- [App description](#description)
-- [Quick start development](#quickstart)
-- [How to use this project](#howto)
+Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Приложение поможет не забыть выполнить ежедневные задачи, которые вы хотите, чтобы переросли в привычки. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/js-apps/habits 'Посмотреть демо-версию')
+
+- [Описание](#description)
+- [Горячие клавиши](#hotkeys)
+- [Description(eng)](#description_eng)
+- [Hotkeys(eng)](#hotkeys_eng)
 
 ---
 
-## <a name='description'>Description</a>
+## <a name='description'>Описание</a>
+Приложение "Трекер привычек":
+- Добавляйте новые задачи на текущий день (блок Today)
+- Для добавления ссылки в задачу используйте конструкцию *\[Название ссылки\]\(сама ссылка\)*
+- Удаляйте задачи, как по одной, так и все сразу
+- Редактируйте задачи
+- Помечайте задачи выполненными. Выполненные задачи переместятся на следующий день (блок Tomorrow).
+- При наступлении нового дня все задачи перемещаются в блок Today
+- Управляйте задачами с помощью горячих клавиш
 
-This is a simple application written by html, css and clean javascript. In order to see a demo version of this app go to Github Pages [this link](https://voverg.github.io/js-apps/good-todo/ 'Look task manager demo')
+![habits image](img/habits.png)
 
-Start write a text in input field and then push the **Enter** on your keyboard or 'Plus' button in bottom left corner next to the input field to add a task to the task list. You can edit any task by clicking to it and push 
-the "Enter" button on your keyboard to apply changes.
+Чтобы добавить задачу во всплывающем окне нажмите на кнопку "Добавить задачу" или клавишу `Enter`
 
-This ES6 standard project rebuild with webpack and babel to be cross browsers.
+Чтобы отменить добавление новой задачи или редактирование, кликните на затемнённую область или нажмите клавишу `Escape`
 
-![todo](img/good_todo_screenshot.png)
+![Add habit image](img/add-habit.png)
 
-if you want to use search by tasks, you should writ a **/** symbol in **input** field
+[Назад к заглавию](#nav)
 
-![todo](img/good_todo_begin_search_screenshot.png)
+## <a name='hotkeys'>Горячие клавиши</a>
+- `n` - добавление новой задачи в блок Today
+- Клик по задаче выделяет её
+- `e` - редактирование выделенной задачи
+- `Enter` - пометить выделенную задачу выполненной
+- `d` - удалить выделенную задачу
+- `c` - удалить все задачи
+- `j` или стрелка вниз - переместиться по задачам вниз
+- `k` или стрелка вверх - переместиться по задачам вверх
 
-and then start to write a task that you want to find
+[Назад к заглавию](#nav)
 
-![todo](img/good_todo_search_screenshot.png)
+## <a name='description_eng'>App description</a>
+This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/habits 'Look habits tracker demo')
 
-Also you can use task filters such as **current tasks**, **done tasks** or **deleted tasks**
+Habits tracker app:
+- Add new tasks to the current day (block Today)
+- To add a link in your task use this construction *\[Link title\]\(link\)*
+- Remove one or all tasks
+- Edit tasks
+- Get tasks done. All done tasks move to the block Tomorrow
+- Tomorrow all tasks move to the block Today
+- Manage tasks with hotkeys
 
-![todo](img/good_todo_filters_screenshot.png)
+[Back to menu](#nav)
 
-If you want to remove all your tasks from local storage, push the button in the header in the right top corner.
+## <a name='hotkeys_eng'>Hot keys</a>
+- `n` - add a new task to the block Today
+- Click a task to select it
+- `e` - edit the selected task
+- `Enter` - done the selected task
+- `d` - remove the selected task
+- `c` - remove all tasks
+- `j` or Arrow Down - move on tasks down
+- `k` or Arrow Up - move on tasks up
 
-![todo](img/good_todo_clear_tasks_screenshot.png)
+[Back to menu](#nav)
 
------
 
-[Return to navigation](#nav)
