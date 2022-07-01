@@ -36,6 +36,13 @@ const todoList = [
   },
   {
     id: 6,
+    text: 'Клавиши <span class="key">h</span> и <span class="key">l</span> или <span class="key">&#8592;</span> <span class="key">&#8594;</span> - перемещение на предыдущую/следующую вкладку',
+    done: false,
+    deleted: false,
+    marked: false,
+  },
+  {
+    id: 7,
     text: 'С полной документацией можно ознакомиться на <a href="https://github.com/voverg/50-simple-projects/tree/main/good-todo" rel="noopener noreferrer" target="_blank">Github проекта</a>',
     done: false,
     deleted: false,

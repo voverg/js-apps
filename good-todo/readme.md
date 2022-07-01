@@ -1,6 +1,6 @@
-# <a name='nav'>Habits tracker</a>
+# <a name='nav'>Good todo</a>
 
-Это простое приложение, написанное на HTML, CSS и чистом JavaScript. Приложение поможет не забыть выполнить ежедневные задачи, которые вы хотите, чтобы переросли в привычки. Вы можете посмотреть демо-версию приложения на [GitHub Pages по этой ссылке](https://voverg.github.io/js-apps/habits 'Посмотреть демо-версию')
+Это простое приложение для ведения списка дел, написанное на HTML, CSS и чистом JavaScript. Посмотреть демо-версию можно на [GitHub Pages по этой ссылке](https://voverg.github.io/js-apps/good-todo 'Посмотреть демо-версию')
 
 - [Описание](#description)
 - [Горячие клавиши](#hotkeys)
@@ -10,27 +10,26 @@
 ---
 
 ## <a name='description'>Описание</a>
-Приложение "Трекер привычек":
-- Добавляйте новые задачи на текущий день (блок Today)
+Приложение "Good todo":
+- Добавляйте новые задачи
 - Для добавления ссылки в задачу используйте конструкцию *\[Название ссылки\]\(сама ссылка\)*
-- Удаляйте задачи, как по одной, так и все сразу
+- Удаляйте задачи, как по одной (поместятся на вкладку 'Deleted'), так и все сразу (полностью удалятся из приложения)
 - Редактируйте задачи
-- Помечайте задачи выполненными. Выполненные задачи переместятся на следующий день (блок Tomorrow).
-- При наступлении нового дня все задачи перемещаются в блок Today
+- Помечайте задачи выполненными. Выполненные задачи отображаются на вкладке 'Done'.
 - Управляйте задачами с помощью горячих клавиш
 
-![habits image](img/habits.png)
+![Good todo image](img/good-todo.png)
 
 Чтобы добавить задачу во всплывающем окне нажмите на кнопку "Добавить задачу" или клавишу `Enter`
 
 Чтобы отменить добавление новой задачи или редактирование, кликните на затемнённую область или нажмите клавишу `Escape`
 
-![Add habit image](img/add-habit.png)
+![Add todo image](img/add-todo.png)
 
 [Назад к заглавию](#nav)
 
 ## <a name='hotkeys'>Горячие клавиши</a>
-- `n` - добавление новой задачи в блок Today
+- `n` - добавление новой задачи вo вкладку Current 
 - Клик по задаче выделяет её
 - `e` - редактирование выделенной задачи
 - `Enter` - пометить выделенную задачу выполненной
@@ -38,25 +37,26 @@
 - `c` - удалить все задачи
 - `j` или стрелка вниз - переместиться по задачам вниз
 - `k` или стрелка вверх - переместиться по задачам вверх
+- `h` или стрелка влево - переместиться на предыдущую вкладку
+- `l` или стрелка вправо - переместиться на следуюдую вкладку
 
 [Назад к заглавию](#nav)
 
 ## <a name='description_eng'>App description</a>
-This is a simple habit tracker application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/habits 'Look habits tracker demo')
+This is a simple task manager application written by html, css and pure javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/good-todo 'Look good-todo demo')
 
 Habits tracker app:
-- Add new tasks to the current day (block Today)
+- Add new tasks to the Current tab
 - To add a link in your task use this construction *\[Link title\]\(link\)*
-- Remove one or all tasks
+- Remove one (move to the Deleted tab) or all tasks (delete from application)
 - Edit tasks
-- Get tasks done. All done tasks move to the block Tomorrow
-- Tomorrow all tasks move to the block Today
+- Get tasks done. All done tasks move to the Done tab
 - Manage tasks with hotkeys
 
 [Back to menu](#nav)
 
 ## <a name='hotkeys_eng'>Hot keys</a>
-- `n` - add a new task to the block Today
+- `n` - add a new task to the Current tab
 - Click a task to select it
 - `e` - edit the selected task
 - `Enter` - done the selected task
@@ -64,6 +64,8 @@ Habits tracker app:
 - `c` - remove all tasks
 - `j` or Arrow Down - move on tasks down
 - `k` or Arrow Up - move on tasks up
+- `h` or Arrow Left - go to the next tab
+- `l` or Arrow Right - go to the prev tab
 
 [Back to menu](#nav)
 
