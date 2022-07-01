@@ -29,7 +29,7 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,6 +94,8 @@ body {
 .main {
   flex-grow: 1;
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: #fff;
   padding: 15px;
@@ -179,7 +181,7 @@ body {
 }
 
 .add-btn {
-  position: absolute;
+  position: fixed;
   bottom: 35px;
   right: 40px;
   display: block;
@@ -310,10 +312,10 @@ body {
     font-size: 1rem;
   }
 
-  .todo--mark {
+/*  .todo--mark {
     background-color: transparent;
     border-radius: 0;
-  }
+  }*/
 
   .todo__check {
     margin-right: 5px;

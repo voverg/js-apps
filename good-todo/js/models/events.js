@@ -16,8 +16,13 @@ class KeyHandler {
       ArrowDown: this.downTask,
       ArrowUp: this.upTask,
       KeyH: this.prevTab,
+      ArrowLeft: this.prevTab,
       KeyL: this.nextTab,
+      ArrowRight: this.nextTab,
     };
+
+    this.xStart = null;
+    this.xEnd = null;
 
     this.tabList = ['current', 'done', 'deleted'];
 
@@ -35,11 +40,39 @@ class KeyHandler {
     this.event = event;
     this.code = event.code;
 
+     // Обработка touch событий
+    if (event.type === 'touchstart') {
+      this.onTouchStart(event);
+    } else if (event.type === 'touchmove') {
+      this.onTouchMove(event);
+    } else if (event.type === 'touchend') {
+      this.onTouchEnd(event);
+    }
+
     if (!Object.keys(this.keys).includes(this.code)) return;
     const id = this.data.getMarkedId();
     this.keys[this.code](id); // Запускаем функцию из объекта keys по ключу кода клавиши
   }
 
+  // Touch handlers
+  onTouchStart = (event) => {
+    this.xStart = event.changedTouches[0].clientX;
+  }
+
+  onTouchEnd = (event) => {
+    this.xEnd = event.changedTouches[0].clientX;
+    const xDiff = this.xEnd - this.xStart;
+    this.xStart = null;
+    this.xEnd = null;
+
+    if (xDiff > 50) {
+      this.prevTab();
+    } else if (xDiff < -50) {
+      this.nextTab();
+    }
+  }
+
+  // Key handlers
   addTask = (id) => {
     this.store.dispatch({ type: 'modal', payload: {id: null, text: '', modalIsOpen: true} });
   }
@@ -92,7 +125,7 @@ class KeyHandler {
     const currentIndex = this.tabList.indexOf(this.status);
     const nextIndex = currentIndex > 0 ? currentIndex - 1 : this.tabList.length - 1;
     this.status = this.tabList[nextIndex];
-    
+
     this.store.dispatch({ type: 'tab', payload: {tab: this.status} });
   }
 
