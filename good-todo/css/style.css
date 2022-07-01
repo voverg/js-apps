@@ -112,8 +112,10 @@ body {
   text-align: center;
   color: var(--tab-color);
   cursor: pointer;
+  transition: .3s ease-in-out;
 }
-.current-tab {
+.current-tab,
+.tab:hover {
   color: var(--link);
 }
 

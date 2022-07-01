@@ -52,7 +52,7 @@ class ModalComponent {
       this.addTask();
     }
 
-    this.store.dispatch({ type: 'modal', payload: {modalIsOpen: false} });
+    this.store.dispatch({ type: 'modal', payload: {modalIsOpen: false, tab: 'current'} });
     this.$input.value = '';
     playSound(soundClack);
 

@@ -8,30 +8,36 @@ class TabsComponent {
     ];
 
     this.store = options.store;
+    this.state = {tab: 'current'};
+    this.status = this.state.tab;
   }
 
   init() {
     this.render();
 
     this.$root.addEventListener('click', this.onClick);
+
+    this.store.subscribe(() => {
+      this.state = this.store.getState();
+      this.status = this.state.tab;
+
+      this.setCurrentTab();
+    });
   }
 
   onClick = ({target}) => {
     if (isTab(target) && !isCurrentTab(target)) {
-      this.setCurrentTab(target);
+      this.status = target.dataset.tab;
+      this.store.dispatch({ type: 'tab', payload: {tab: this.status} });
     }
   }
 
-  clearCurrentTab() {
-    Array.from(this.$root.children).forEach(tab => tab.classList.remove('current-tab'));
-  }
+  setCurrentTab() {
+    this.tabList.forEach(tab => {
+      tab.class = tab.status === this.status ? 'tab current-tab' : 'tab';
+    });
 
-  setCurrentTab(target) {
-    this.clearCurrentTab();
-    target.classList.add('current-tab');
-
-    const status = target.dataset.tab;
-    this.store.dispatch({ type: 'tab', payload: {tab: status} });
+    this.render();
   }
 
   render() {

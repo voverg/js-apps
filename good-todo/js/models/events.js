@@ -4,6 +4,7 @@ class KeyHandler {
     this.store = options.store;
     this.state = {};
     this.status = '';
+
     this.keys = {
       KeyN: this.addTask,
       KeyC: this.removeAllTasks,
@@ -14,7 +15,11 @@ class KeyHandler {
       KeyK: this.upTask,
       ArrowDown: this.downTask,
       ArrowUp: this.upTask,
+      KeyH: this.prevTab,
+      KeyL: this.nextTab,
     };
+
+    this.tabList = ['current', 'done', 'deleted'];
 
     this.init();
   }
@@ -81,6 +86,22 @@ class KeyHandler {
     this.data.downMarkedTodo(this.status);
     this.store.dispatch({ type: 'modal', payload: {id} });
     playSound(soundClack);
+  }
+
+  prevTab = () => {
+    const currentIndex = this.tabList.indexOf(this.status);
+    const nextIndex = currentIndex > 0 ? currentIndex - 1 : this.tabList.length - 1;
+    this.status = this.tabList[nextIndex];
+    
+    this.store.dispatch({ type: 'tab', payload: {tab: this.status} });
+  }
+
+  nextTab = () => {
+    const currentIndex = this.tabList.indexOf(this.status);
+    const nextIndex = currentIndex < this.tabList.length - 1 ? currentIndex + 1 : 0;
+    this.status = this.tabList[nextIndex];
+
+    this.store.dispatch({ type: 'tab', payload: {tab: this.status} });
   }
 
 }
