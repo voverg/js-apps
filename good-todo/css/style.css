@@ -194,9 +194,9 @@ body {
 }
 
 .add-btn {
-  position: fixed;
+  position: absolute;
   top: 15px;
-  right: 130px;
+  right: 70px;
   width: 30px;
   height: 30px;
   display: flex;
