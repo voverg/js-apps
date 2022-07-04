@@ -27,7 +27,7 @@ class TodosComponent {
   }
 
   onClick = ({target}) => {
-    if (!target.closest('.todo')) retrun;
+    if (!target.closest('.todo')) return;
 
     const id = target.closest('.todo').dataset.id;
     const act = target.dataset.type;
@@ -60,6 +60,7 @@ class TodosComponent {
     const emptyText = '<div class="empty-text">Пока нет ни одной задачи</div>';
     const doneClass = this.status === 'done' ? 'todo--done' : '';
     const delClass = this.status === 'deleted' ? 'todo--deleted' : '';
+    const doneIcon = this.status === 'done' ? '&#10003;' : '&#9898;';
 
     const todos = this.data.get(this.status).map(todo => {
       const markClass = todo.marked ? 'todo--mark' : '';
@@ -67,7 +68,7 @@ class TodosComponent {
 
       return `
         <li class="todo ${delClass} ${markClass} ${delClass}" data-id="${todo.id}">
-          <span class="todo__icon todo__check" data-type="done">&#9898;</span>
+          <span class="todo__icon todo__check" data-type="done">${doneIcon}</span>
           <span class="todo__text ${doneClass}" data-type="text">${text}</span>
           <span class="todo__icon todo__edit icon-edit" data-type="edit"></span>
           <span class="todo__icon todo__remove icon-trash" data-type="remove"></span>
