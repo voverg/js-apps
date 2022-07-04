@@ -37,7 +37,7 @@ class HeaderComponent {
 
   render() {
     this.$root.innerHTML = `
-      <h1>Good todo</h1>
+      <h1 class="header__title">Good todo</h1>
       <p class="copyright">
         Created by <a href="https://github.com/voverg" class="copyright__link" rel="noopener noreferrer" target="_blank">Voverg</a>
       </p>

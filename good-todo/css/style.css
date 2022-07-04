@@ -59,15 +59,21 @@ body {
   color: #fff;
   text-align: center;
 }
+
+.header__title {
+  text-shadow: 0 0 5px var(--dark-green);
+}
+
 .copyright {
   position: absolute;
-  top: 5px;
+  top: 10px;
   left: 15px;
   color: #ccc;
 }
 .copyright__link {
   color: #eee;
 }
+
 .refresh {
   position: absolute;
   top: 15px;
