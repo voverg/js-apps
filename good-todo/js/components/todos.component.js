@@ -14,6 +14,11 @@ class TodosComponent {
 
     this.store.subscribe(() => {
       this.state = this.store.getState();
+      // Check if tab is changed and unmark all tasks
+      if (this.state.tab !== this.status) {
+        this.data.unmark();
+      }
+      
       this.status = this.state.tab;
 
       this.render();
