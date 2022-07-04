@@ -49,3 +49,21 @@ function playSound(sound) {
   clone.play();
 }
 
+// Валидация текста на содержание ссылок
+// Ссылки вводятся в формате [текст ссылки](адрес-ссылки.com)
+function checkLinks(text) {
+    const pattern = /\[.+?\]\(.+?\)/gi;
+    const newText = text.replace(pattern, replacer);
+
+    function replacer(match, offset, str) {
+      let link = match.split('(')[1].replace(/[\(\)]/gi, ''); // Убираем круглые скобки у ссылки
+      link = link.replace(/^(https?:)?(\/\/)?(www\.)?/gi, ''); // Убираем http(s)(www.)
+      const title = match.split('(')[0].replace(/[\[\]]/gi, ''); // Убираем квадратные скобки у описания ссылки
+      const anchor = `<a href="https://${link}" rel="noopener noreferrer" target="_blank">${title}</a>`;
+
+      return anchor;
+    }
+
+    return newText;
+  }
+

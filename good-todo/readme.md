@@ -39,6 +39,7 @@
 - `k` или стрелка вверх - переместиться по задачам вверх
 - `h` или стрелка влево - переместиться на предыдущую вкладку
 - `l` или стрелка вправо - переместиться на следуюдую вкладку
+В мобильной версии можно просто свайпать влево/вправо, чтобы переключаться между вкладками.
 
 [Назад к заглавию](#nav)
 
@@ -66,6 +67,7 @@ Habits tracker app:
 - `k` or Arrow Up - move on tasks up
 - `h` or Arrow Left - go to the next tab
 - `l` or Arrow Right - go to the prev tab
+In mobile version you can left/right swipe to change between tabs.
 
 [Back to menu](#nav)
 

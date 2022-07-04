@@ -105,41 +105,6 @@ class Todos {
     }
   }
 
-  // upMarkedTodo(status) {
-  //   for (let i = this.todos.length - 1, len = 0; i >= 0; i--) {
-  //     const todo = this.todos[i];
-  //     if (i - 1 < 0) {
-  //       this.todos[0].marked = false;
-  //       this.todos[this.todos.length - 1].marked = true;
-  //       break;
-  //     }
-
-  //     if (todo.marked) {
-  //       todo.marked = false;
-  //       this.todos[i - 1].marked = true;
-  //       break;
-  //     }
-  //   }
-  // }
-
-  // downMarkedTodo(status) {
-  //   const list = this.get(status);
-  //   for (let i = 0, len = this.todos.length; i < len; i++) {
-  //     const todo = this.todos[i];
-  //     if (i + 1 === len) {
-  //       this.todos[len - 1].marked = false;
-  //       this.todos[0].marked = true;
-  //       break;
-  //     }
-
-  //     if (todo.marked) {
-  //       todo.marked = false;
-  //       this.todos[i + 1].marked = true;
-  //       break;
-  //     }
-  //   }
-  // }
-
   find(id) {
     return this.todos.find(todo => +todo.id === +id);
   }

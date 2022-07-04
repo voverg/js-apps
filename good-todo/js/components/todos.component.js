@@ -59,15 +59,16 @@ class TodosComponent {
   render() {
     const emptyText = '<div class="empty-text">Пока нет ни одной задачи</div>';
     const doneClass = this.status === 'done' ? 'todo--done' : '';
-    const delClass = this.status === 'deleted' ? 'todo--del' : '';
+    const delClass = this.status === 'deleted' ? 'todo--deleted' : '';
 
     const todos = this.data.get(this.status).map(todo => {
       const markClass = todo.marked ? 'todo--mark' : '';
+      const text = checkLinks(todo.text); // Рендерит ссылки из спец формата [link text](link-adress.com)
 
       return `
-        <li class="todo ${delClass} ${markClass}" data-id="${todo.id}">
+        <li class="todo ${delClass} ${markClass} ${delClass}" data-id="${todo.id}">
           <span class="todo__icon todo__check" data-type="done">&#9898;</span>
-          <span class="todo__text ${doneClass}" data-type="text">${todo.text}</span>
+          <span class="todo__text ${doneClass}" data-type="text">${text}</span>
           <span class="todo__icon todo__edit icon-edit" data-type="edit"></span>
           <span class="todo__icon todo__remove icon-trash" data-type="remove"></span>
         </li>
