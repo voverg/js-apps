@@ -99,14 +99,14 @@ class KeyHandler {
     const answer = confirm('Точно хочешь удалить эту задачу?');
     if (answer) {
       this.data.remove(id);
-      this.store.dispatch({ type: 'modal', payload: {id} });
+      this.store.dispatch({ type: 'modal', payload: {id: null} });
       playSound(soundTrash);
     }
   }
 
   removeAllTasks = (id) => {
     clearData('todoList', this.data);
-    this.store.dispatch({ type: 'modal', payload: {id} });
+    this.store.dispatch({ type: 'modal', payload: {id: null} });
   }
 
   upTask = (id) => {

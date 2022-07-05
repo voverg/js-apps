@@ -30,6 +30,7 @@ class HeaderComponent {
   onClick = ({target}) => {
     if (target.closest('.refresh')) {
       clearData('todoList', this.data);
+      this.store.dispatch({ type: 'modal', payload: {id: null} });
     } else if (target.closest('.add-btn')) {
       this.store.dispatch({ type: 'modal', payload: {text: '', id: null, modalIsOpen: true} });
     }
