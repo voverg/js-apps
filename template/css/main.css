@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
 :root {
   --green: #b5c7c4;
   --dark-green: #123c35;
@@ -24,7 +25,7 @@ body {
   margin: 0;
 }
 
-header {
+.header {
   flex-shrink: 0;
   width: 100%;
   min-height: 10vh;
@@ -34,12 +35,12 @@ header {
   text-align: center;
 }
 
-.container {
+.main {
   flex-grow: 1;
   width: 100%;
 }
 
-footer {
+.footer {
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -51,10 +52,10 @@ footer {
   text-align: center;
 }
 
-footer a {
+.footer__link {
   text-decoration: none;
   color: white;
 }
-footer a:hover {
+.footer__link:hover {
   color: #eae38b;
 }
