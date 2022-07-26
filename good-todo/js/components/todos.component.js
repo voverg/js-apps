@@ -18,7 +18,7 @@ class TodosComponent {
       if (this.state.tab !== this.status) {
         this.data.unmark();
       }
-      
+
       this.status = this.state.tab;
 
       this.render();
@@ -60,7 +60,10 @@ class TodosComponent {
     const emptyText = '<div class="empty-text">Пока нет ни одной задачи</div>';
     const doneClass = this.status === 'done' ? 'todo--done' : '';
     const delClass = this.status === 'deleted' ? 'todo--deleted' : '';
-    const doneIcon = this.status === 'done' ? '&#10003;' : '&#9898;';
+    // const doneIcon = this.status === 'done' ? '&#10003;' : '&#9898;';
+    const doneIcon = this.status === 'done'
+          ? '<img src="img/back.svg" class="done-icon" data-type="done">'
+          : '<span class="icon-circle" data-type="done"></span>';
 
     const todos = this.data.get(this.status).map(todo => {
       const markClass = todo.marked ? 'todo--mark' : '';
