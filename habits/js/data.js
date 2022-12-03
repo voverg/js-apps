@@ -37,7 +37,7 @@ const habitList = [
   },
   {
     id: 7,
-    text: 'С полной документацией можно ознакомиться на <a href="https://github.com/voverg/50-simple-projects/tree/main/habits" rel="noopener noreferrer" target="_blank">Github проекта</a>',
+    text: 'С полной документацией можно ознакомиться на [Github проекта](https://github.com/voverg/50-simple-projects/tree/main/habits)',
     checked: true,
     marked: false,
   },

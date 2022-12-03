@@ -77,7 +77,8 @@ function checkHabit(id) {
   if (!id) return;
   const habit = $(`[id="${id}"]`)
   habit.find('.habit__text').addClass('habit--checked');
-  habit.find('.habit__check').html('&#10004;');
+  habit.find('.habit__check').removeClass('icon-circle');
+  habit.find('.habit__check').addClass('icon-check');
   playSound(soundCheck);
 
   const pauseId = setTimeout(() => {

@@ -64,7 +64,6 @@ class Modal {
     this.value = $modalText.value();
 
     this.value = $modalText.value().trim() ? $modalText.value() : 'Новая задача' ;
-    this._validateValue();
     habits.add(this.value);
 
     playSound(soundClack);
@@ -75,25 +74,10 @@ class Modal {
     event.preventDefault();
 
     this.value = $modalText.value();
-    this._validateValue();
     habits.edit(this.id, this.value);
 
     playSound(soundClack);
     this._closeModal();
-  }
-
-  _validateValue = () => {
-    const pattern = /\[.+?\]\(.+?\)/gi;
-    this.value = this.value.replace(pattern, replacer);
-
-    function replacer(match, offset, str) {
-      let link = match.split('(')[1].replace(/[\(\)]/gi, ''); // Убираем круглые скобки у ссылки
-      link = link.replace(/^(https?:)?(\/\/)?(www\.)?/gi, ''); // Убираем http(s)(www.)
-      const title = match.split('(')[0].replace(/[\[\]]/gi, ''); // Убираем квадратные скобки у описания ссылки
-      const anchor = `<a href="https://${link}" rel="noopener noreferrer" target="_blank">${title}</a>`;
-
-      return anchor;
-    }
   }
 
 }

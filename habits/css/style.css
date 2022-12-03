@@ -106,9 +106,11 @@ header {
 }
 
 .habit__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 1.3rem;
   height: 1.3rem;
-  text-align: center;
   opacity: .6;
   cursor: pointer;
   transition: opacity .2s ease-in-out;
@@ -124,6 +126,8 @@ header {
 }
 
 .habit__text {
+  display: flex;
+  align-items: center;
   flex-grow: 1;
   cursor: pointer;
 }
@@ -136,6 +140,7 @@ header {
   transition: all .3s ease-in-out;
 }
 .habit__check {
+  margin-right: 5px;
   font-size: 1rem;
   color: var(--dark-green);
 }

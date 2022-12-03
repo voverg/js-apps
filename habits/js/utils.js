@@ -47,14 +47,15 @@ function clearData() {
 function createHabit(elem) {
   const habitDateClass = elem.checked ? 'next-habit' : 'current-habit';
   const habitMarkClass = elem.marked ? 'habit--mark' : 'default';
+  const text = validateValue(elem.text);
 
   const $li = $(document.createElement('li'));
   $li.addClass('habit', habitDateClass, habitMarkClass);
   $li.attr('id', elem.id);
   $li.dataSet('type', 'habit');
   $li.html(`
-          <span class="habit__icon habit__check" data-type="check">&#9898;</span>
-          <span class="habit__text" data-type="text">${elem.text}</span>
+          <span class="habit__icon habit__check icon-circle" data-type="check"></span>
+          <span class="habit__text" data-type="text">${text}</span>
           <span class="habit__icon habit__edit icon-edit" data-type="edit"></span>
           <span class="habit__icon habit__remove icon-trash" data-type="remove"></span>
       `);
@@ -66,6 +67,24 @@ function createHabit(elem) {
 function clearHabitBlocks() {
   $currentHabits.html('');
   $nextHabits.html('');
+}
+
+// Парсит полученное значение на шаблон [text]{link}
+// Если шаблон найден, делает из него ссылку
+function validateValue(text) {
+  const pattern = /\[.+?\]\(.+?\)/gi;
+  const value = text.replace(pattern, replacer);
+
+  function replacer(match, offset, str) {
+    let link = match.split('(')[1].replace(/[\(\)]/gi, ''); // Убираем круглые скобки у ссылки
+    link = link.replace(/^(https?:)?(\/\/)?(www\.)?/gi, ''); // Убираем http(s)(www.)
+    const title = match.split('(')[0].replace(/[\[\]]/gi, ''); // Убираем квадратные скобки у описания ссылки
+    const anchor = `<a href="https://${link}" rel="noopener noreferrer" target="_blank">${title}</a>`;
+
+    return anchor;
+  }
+
+  return value;
 }
 
 // Проигрывание звука
