@@ -129,6 +129,7 @@ header {
   display: flex;
   align-items: center;
   flex-grow: 1;
+  white-space: pre-wrap;
   cursor: pointer;
 }
 .habit__text.habit--checked {
