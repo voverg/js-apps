@@ -7,12 +7,12 @@ let noteId, data;
 const fromLocalStorage = localStorage.getItem('notesData');
 if (fromLocalStorage) {
   data = JSON.parse(fromLocalStorage);
-
-  render();
+  // render();
 } else {
-  data = [];
-  noteId = 0;
+  data = defaultData;
 }
+
+render();
 
 function setToLocalStorage() {
   localStorage.setItem('notesData', JSON.stringify(data));

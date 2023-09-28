@@ -33,7 +33,7 @@ header {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 3rem;
+  padding: 10px 0 20px;
   background-color: #7bdaf3;
 }
 
@@ -69,12 +69,14 @@ header {
 }
 
 .note {
-  padding: 30px 20px;
-  width: 25%;
+  position: relative;
+  margin: 30px 10px;
+  width: 20%;
   color: #555;
 }
 
 .note__content {
+  padding-top: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   height: 300px;
@@ -82,6 +84,10 @@ header {
 }
 
 .note__tools {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #215249;
   display: flex;
   justify-content: flex-end;
@@ -105,6 +111,13 @@ header {
   min-height: 250px;
   width: 100%;
   padding: 20px;
+}
+.note img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+.note li {
+  margin-bottom: 5px;
 }
 
 .main {
@@ -140,7 +153,7 @@ footer a:hover {
 
 @media (max-width: 1100px) {
   .note {
-    width: 33.33%;
+    width: 30%;
   }
 
 @media (max-width: 720px) {
@@ -157,6 +170,7 @@ footer a:hover {
     height: 4rem;
     font-size: 1rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 100;
   }
   .add__text {
     display: none;
@@ -166,6 +180,10 @@ footer a:hover {
 @media (max-width: 480px) {
   .note {
     width: 100%;
+    margin: 10px;
+  }
+  .note__content {
+    padding-top: 30px;
   }
 
   .note__tools button {
