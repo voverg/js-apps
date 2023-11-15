@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Приложение Таблицы, написанное на HTML, CSS и чистом JavaScript">
+  <meta name="keywords" content="html, css, javascript">
+  <!-- <meta name="og:image" content="img/sheets.jpg"> -->
+  <title>Sheets</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/sheets.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+  <div id="app" class="container">
+    <div class="sheets">
+      <div class="sheets__header">
+          <input type="text" class="sheets__header-input" value="Новая таблица">
+          <div class="sheets__header-btns">
+              <div class="btn sheets__header-btn"><i class="material-icons">delete</i></div>
+              <div class="btn sheets__header-btn"><i class="material-icons">exit_to_app</i></div>
+          </div>
+      </div>
+
+      <div class="sheets__toolbar toolbar">
+          <div class="btn toolbar__btn"><i class="material-icons">format_align_left</i></div>
+          <div class="btn toolbar__btn"><i class="material-icons">format_align_center</i></div>
+          <div class="btn toolbar__btn"><i class="material-icons">format_align_right</i></div>
+          <div class="btn toolbar__btn"><i class="material-icons">format_bold</i></div>
+          <div class="btn toolbar__btn"><i class="material-icons">format_italic</i></div>
+          <div class="btn toolbar__btn"><i class="material-icons">format_underline</i></div>
+      </div>
+
+      <div class="sheets__formula formula">
+          <div class="formula__info">fx</div>
+          <div class="formula__input" contenteditable spellcheck="false"></div>
+      </div>
+
+      <div class="sheets__table table">
+
+        <div class="row">
+            <div class="row-info"></div>
+            <div class="row-data">
+                <div class="column">A</div>
+                <div class="column">B</div>
+                <div class="column">C</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row-info">1</div>
+            <div class="row-data">
+                <div class="cell selected" contenteditable>A1</div>
+                <div class="cell" contenteditable>B1</div>
+                <div class="cell" contenteditable>C1</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row-info">2</div>
+            <div class="row-data">
+                <div class="cell" contenteditable>A2</div>
+                <div class="cell" contenteditable>B2</div>
+                <div class="cell" contenteditable>C2</div>
+            </div>
+        </div>
+
+      </div>
+
+
+      <footer class="footer">
+        <p class="footer__text">Created by <a href="https://github.com/voverg" class="footer__link" rel="noopener noreferrer" target="_blank">Voverg</a></p>
+      </footer>
+
+      <!-- End of Sheets -->
+    </div>
+    
+    <!-- End of app -->
+  </div>
+
+  
+
+
+  <!-- <script src="js/index.js" type="module"></script> -->
+</body>
+</html>
