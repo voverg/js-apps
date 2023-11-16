@@ -10,6 +10,10 @@ export class Component extends DomListener {
     this.initDomListeners();
   }
 
+  destroy() {
+    this.removeDomListeners();
+  }
+
   toHtml() {
     return '';
   }

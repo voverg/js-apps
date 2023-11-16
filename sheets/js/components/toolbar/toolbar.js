@@ -6,9 +6,13 @@ export class Toolbar extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Toolbar',
-      listeners: [],
+      listeners: ['click'],
       ...props
     });
+  }
+
+  onClick(event) {
+    console.log(event.target);
   }
 
   toHtml() {

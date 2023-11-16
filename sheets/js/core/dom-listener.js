@@ -12,21 +12,28 @@ export class DomListener {
 
   initDomListeners() {
     this.listeners.forEach((listener) => {
-      const method = getMethod(listener);
+      const method = getMethodName(listener);
       // Проверяем, что для всех слушателей существуют методы
       if (!this[method]) {
-        throw new Error(`No implementation method ${method} for ${this['name']} component`);
+        throw new Error(`No implementation method ${method} for ${this.name} component`);
       }
+      // В this[method] намертво биндим этот самый метод с контекстом this
+      this[method] = this[method].bind(this);
       // Добавляем события для всех слушателей
-      this.$root.addEventListener(listener, this[method].bind(this));
+      this.$root.addEventListener(listener, this[method]);
     });
   }
 
-  removeDomListeners() {}
+  removeDomListeners() {
+    this.listeners.forEach((listener) => {
+      const method = getMethodName(listener);
+      this.$root.removeEventListener(listener, this[method]);
+    });
+  }
 
 }
 
 
-function getMethod(listener) {
+function getMethodName(listener) {
   return 'on' + capitalize(listener);
 }
