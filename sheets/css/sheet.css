@@ -1,4 +1,4 @@
-.sheets {
+.sheet {
   position: relative;
   max-width: 100%;
   min-height: 100vh;
@@ -7,12 +7,15 @@
 }
 
 .btn {
+  position: relative;
   min-width: 24px;
   height: 24px;
   padding: 3px;
-  text-align: center;
-  position: relative;
   display: inline-block;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
   color: rgba(0, 0, 0, 0.7);
   user-select: none;
 }
@@ -24,8 +27,8 @@
   cursor: pointer;
 }
 
-/*--- Sheets header ---*/
-.sheets__header {
+/*--- sheet header ---*/
+.sheet__header {
   position: absolute;
   top: 0;
   right: 0;
@@ -35,7 +38,7 @@
   display: flex;
   justify-content: space-between;
 }
-.sheets__header-input {
+.sheet__header-input {
   padding: 2px 7px;
   color: #333;
   border: 2px solid transparent;
@@ -45,19 +48,19 @@
   line-height: 22px;
   outline: none;
 }
-.sheets__header-input:hover {
+.sheet__header-input:hover {
   border: 2px solid var(--border-color);
 }
-.sheets__header-input:focus {
+.sheet__header-input:focus {
   border: 2px solid #1a73e8;
 }
-.sheets__header-btn:active,
-.sheets__header-btn.active {
+.sheet__header-btn:active,
+.sheet__header-btn.active {
   color: red;
 }
 
-/*--- Sheets toolbar ---*/
-.sheets__toolbar {
+/*--- sheet toolbar ---*/
+.sheet__toolbar {
   position: absolute;
   top: var(--header-height);
   left: 0;
@@ -72,8 +75,8 @@
   color: var(--accent-green);
 }
 
-/*--- Sheets formula ---*/
-.sheets__formula {
+/*--- sheet formula ---*/
+.sheet__formula {
   position: absolute;
   top: calc(var(--header-height) + var(--toolbar-height));
   left: 0;
@@ -99,8 +102,8 @@
   color: #000;
 }
 
-/*--- Sheets table ---*/
-.sheets__table {
+/*--- sheet table ---*/
+.sheet__table {
   position: absolute;
   top: calc(var(--header-height) + var(--toolbar-height) + var(--formula-height));
   left: 0;
