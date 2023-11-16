@@ -6,9 +6,17 @@ export class Formula extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Formula',
-      listeners: [],
+      listeners: ['input', 'click'],
       ...props
     });
+  }
+
+  onInput(event) {
+    console.log('Formula input', event.target.textContent);
+  }
+
+  onClick(event) {
+    console.log('Formula click', event.target);
   }
 
   toHtml() {

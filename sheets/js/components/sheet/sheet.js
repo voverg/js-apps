@@ -4,7 +4,7 @@ export class Sheet {
     this.components = props.components || [];
   }
 
-  createElement(tag, className = 'cat') {
+  createElement(tag, className = '') {
     const $el = document.createElement('div');
     // $el.classList.add(className);
     $el.className = className;
@@ -32,5 +32,8 @@ export class Sheet {
   render() {
     this.$el.append(this.getRoot());
 
+    this.components.forEach((component) => {
+      component.init();
+    });
   }
 }

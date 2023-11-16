@@ -6,6 +6,10 @@ export class Component extends DomListener {
     this.name = props.name || '';
   }
 
+  init() {
+    this.initDomListeners();
+  }
+
   toHtml() {
     return '';
   }
