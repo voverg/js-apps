@@ -13,7 +13,7 @@ export class Table extends Component {
   }
 
   toHtml() {
-    return createTable(10);
+    return createTable(30);
   }
 
 }

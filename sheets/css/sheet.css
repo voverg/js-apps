@@ -37,6 +37,8 @@
   padding: 8px 4px 0;
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
+  z-index: 100;
 }
 .sheet__header-input {
   padding: 2px 7px;
@@ -52,7 +54,7 @@
   border: 2px solid var(--border-color);
 }
 .sheet__header-input:focus {
-  border: 2px solid #1a73e8;
+  border: 2px solid var(--primary-color);
 }
 .sheet__header-btn:active,
 .sheet__header-btn.active {
@@ -70,6 +72,8 @@
   height: var(--toolbar-height);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  background-color: #fff;
+  z-index: 100;
 }
 .toolbar__btn:active {
   color: var(--accent-green);
@@ -85,6 +89,8 @@
   align-items: center;
   height: var(--formula-height);
   border-bottom: 1px solid var(--border-color);
+  background-color: #fff;
+  z-index: 100;
 }
 .formula__info {
   font-size: 18px;
@@ -105,19 +111,27 @@
 /*--- sheet table ---*/
 .sheet__table {
   position: absolute;
-  top: calc(var(--header-height) + var(--toolbar-height) + var(--formula-height));
+  /*top: calc( var(--header-height) + var(--toolbar-height) + var(--formula-height) + var(--row-height) );*/
+  top: calc( var(--header-height) + var(--toolbar-height) + var(--formula-height) );
   left: 0;
   right: 0;
   overflow-x: auto;
-  padding-bottom: 2px;
+  padding-bottom: 20px;
+  height: calc( 75vh - var(--header-height) + var(--toolbar-height) + var(--formula-height) );
 }
 
 .row {
-    position: relative;
-    display: flex;
-    min-height: 20px;
-    height: var(--row-height);
-  }
+  position: relative;
+  display: flex;
+  min-height: 20px;
+  height: var(--row-height);
+}
+.row--fixed {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 100;
+}
 .row-info {
   position: relative;
   display: flex;
@@ -156,11 +170,6 @@
   opacity: 0;
   z-index: 1000;
 }
-
-.col-resize,
-.row-resize:hover {
-  opacity: 1!important;
-}
 .col-resize {
   top: 0;
   width: 4px;
@@ -170,6 +179,10 @@
   left: 0;
   height: 4px;
   cursor: row-resize;
+}
+.col-resize:hover,
+.row-resize:hover {
+  opacity: 1!important;
 }
 
 .cell {

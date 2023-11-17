@@ -17,14 +17,22 @@ function createCell() {
 
 function createCol(col) {
   return `
-    <div class="column">${col}</div>
+    <div class="column">
+      ${col}
+      <div class="col-resize"></div>
+    </div>
   `;
 }
 
-function createRow(rowInfo, content) {
+function createRow(rowInfo, content, className = '') {
+  const resizer = rowInfo ? `<div class="row-resize"></div>` : '';
+
   return `
-    <div class="row">
-      <div class="row-info">${rowInfo}</div>
+    <div class="row ${className}">
+      <div class="row-info">
+        ${rowInfo}
+        ${resizer}
+      </div>
       <div class="row-data">${content}</div>
     </div>
   `;
@@ -40,7 +48,7 @@ export function createTable(rowsCount = 5) {
     .map(createCol)
     .join('');
 
-  rows.push(createRow('', cols));
+  rows.push( createRow('', cols, 'row--fixed') );
 
   for (let i = 0; i < rowsCount; i++) {
     const rowInfo = i + 1;
