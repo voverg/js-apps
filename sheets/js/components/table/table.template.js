@@ -17,18 +17,18 @@ function createCell() {
 
 function createCol(col) {
   return `
-    <div class="column">
+    <div class="column" data-type="resizable">
       ${col}
-      <div class="col-resize"></div>
+      <div class="col-resize" data-resize="col"></div>
     </div>
   `;
 }
 
 function createRow(rowInfo, content, className = '') {
-  const resizer = rowInfo ? `<div class="row-resize"></div>` : '';
+  const resizer = rowInfo ? `<div class="row-resize" data-resize="row"></div>` : '';
 
   return `
-    <div class="row ${className}">
+    <div class="row ${className}" data-type="resizable">
       <div class="row-info">
         ${rowInfo}
         ${resizer}
