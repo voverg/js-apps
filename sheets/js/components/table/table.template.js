@@ -3,21 +3,21 @@ const CODES = {
   Z: 90,
 };
 
-function toChar(el, index) {
+function toChar(_, index) {
   const charIndex = CODES.A + index;
   const char = String.fromCharCode(charIndex);
   return char;
 }
 
-function createCell() {
+function createCell(_, colIndex) {
   return `
-    <div class="cell" contenteditable></div>
+    <div class="cell" data-col="${colIndex}" contenteditable></div>
   `;
 }
 
-function createCol(col) {
+function createCol(col, index) {
   return `
-    <div class="column" data-type="resizable">
+    <div class="column" data-type="resizable" data-col="${index}">
       ${col}
       <div class="col-resize" data-resize="col"></div>
     </div>
