@@ -9,10 +9,24 @@ function toChar(_, index) {
   return char;
 }
 
-function createCell(_, colIndex) {
-  return `
-    <div class="cell" data-col="${colIndex}" contenteditable></div>
-  `;
+// function createCell(_, colIndex) {
+//   return `
+//     <div class="cell" data-col="${colIndex}" contenteditable></div>
+//   `;
+// }
+
+function createCell(rowIndex) {
+  return function (_, colIndex) {
+    return `
+      <div
+        class="cell"
+        data-col="${colIndex}"
+        data-id="${rowIndex}:${colIndex}"
+        data-type="cell"
+        contenteditable
+      ></div>
+    `;
+  }
 }
 
 function createCol(col, index) {
@@ -50,12 +64,12 @@ export function createTable(rowsCount = 5) {
 
   rows.push( createRow('', cols, 'row--fixed') );
 
-  for (let i = 0; i < rowsCount; i++) {
-    const rowInfo = i + 1;
+  for (let row = 0; row < rowsCount; row++) {
+    const rowInfo = row + 1;
 
     const cells = new Array(colsCount)
     .fill('')
-    .map(createCell)
+    .map(createCell(row))
     .join('');
 
     rows.push(createRow(rowInfo, cells));

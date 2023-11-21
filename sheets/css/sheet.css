@@ -129,6 +129,7 @@
 .row--fixed {
   position: sticky;
   top: 0;
+  margin-bottom: 2px;
   background-color: #fff;
   z-index: 100;
 }
