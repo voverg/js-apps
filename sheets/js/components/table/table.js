@@ -1,7 +1,7 @@
 import { Component } from '../../core/component.js';
 import { createTable } from './table.template.js';
 import { resizeTable } from './table.resize.js';
-import { shoudTableResize, isCell, getRangeId } from './table.helpers.js';
+import { shoudTableResize, isCell, getRangeId, parseId, getNextSelector } from './table.helpers.js';
 import { TableSelection } from './table-selection.js';
 
 export class Table extends Component {
@@ -10,7 +10,7 @@ export class Table extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Table',
-      listeners: ['pointerdown'],
+      listeners: ['pointerdown', 'keydown'],
       ...props
     });
   }
@@ -43,8 +43,20 @@ export class Table extends Component {
       } else {
         this.selection.select(event.target);
       }
-
     }
   } 
+
+  onKeydown(event) {
+    const keys = ['Enter', 'Tab', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
+
+    if (keys.includes(event.key) && !event.shiftKey) {
+      event.preventDefault();
+
+      const {key} = event;
+      const id = parseId(this.selection.current.dataset.id)
+      const $nextCell = this.$root.querySelector(getNextSelector(key, id));
+      this.selection.select($nextCell);
+    }
+  }
 
 }
