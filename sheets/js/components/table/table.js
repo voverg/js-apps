@@ -32,6 +32,10 @@ export class Table extends Component {
     this.$on('formula:enter', () => {
       this.selection.current.focus();
     });
+
+    this.$subscribe((state) => {
+      console.log('State from table:', state);
+    });
   }
 
   selectCell($cell) {
@@ -54,8 +58,7 @@ export class Table extends Component {
         const cells = rangeId.map((id) => this.$root.querySelector(`[data-id="${id}"]`));
         this.selection.selectGroup(cells);
       } else {
-        this.selection.select(event.target);
-        this.$emit('table:select', event.target.textContent);
+        this.selectCell(event.target);
       }
     }
   } 

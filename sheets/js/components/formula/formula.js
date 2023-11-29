@@ -23,6 +23,10 @@ export class Formula extends Component {
     this.$on('table:input', (data) => {
       this.$formulaInput.textContent = data;
     });
+
+    this.$subscribe((state) => {
+      console.log('State from formula:', state);
+    });
   }
 
   onInput(event) {

@@ -4,6 +4,7 @@ export class Sheet {
   constructor(selector, props) {
     this.$el = document.querySelector(selector);
     this.components = props.components || [];
+    this.store = props.store;
     this.emitter = new Emitter();
   }
 
@@ -20,6 +21,7 @@ export class Sheet {
 
     const componentProps = {
       emitter: this.emitter,
+      store: this.store,
     };
 
     this.components = this.components.map((ClassComponent) => {

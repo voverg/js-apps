@@ -4,8 +4,10 @@ export class Component extends DomListener {
   constructor($root, props = {}) {
     super($root, props.listeners);
     this.name = props.name || '';
+    this.store = props.store;
     this.emitter = props.emitter;
     this.unsubscribers = [];
+    this.storeSub = null;
 
     this.prepare();
   }
@@ -26,10 +28,21 @@ export class Component extends DomListener {
     this.unsubscribers.push(unsub);
   }
 
+  // Work with store
+  $dispatch(action) {
+    this.store.dispatch(action);
+  }
+
+  $subscribe(fn) {
+    this.storeSub = this.store.subscribe(fn);
+  }
+
   destroy() {
     this.removeDomListeners();
     this.unsubscribers.forEach( (unsub) => unsub() );
+    this.storeSub.unsubscibe();
   }
+
   // Return the component template
   toHtml() {
     return '';
