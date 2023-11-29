@@ -1,7 +1,10 @@
+import { Emitter } from '../../core/emitter.js';
+
 export class Sheet {
   constructor(selector, props) {
     this.$el = document.querySelector(selector);
     this.components = props.components || [];
+    this.emitter = new Emitter();
   }
 
   createElement(tag, className = '') {
@@ -15,7 +18,9 @@ export class Sheet {
   getRoot() {
     const $root = this.createElement('div', 'sheet');
 
-    const componentProps = {};
+    const componentProps = {
+      emitter: this.emitter,
+    };
 
     this.components = this.components.map((ClassComponent) => {
       const $el = this.createElement('div', ClassComponent.className);
@@ -36,4 +41,11 @@ export class Sheet {
       component.init();
     });
   }
+
+  destroy() {
+    this.components.forEach((component) => {
+      component.destroy();
+    });
+  }
+
 }

@@ -6,23 +6,43 @@ export class Formula extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Formula',
-      listeners: ['input', 'click'],
+      listeners: ['input', 'keydown'],
       ...props
     });
   }
 
-  onInput(event) {
-    console.log('Formula input', event.target.textContent);
+  init() {
+    super.init();
+
+    this.$formulaInput = this.$root.querySelector('#formula-input');
+
+    this.$on('table:select', (data) => {
+      this.$formulaInput.textContent = data;
+    });
+
+    this.$on('table:input', (data) => {
+      this.$formulaInput.textContent = data;
+    });
   }
 
-  onClick(event) {
-    console.log('Formula click', event.target);
+  onInput(event) {
+    const text = event.target.textContent.trim();
+    this.$emit('formula:input', text);
+  }
+
+  onKeydown(event) {
+    const keys = ['Enter', 'Tab',];
+
+    if (keys.includes(event.key)) {
+      event.preventDefault();
+      this.$emit('formula:enter');
+    }
   }
 
   toHtml() {
     return `
       <div class="formula__info">fx</div>
-      <div class="formula__input" contenteditable spellcheck="false"></div>
+      <div class="formula__input" id="formula-input" contenteditable spellcheck="false"></div>
     `;
   }
 

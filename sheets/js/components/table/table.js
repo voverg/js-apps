@@ -10,7 +10,7 @@ export class Table extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Table',
-      listeners: ['pointerdown', 'keydown'],
+      listeners: ['pointerdown', 'keydown', 'input'],
       ...props
     });
   }
@@ -23,7 +23,20 @@ export class Table extends Component {
     super.init();
 
     const $cell = this.$root.querySelector('[data-id="0:0"]');
+    this.selectCell($cell);
+
+    this.$on('formula:input', (data) => {
+      this.selection.current.textContent = data;
+    });
+
+    this.$on('formula:enter', () => {
+      this.selection.current.focus();
+    });
+  }
+
+  selectCell($cell) {
     this.selection.select($cell);
+    this.$emit('table:select', $cell.textContent);
   }
 
   toHtml() {
@@ -42,6 +55,7 @@ export class Table extends Component {
         this.selection.selectGroup(cells);
       } else {
         this.selection.select(event.target);
+        this.$emit('table:select', event.target.textContent);
       }
     }
   } 
@@ -55,8 +69,12 @@ export class Table extends Component {
       const {key} = event;
       const id = parseId(this.selection.current.dataset.id)
       const $nextCell = this.$root.querySelector(getNextSelector(key, id));
-      this.selection.select($nextCell);
+      this.selectCell($nextCell);
     }
+  }
+
+  onInput(event) {
+    this.$emit('table:input', event.target.textContent);
   }
 
 }
