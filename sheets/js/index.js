@@ -7,10 +7,18 @@ import { Footer } from './components/footer/footer.js';
 
 import { createStore } from './core/createStore.js';
 import { rootReducer } from './store/rootReducer.js';
+import { storage } from './core/utils.js';
 
-const initialState = {cat: 'Meuw'};
+const initialState = {
+  colState: storage('sheets-state'),
+};
 
 const store = createStore(rootReducer, initialState);
+
+store.subscribe((state) => {
+  console.log('App state', state);
+  storage('sheets-state', state);
+});
 
 const sheet = new Sheet('#app', {
   components: [Header, Toolbar, Formula, Table, Footer],

@@ -1,11 +1,27 @@
-export function shoudTableResize() {
+/**
+ * Should table resize
+ * @param  {Event} event Receive event
+ * @return {boolean}     Return true or false
+ */
+export function shouldTableResize(event) {
   return event.target.dataset.resize;
 }
 
+/**
+ * Is it cell?
+ * @param  {Event}  event Receive event
+ * @return {boolean}       Return true if it is cell else false
+ */
 export function isCell(event) {
   return event.target.dataset.type === 'cell';
 }
 
+/**
+ * Get range of ids
+ * @param  {string} currentId [description]
+ * @param  {string} targetId  [description]
+ * @return {Array}           [description]
+ */
 export function getRangeId(currentId, targetId) {
   const [currentList, targetList] = [parseId(currentId), parseId(targetId)];
   const rangeId = [];
@@ -25,11 +41,23 @@ export function getRangeId(currentId, targetId) {
   return rangeId;
 }
 
+/**
+ * Parse id
+ * @param  {string} id This a cell id
+ * @return {{row: number, col: number}}    The object with row and column numbers
+ */
 export function parseId(id) {
   const [row, col] = id.split(':').map(el => +el);
   return {row, col};
 }
 
+/**
+ * Get next selector id
+ * @param  {string} key         The pressed key
+ * @param  {number} options.col Column number
+ * @param  {number} options.row Row number
+ * @return {string}             The next selector identificator
+ */
 export function getNextSelector(key, {col, row}) {
   const MIN_VALUE = 0;
 
