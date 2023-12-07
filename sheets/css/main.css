@@ -48,6 +48,7 @@ ul {
   background: var(--border-color);
   color: #efefef;
   text-align: center;
+  z-index: 100;
 }
 
 .footer__link {

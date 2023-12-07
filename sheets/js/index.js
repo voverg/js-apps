@@ -5,19 +5,17 @@ import { Formula } from './components/formula/formula.js';
 import { Table } from './components/table/table.js';
 import { Footer } from './components/footer/footer.js';
 
+import { storage } from './core/utils.js';
 import { createStore } from './core/createStore.js';
 import { rootReducer } from './store/rootReducer.js';
-import { storage } from './core/utils.js';
+import { initialState } from './store/initial-state.js';
 
-const initialState = {
-  colState: storage('sheets-state'),
-};
 
 const store = createStore(rootReducer, initialState);
 
 store.subscribe((state) => {
-  console.log('App state', state);
   storage('sheets-state', state);
+  console.log('App state:', state);
 });
 
 const sheet = new Sheet('#app', {

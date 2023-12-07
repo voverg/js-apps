@@ -20,13 +20,13 @@ export class Formula extends Component {
       this.$formulaInput.textContent = data;
     });
 
-    this.$on('table:input', (data) => {
-      this.$formulaInput.textContent = data;
-    });
-
-    // this.$subscribe((state) => {
-    //   console.log('State from formula:', state);
+    // this.$on('table:input', (data) => {
+    //   this.$formulaInput.textContent = data;
     // });
+
+    this.$subscribe((state) => {
+      this.$formulaInput.textContent = state.currentText;
+    });
   }
 
   onInput(event) {

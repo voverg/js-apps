@@ -111,7 +111,6 @@
 /*--- sheet table ---*/
 .sheet__table {
   position: absolute;
-  /*top: calc( var(--header-height) + var(--toolbar-height) + var(--formula-height) + var(--row-height) );*/
   top: calc( var(--header-height) + var(--toolbar-height) + var(--formula-height) );
   left: 0;
   right: 0;
@@ -183,6 +182,7 @@
   background: var(--primary-color);
   opacity: 0;
   z-index: 1000;
+  touch-action: none;
 }
 .col-resize {
   top: 0;

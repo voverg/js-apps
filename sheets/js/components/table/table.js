@@ -3,6 +3,7 @@ import { createTable } from './table.template.js';
 import { resizeHandler } from './table.resize.js';
 import { shouldTableResize, isCell, getRangeId, parseId, getNextSelector } from './table.helpers.js';
 import { TableSelection } from './table-selection.js';
+import * as actions from '../../store/actions.js';
 
 export class Table extends Component {
   static className = 'sheet__table table';
@@ -27,6 +28,7 @@ export class Table extends Component {
 
     this.$on('formula:input', (data) => {
       this.selection.current.textContent = data;
+      this.updateTextInStore(data);
     });
 
     this.$on('formula:enter', () => {
@@ -46,15 +48,15 @@ export class Table extends Component {
   async resizeTable(event) {
     try {
       const data = await resizeHandler(this.$root, event);
-      const modifiedData = {[data.id]: data.value};
-      this.$dispatch({type: 'TABLE_RESIZE', data: modifiedData});
+      // const modifiedData = {[data.id]: data.value};
+      this.$dispatch(actions.tableResize(data));
     } catch (e) {
       console.error('Resize error:', e.message);
     }
   }
 
   toHtml() {
-    return createTable(30);
+    return createTable(30, this.store.getState());
   }
 
   onPointerdown(event) {
@@ -86,8 +88,16 @@ export class Table extends Component {
     }
   }
 
+  updateTextInStore(text) {
+    this.$dispatch(actions.changeText({
+      text,
+      id: this.selection.current.dataset.id,
+    }));
+  }
+
   onInput(event) {
-    this.$emit('table:input', event.target.textContent);
+    // this.$emit('table:input', event.target.textContent);
+    this.updateTextInStore(event.target.textContent);
   }
 
 }

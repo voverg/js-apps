@@ -48,7 +48,8 @@ export function resizeHandler($root, event) {
 
       resolve({
         value,
-        id: typeResize === 'col' ? $parent.dataset.col : null
+        typeResize,
+        id: $parent.dataset[typeResize],
       });
 
       // Reset resizer styles

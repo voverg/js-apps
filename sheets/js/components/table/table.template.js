@@ -1,48 +1,92 @@
+const DEFAULT_WIDTH = 120;
+const DEFAULT_HEIGHT = 24;
 const CODES = {
   A: 65,
   Z: 90,
 };
 
+/**
+ * Get char by its index
+ * @param  {string} _     Stub
+ * @param  {number} index Char index
+ * @return {string}       Return char
+ */
 function toChar(_, index) {
   const charIndex = CODES.A + index;
   const char = String.fromCharCode(charIndex);
   return char;
 }
 
-// function createCell(_, colIndex) {
-//   return `
-//     <div class="cell" data-col="${colIndex}" contenteditable></div>
-//   `;
-// }
+/**
+ * Get column width
+ * @param {object} colState 
+ * @param {number} colIndex 
+ * @returns string
+ */
+function getWidth(colState, colIndex) {
+  return (colState[colIndex] || DEFAULT_WIDTH) + 'px';
+}
 
-function createCell(rowIndex) {
-  return function (_, colIndex) {
+/**
+ * Get row height
+ * @param {object} rowState 
+ * @param {number} rowIndex 
+ * @returns string
+ */
+function getHeight(rowState, rowIndex) {
+  return (rowState[rowIndex] || DEFAULT_HEIGHT) + 'px';
+}
+
+function toColData(colState) {
+  return function(col, colIndex) {
+    const width = getWidth(colState, colIndex);
+    return {content: col, index: colIndex, width};
+  }
+}
+
+function createCell(rowIndex, dataState) {
+  return function(colData, colIndex) {
+    const id = `${rowIndex}:${colIndex}`;
+    const content = dataState[id] ?? '';
+
     return `
       <div
         class="cell"
         data-col="${colIndex}"
-        data-id="${rowIndex}:${colIndex}"
+        data-id="${id}"
         data-type="cell"
+        style="width: ${colData.width}"
         contenteditable
-      ></div>
+      >${content}</div>
     `;
   }
 }
 
-function createCol(col, index) {
+function createCol({content, index, width}) {
   return `
-    <div class="column" data-type="resizable" data-col="${index}">
-      ${col}
+    <div
+      class="column"
+      data-type="resizable"
+      data-col="${index}"
+      style="width: ${width}"
+    >
+      ${content}
       <div class="col-resize" data-resize="col"></div>
     </div>
   `;
 }
 
-function createRow(rowInfo, content, className = '') {
-  const resizer = rowInfo ? `<div class="row-resize" data-resize="row"></div>` : '';
+function createRow({ rowIndex, content, className, rowHeight }) {
+  const resizer = rowIndex ? `<div class="row-resize" data-resize="row"></div>` : '';
+  const rowInfo = typeof rowIndex === 'number' ? rowIndex + 1 : '';
 
   return `
-    <div class="row ${className}" data-type="resizable">
+    <div
+      class="row ${className}"
+      data-type="resizable"
+      data-row="${rowIndex}"
+      style="height: ${rowHeight}"
+    >
       <div class="row-info">
         ${rowInfo}
         ${resizer}
@@ -52,27 +96,42 @@ function createRow(rowInfo, content, className = '') {
   `;
 }
 
-export function createTable(rowsCount = 5) {
+export function createTable(rowsCount = 5, state = {}) {
   const colsCount = CODES.Z - CODES.A + 1;
   const rows = [];
 
   const cols = new Array(colsCount)
     .fill('')
     .map(toChar)
+    .map(toColData(state.colState))
     .map(createCol)
     .join('');
 
-  rows.push( createRow('', cols, 'row--fixed') );
+  // Create the first table row with column names
+  rows.push( createRow({
+    rowIndex: null,
+    content: cols,
+    className: 'row--fixed',
+    rowHeight: DEFAULT_HEIGHT,
+  }) );
 
-  for (let row = 0; row < rowsCount; row++) {
-    const rowInfo = row + 1;
+  // Create rows
+  for (let rowIndex = 0; rowIndex < rowsCount; rowIndex++) {
+    const rowHeight = getHeight(state.rowState, rowIndex);
+    const rowInfo = rowIndex + 1;
 
     const cells = new Array(colsCount)
     .fill('')
-    .map(createCell(row))
+    .map(toColData(state.colState))
+    .map(createCell(rowIndex, state.dataState))
     .join('');
 
-    rows.push(createRow(rowInfo, cells));
+    rows.push( createRow({
+      rowIndex,
+      content: cells,
+      className: '',
+      rowHeight,
+    }) );
   }
 
   return rows.join('');
