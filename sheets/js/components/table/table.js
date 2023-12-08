@@ -26,18 +26,14 @@ export class Table extends Component {
     const $cell = this.$root.querySelector('[data-id="0:0"]');
     this.selectCell($cell);
 
-    this.$on('formula:input', (data) => {
-      this.selection.current.textContent = data;
-      this.updateTextInStore(data);
+    this.$on('formula:input', (text) => {
+      this.selection.current.textContent = text;
+      this.updateTextInStore(text);
     });
 
     this.$on('formula:enter', () => {
       this.selection.current.focus();
     });
-
-    // this.$subscribe((state) => {
-    //   console.log('State from table:', state);
-    // });
   }
 
   selectCell($cell) {
@@ -48,7 +44,6 @@ export class Table extends Component {
   async resizeTable(event) {
     try {
       const data = await resizeHandler(this.$root, event);
-      // const modifiedData = {[data.id]: data.value};
       this.$dispatch(actions.tableResize(data));
     } catch (e) {
       console.error('Resize error:', e.message);
@@ -57,6 +52,13 @@ export class Table extends Component {
 
   toHtml() {
     return createTable(30, this.store.getState());
+  }
+
+  updateTextInStore(text) {
+    this.$dispatch(actions.changeText({
+      text,
+      id: this.selection.current.dataset.id,
+    }));
   }
 
   onPointerdown(event) {
@@ -88,15 +90,7 @@ export class Table extends Component {
     }
   }
 
-  updateTextInStore(text) {
-    this.$dispatch(actions.changeText({
-      text,
-      id: this.selection.current.dataset.id,
-    }));
-  }
-
   onInput(event) {
-    // this.$emit('table:input', event.target.textContent);
     this.updateTextInStore(event.target.textContent);
   }
 

@@ -3,8 +3,9 @@ import { storage } from '../core/utils.js';
 const defaultState = {
   colState: {},
   rowState: {},
-  dataState: {}, // {id: '0:1', text: 'text example'}
+  dataState: {},
   currentText: '',
+  title: 'Новая таблица',
 };
 
 export const initialState = storage('sheets-state') || defaultState;

@@ -15,7 +15,7 @@ const store = createStore(rootReducer, initialState);
 
 store.subscribe((state) => {
   storage('sheets-state', state);
-  console.log('App state:', state);
+  // console.log('App state:', state);
 });
 
 const sheet = new Sheet('#app', {

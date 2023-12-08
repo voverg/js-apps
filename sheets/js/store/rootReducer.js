@@ -1,4 +1,4 @@
-import { CHANGE_TEXT, TABLE_RESIZE } from './action-types.js';
+import { CHANGE_TEXT, CHANGE_TITLE, TABLE_RESIZE } from './action-types.js';
 
 export function rootReducer(state, {type, payload}) {
   switch (type) {
@@ -9,6 +9,8 @@ export function rootReducer(state, {type, payload}) {
     case CHANGE_TEXT:
       const newDataState = {...state.dataState, [payload.id]: payload.text};
       return {...state, currentText: payload.text, dataState: newDataState};
+    case CHANGE_TITLE:
+      return {...state, title: payload};
     default:
       return state;
   }

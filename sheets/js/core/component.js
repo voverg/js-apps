@@ -1,4 +1,5 @@
 import { DomListener } from './dom-listener.js';
+import { isEqual } from './utils.js';
 
 export class Component extends DomListener {
   constructor($root, props = {}) {
@@ -33,8 +34,22 @@ export class Component extends DomListener {
     this.store.dispatch(action);
   }
 
-  $subscribe(fn) {
-    this.storeSub = this.store.subscribe(fn);
+  $subscribe(fn, deps) {
+    if (!deps || deps.length <= 0) {
+      this.storeSub = this.store.subscribe(fn);
+    } else {
+      let prevState = this.store.getState();
+
+      this.storeSub = this.store.subscribe((state) => {
+        deps.forEach((key) => {
+          if (!isEqual(prevState[key], state[key])) {
+            fn(state);
+          }
+        });
+        prevState = this.store.getState();
+      });
+      
+    }
   }
 
   destroy() {

@@ -1,4 +1,4 @@
-import { TABLE_RESIZE, CHANGE_TEXT } from './action-types.js';
+import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TITLE } from './action-types.js';
 
 /**
  * Create table resize action
@@ -16,4 +16,13 @@ export function tableResize(data) {
  */
 export function changeText(data) {
   return {type: CHANGE_TEXT, payload: data};
+}
+
+/**
+ * Create change title action
+ * @param  {string} text Get title text
+ * @return {{type: string, payload: string}}      [description]
+ */
+export function changeTitle(text) {
+  return {type: CHANGE_TITLE, payload: text};
 }

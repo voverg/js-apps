@@ -34,7 +34,7 @@
   right: 0;
   left: 0;
   height: var(--header-height);
-  padding: 8px 4px 0;
+  padding: 6px 4px 0;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
@@ -45,7 +45,7 @@
   color: #333;
   border: 2px solid transparent;
   border-radius: 2px;
-  height: 20px;
+  height: 26px;
   font-size: 18px;
   line-height: 22px;
   outline: none;
