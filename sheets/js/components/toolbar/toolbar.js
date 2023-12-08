@@ -1,4 +1,5 @@
 import { Component } from '../../core/component.js';
+import { createToolbar } from './toolbar.template.js';
 
 export class Toolbar extends Component {
   static className = 'sheet__toolbar toolbar';
@@ -11,31 +12,27 @@ export class Toolbar extends Component {
     });
   }
 
-  onClick(event) {
-    console.log(event.target);
+  prepare() {
+    const initialLocalState = {
+      textAlign: 'left',
+      fontWeight: 'normal',
+      fontStyle: 'normal',
+      textDecoration: 'none',
+    };
+
+    this.useState(initialLocalState);
   }
 
   toHtml() {
-    return `
-      <button class="btn toolbar__btn" title="По левому краю">
-        <i class="material-icons">format_align_left</i>
-      </button>
-      <button class="btn toolbar__btn" title="По центру">
-        <i class="material-icons">format_align_center</i>
-      </button>
-      <button class="btn toolbar__btn" title="По правому краю">
-        <i class="material-icons">format_align_right</i>
-      </button>
-      <button class="btn toolbar__btn" title="Жирный">
-        <i class="material-icons">format_bold</i>
-      </button>
-      <button class="btn toolbar__btn" title="Курсив">
-        <i class="material-icons">format_italic</i>
-      </button>
-      <button class="btn toolbar__btn" title="Подчёркнутый">
-        <i class="material-icons">format_underline</i>
-      </button>
-    `;
+    return createToolbar(this.localState);
+  }
+
+  onClick(event) {
+    if (event.target.dataset.type === 'btn') {
+      const valueObj = JSON.parse(event.target.dataset.value);
+      this.$emit('toolbar:setStyle', valueObj);
+      this.setState(valueObj);
+    }
   }
 
 }

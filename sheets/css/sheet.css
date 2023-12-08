@@ -68,12 +68,17 @@
   left: 0;
   right: 0;
   display: flex;
+  gap: 1px;
   padding: 7px 10px;
   height: var(--toolbar-height);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   background-color: #fff;
   z-index: 100;
+}
+.toolbar__btn--selected {
+  background-color: #eee;
+  color: var(--accent-green);
 }
 .toolbar__btn:active {
   color: var(--accent-green);

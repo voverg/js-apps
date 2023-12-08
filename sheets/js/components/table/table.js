@@ -26,6 +26,10 @@ export class Table extends Component {
     const $cell = this.$root.querySelector('[data-id="0:0"]');
     this.selectCell($cell);
 
+    this.$on('toolbar:setStyle', (style) => {
+      this.selection.setStyle(style);
+    });
+
     this.$on('formula:input', (text) => {
       this.selection.current.textContent = text;
       this.updateTextInStore(text);

@@ -9,6 +9,7 @@ export class Component extends DomListener {
     this.emitter = props.emitter;
     this.unsubscribers = [];
     this.storeSub = null;
+    this.localState = null;
 
     this.prepare();
   }
@@ -17,6 +18,16 @@ export class Component extends DomListener {
 
   init() {
     this.initDomListeners();
+  }
+
+  // Local state
+  useState(initialState = {}) {
+    this.localState = {...initialState};
+  }
+
+  setState(newState) {
+    this.localState = {...this.localState, ...newState};
+    this.$root.innerHTML = this.toHtml();
   }
 
   // Notify listeners about event
