@@ -1,4 +1,10 @@
-import { TABLE_RESIZE, CHANGE_TEXT, CHANGE_TITLE } from './action-types.js';
+import {
+  TABLE_RESIZE,
+  CHANGE_TEXT,
+  CHANGE_TITLE,
+  CHANGE_CELL_STYLES,
+  SET_TOOLBAR_STYLES,
+} from './action-types.js';
 
 /**
  * Create table resize action
@@ -25,4 +31,12 @@ export function changeText(data) {
  */
 export function changeTitle(text) {
   return {type: CHANGE_TITLE, payload: text};
+}
+
+export function changeCurrentCellStyles(data) {
+  return {type: CHANGE_CELL_STYLES, payload: data};
+}
+
+export function setCellStyles(data) {
+  return {type: SET_TOOLBAR_STYLES, payload: data};
 }

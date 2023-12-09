@@ -29,7 +29,7 @@ export class TableSelection {
 
   setStyle(style) {
     this.group.forEach(($cell) => {
-      console.log(style);
+      // console.log(style);
       Object.keys(style).forEach((key) => $cell.style[key] = style[key]);
     });
   }

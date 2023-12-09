@@ -1,4 +1,10 @@
-import { CHANGE_TEXT, CHANGE_TITLE, TABLE_RESIZE } from './action-types.js';
+import {
+  CHANGE_CELL_STYLES,
+  CHANGE_TEXT,
+  CHANGE_TITLE,
+  SET_TOOLBAR_STYLES,
+  TABLE_RESIZE,
+} from './action-types.js';
 
 export function rootReducer(state, {type, payload}) {
   switch (type) {
@@ -11,6 +17,10 @@ export function rootReducer(state, {type, payload}) {
       return {...state, currentText: payload.text, dataState: newDataState};
     case CHANGE_TITLE:
       return {...state, title: payload};
+    case CHANGE_CELL_STYLES:
+      return {...state, cellStyles: payload};
+    case SET_TOOLBAR_STYLES:
+      return {...state, toolbarStyles: payload};
     default:
       return state;
   }

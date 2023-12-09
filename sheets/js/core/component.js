@@ -9,7 +9,7 @@ export class Component extends DomListener {
     this.emitter = props.emitter;
     this.unsubscribers = [];
     this.storeSub = null;
-    this.localState = null;
+    this.state = null;
 
     this.prepare();
   }
@@ -22,11 +22,11 @@ export class Component extends DomListener {
 
   // Local state
   useState(initialState = {}) {
-    this.localState = {...initialState};
+    this.state = {...initialState};
   }
 
   setState(newState) {
-    this.localState = {...this.localState, ...newState};
+    this.state = {...this.state, ...newState};
     this.$root.innerHTML = this.toHtml();
   }
 

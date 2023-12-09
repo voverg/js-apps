@@ -43,6 +43,7 @@ export class Table extends Component {
   selectCell($cell) {
     this.selection.select($cell);
     this.$emit('table:select', $cell.textContent);
+    // console.log($cell.style);
   }
 
   async resizeTable(event) {

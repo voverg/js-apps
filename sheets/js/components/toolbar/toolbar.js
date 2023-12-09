@@ -13,18 +13,18 @@ export class Toolbar extends Component {
   }
 
   prepare() {
-    const initialLocalState = {
-      textAlign: 'left',
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-      textDecoration: 'none',
+    const initialState = {
+      'text-align': 'left',
+      'font-weight': 'normal',
+      'font-style': 'normal',
+      'text-decoration': 'none',
     };
 
-    this.useState(initialLocalState);
+    this.useState(initialState);
   }
 
   toHtml() {
-    return createToolbar(this.localState);
+    return createToolbar(this.state);
   }
 
   onClick(event) {
