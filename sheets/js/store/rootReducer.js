@@ -18,7 +18,14 @@ export function rootReducer(state, {type, payload}) {
     case CHANGE_TITLE:
       return {...state, title: payload};
     case CHANGE_CELL_STYLES:
-      return {...state, cellStyles: payload};
+      let cellStyles = {};
+      
+      payload.id.forEach((id) => {
+        cellStyles[id] = payload.styles;
+      });
+
+      const newStyleList = {...state.cellStyleList, ...cellStyles};
+      return {...state, cellStyleList: newStyleList};
     case SET_TOOLBAR_STYLES:
       return {...state, toolbarStyles: payload};
     default:

@@ -1,9 +1,15 @@
 import { Component } from '../../core/component.js';
 import { createTable } from './table.template.js';
 import { resizeHandler } from './table.resize.js';
-import { shouldTableResize, isCell, getRangeId, parseId, getNextSelector } from './table.helpers.js';
 import { TableSelection } from './table-selection.js';
 import * as actions from '../../store/actions.js';
+import {
+  shouldTableResize,
+  isCell,
+  getRangeId,
+  parseId,
+  getNextSelector
+} from './table.helpers.js';
 
 export class Table extends Component {
   static className = 'sheet__table table';
@@ -26,8 +32,13 @@ export class Table extends Component {
     const $cell = this.$root.querySelector('[data-id="0:0"]');
     this.selectCell($cell);
 
-    this.$on('toolbar:setStyle', (style) => {
-      this.selection.setStyle(style);
+    this.$on('toolbar:setStyle', (styles) => {
+      this.selection.setStyle(styles);
+      this.$dispatch(actions.setToolbarStyles(styles));
+      this.$dispatch(actions.changeCellStyles({
+        id: this.selection.groupIds,
+        styles
+      }));
     });
 
     this.$on('formula:input', (text) => {
@@ -43,7 +54,10 @@ export class Table extends Component {
   selectCell($cell) {
     this.selection.select($cell);
     this.$emit('table:select', $cell.textContent);
-    // console.log($cell.style);
+    // Set selected cell styles to stor for toolbarStyles
+    const id = this.selection.currentId;
+    const styles = this.store.getState().cellStyleList[id] || this.store.getState().defaultStyles;
+    this.$dispatch(actions.setToolbarStyles(styles));
   }
 
   async resizeTable(event) {
@@ -62,7 +76,7 @@ export class Table extends Component {
   updateTextInStore(text) {
     this.$dispatch(actions.changeText({
       text,
-      id: this.selection.current.dataset.id,
+      id: this.selection.currentId,
     }));
   }
 
@@ -71,7 +85,7 @@ export class Table extends Component {
       this.resizeTable(event)
    }  else if (isCell(event)) {
       if (event.shiftKey) {
-        const currentId = this.selection.current.dataset.id;
+        const currentId = this.selection.currentId;
         const targetId = event.target.dataset.id;
         const rangeId = getRangeId(currentId, targetId);
         const cells = rangeId.map((id) => this.$root.querySelector(`[data-id="${id}"]`));
@@ -89,7 +103,7 @@ export class Table extends Component {
       event.preventDefault();
 
       const {key} = event;
-      const id = parseId(this.selection.current.dataset.id)
+      const id = parseId(this.selection.currentId)
       const $nextCell = this.$root.querySelector(getNextSelector(key, id));
       this.selectCell($nextCell);
     }

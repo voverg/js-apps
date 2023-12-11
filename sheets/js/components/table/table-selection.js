@@ -14,6 +14,14 @@ export class TableSelection {
     this.current = $el;
   }
 
+  get currentId() {
+    return this.current.dataset.id;
+  }
+
+  get groupIds() {
+    return this.group.map(($cell) => $cell.dataset.id);
+  }
+
   clear() {
     this.group.forEach(($el) => $el.classList.remove(TableSelection.className));
     this.group = [];
@@ -29,7 +37,6 @@ export class TableSelection {
 
   setStyle(style) {
     this.group.forEach(($cell) => {
-      // console.log(style);
       Object.keys(style).forEach((key) => $cell.style[key] = style[key]);
     });
   }

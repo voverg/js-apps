@@ -63,7 +63,7 @@ export function getNextSelector(key, {col, row}) {
 
   switch(key) {
     case 'ArrowUp':
-      row = row - 1 < MIN_VALUE ? MIN_VALUE : row - 1;
+      row = Math.max(row - 1, MIN_VALUE);
       break;
     case 'ArrowRight':
     case 'Tab':
@@ -74,7 +74,7 @@ export function getNextSelector(key, {col, row}) {
       row++;
       break;
     case 'ArrowLeft':
-      col = col - 1 < MIN_VALUE ? MIN_VALUE : col - 1;
+      col = Math.max(col - 1, MIN_VALUE);
       break;
   }
   

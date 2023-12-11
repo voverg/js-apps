@@ -5,6 +5,16 @@ const CODES = {
   Z: 90,
 };
 
+function getStrFromObj(obj) {
+  if (!obj) return;
+
+  const str = Object.keys(obj).map((key) => {
+    return `${key}: ${obj[key]};`;
+  }).join('');
+
+  return str;
+}
+
 /**
  * Get char by its index
  * @param  {string} _     Stub
@@ -44,10 +54,11 @@ function toColData(colState) {
   }
 }
 
-function createCell(rowIndex, dataState) {
+function createCell(rowIndex, state) {
   return function(colData, colIndex) {
     const id = `${rowIndex}:${colIndex}`;
-    const content = dataState[id] ?? '';
+    const content = state.dataState[id] ?? '';
+    const styles = getStrFromObj(state.cellStyleList[id]) || getStrFromObj(state.defaultStyles);
 
     return `
       <div
@@ -55,7 +66,7 @@ function createCell(rowIndex, dataState) {
         data-col="${colIndex}"
         data-id="${id}"
         data-type="cell"
-        style="width: ${colData.width}"
+        style="${styles} width: ${colData.width}"
         contenteditable
       >${content}</div>
     `;
@@ -123,7 +134,7 @@ export function createTable(rowsCount = 5, state = {}) {
     const cells = new Array(colsCount)
     .fill('')
     .map(toColData(state.colState))
-    .map(createCell(rowIndex, state.dataState))
+    .map(createCell(rowIndex, state))
     .join('');
 
     rows.push( createRow({

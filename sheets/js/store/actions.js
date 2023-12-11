@@ -33,10 +33,10 @@ export function changeTitle(text) {
   return {type: CHANGE_TITLE, payload: text};
 }
 
-export function changeCurrentCellStyles(data) {
-  return {type: CHANGE_CELL_STYLES, payload: data};
+export function setToolbarStyles(data) {
+  return {type: SET_TOOLBAR_STYLES, payload: data};
 }
 
-export function setCellStyles(data) {
-  return {type: SET_TOOLBAR_STYLES, payload: data};
+export function changeCellStyles(data) {
+  return {type: CHANGE_CELL_STYLES, payload: data};
 }

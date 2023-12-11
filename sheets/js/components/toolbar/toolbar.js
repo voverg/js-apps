@@ -1,4 +1,5 @@
 import { Component } from '../../core/component.js';
+import * as actions from '../../store/actions.js';
 import { createToolbar } from './toolbar.template.js';
 
 export class Toolbar extends Component {
@@ -13,14 +14,15 @@ export class Toolbar extends Component {
   }
 
   prepare() {
-    const initialState = {
-      'text-align': 'left',
-      'font-weight': 'normal',
-      'font-style': 'normal',
-      'text-decoration': 'none',
-    };
+    this.useState(this.store.getState().defaultStyles);
+  }
 
-    this.useState(initialState);
+  init() {
+    super.init();
+
+    this.$subscribe((state) => {
+      this.setState(state.toolbarStyles);
+    }, ['toolbarStyles']);
   }
 
   toHtml() {
@@ -30,9 +32,9 @@ export class Toolbar extends Component {
   onClick(event) {
     if (event.target.dataset.type === 'btn') {
       const valueObj = JSON.parse(event.target.dataset.value);
-      this.$emit('toolbar:setStyle', valueObj);
-      this.setState(valueObj);
+      this.$emit('toolbar:setStyle', {...this.state, ...valueObj});
     }
   }
+
 
 }
