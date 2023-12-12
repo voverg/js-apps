@@ -2,7 +2,6 @@ import {
   CHANGE_CELL_STYLES,
   CHANGE_TEXT,
   CHANGE_TITLE,
-  SET_TOOLBAR_STYLES,
   TABLE_RESIZE,
 } from './action-types.js';
 
@@ -26,8 +25,6 @@ export function rootReducer(state, {type, payload}) {
 
       const newStyleList = {...state.cellStyleList, ...cellStyles};
       return {...state, cellStyleList: newStyleList};
-    case SET_TOOLBAR_STYLES:
-      return {...state, toolbarStyles: payload};
     default:
       return state;
   }

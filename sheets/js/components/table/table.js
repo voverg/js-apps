@@ -34,7 +34,7 @@ export class Table extends Component {
 
     this.$on('toolbar:setStyle', (styles) => {
       this.selection.setStyle(styles);
-      this.$dispatch(actions.setToolbarStyles(styles));
+      this.$emit('table:setStyle', styles);
       this.$dispatch(actions.changeCellStyles({
         id: this.selection.groupIds,
         styles
@@ -54,10 +54,10 @@ export class Table extends Component {
   selectCell($cell) {
     this.selection.select($cell);
     this.$emit('table:select', $cell.textContent);
-    // Set selected cell styles to stor for toolbarStyles
+    // Emit cell styles for Toolbar
     const id = this.selection.currentId;
     const styles = this.store.getState().cellStyleList[id] || this.store.getState().defaultStyles;
-    this.$dispatch(actions.setToolbarStyles(styles));
+    this.$emit('table:setStyle', styles);
   }
 
   async resizeTable(event) {

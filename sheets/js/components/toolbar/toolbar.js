@@ -20,9 +20,13 @@ export class Toolbar extends Component {
   init() {
     super.init();
 
-    this.$subscribe((state) => {
-      this.setState(state.toolbarStyles);
-    }, ['toolbarStyles']);
+    this.$on('table:setStyle', (styles) => {
+      this.setState(styles);
+    });
+
+    // this.$subscribe((state) => {
+    //   this.setState(state.toolbarStyles);
+    // }, ['toolbarStyles']);
   }
 
   toHtml() {

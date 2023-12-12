@@ -3,7 +3,6 @@ import {
   CHANGE_TEXT,
   CHANGE_TITLE,
   CHANGE_CELL_STYLES,
-  SET_TOOLBAR_STYLES,
 } from './action-types.js';
 
 /**
@@ -31,10 +30,6 @@ export function changeText(data) {
  */
 export function changeTitle(text) {
   return {type: CHANGE_TITLE, payload: text};
-}
-
-export function setToolbarStyles(data) {
-  return {type: SET_TOOLBAR_STYLES, payload: data};
 }
 
 export function changeCellStyles(data) {
