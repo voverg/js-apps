@@ -1,3 +1,5 @@
+import { parseCell } from "../../core/utils.js";
+
 const DEFAULT_WIDTH = 120;
 const DEFAULT_HEIGHT = 24;
 const CODES = {
@@ -67,8 +69,9 @@ function createCell(rowIndex, state) {
         data-id="${id}"
         data-type="cell"
         style="${styles} width: ${colData.width}"
+        data-value="${content}"
         contenteditable
-      >${content}</div>
+      >${parseCell(content)}</div>
     `;
   }
 }

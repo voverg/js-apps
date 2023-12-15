@@ -1,8 +1,10 @@
 import { Component } from '../../core/component.js';
+import { parseCell } from '../../core/utils.js';
+import * as actions from '../../store/actions.js';
+
 import { createTable } from './table.template.js';
 import { resizeHandler } from './table.resize.js';
 import { TableSelection } from './table-selection.js';
-import * as actions from '../../store/actions.js';
 import {
   shouldTableResize,
   isCell,
@@ -42,18 +44,20 @@ export class Table extends Component {
     });
 
     this.$on('formula:input', (text) => {
+      this.selection.current.dataset.value = text;
       this.selection.current.textContent = text;
       this.updateTextInStore(text);
     });
 
-    this.$on('formula:enter', () => {
+    this.$on('formula:enter', (text) => {
+      this.selection.current.textContent = parseCell(text);
       this.selection.current.focus();
     });
   }
 
   selectCell($cell) {
     this.selection.select($cell);
-    this.$emit('table:select', $cell.textContent);
+    this.$emit('table:select', $cell);
     // Emit cell styles for Toolbar
     const id = this.selection.currentId;
     const styles = this.store.getState().cellStyleList[id] || this.store.getState().defaultStyles;
@@ -101,7 +105,10 @@ export class Table extends Component {
 
     if (keys.includes(event.key) && !event.shiftKey) {
       event.preventDefault();
-
+      // Set parsed text in the current cell
+      const text = event.target.textContent;
+      this.selection.current.textContent = parseCell(text);
+      // Get and select next cell
       const {key} = event;
       const id = parseId(this.selection.currentId)
       const $nextCell = this.$root.querySelector(getNextSelector(key, id));
@@ -110,7 +117,8 @@ export class Table extends Component {
   }
 
   onInput(event) {
-    this.updateTextInStore(event.target.textContent);
+    const text = event.target.dataset.value;
+    this.updateTextInStore(text);
   }
 
 }

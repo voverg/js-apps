@@ -5,7 +5,7 @@ import { Formula } from './components/formula/formula.js';
 import { Table } from './components/table/table.js';
 import { Footer } from './components/footer/footer.js';
 
-import { storage } from './core/utils.js';
+import { debounce, storage } from './core/utils.js';
 import { createStore } from './core/createStore.js';
 import { rootReducer } from './store/rootReducer.js';
 import { initialState } from './store/initial-state.js';
@@ -13,10 +13,12 @@ import { initialState } from './store/initial-state.js';
 
 const store = createStore(rootReducer, initialState);
 
-store.subscribe((state) => {
+const stateListener = debounce((state) => {
   storage('sheets-state', state);
-  // console.log('App state:', state);
-});
+  console.log('App state:', state);
+}, 500);
+
+store.subscribe(stateListener);
 
 const sheet = new Sheet('#app', {
   components: [Header, Toolbar, Formula, Table, Footer],

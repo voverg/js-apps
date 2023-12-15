@@ -31,3 +31,37 @@ export function isEqual(a, b) {
 
   return a === b;
 }
+
+/**
+ * Debounce
+ * @param  {Function} fn   [description]
+ * @param  {number}   wait Amount of miloseconds
+ * @return {void}        [description]
+ */
+export function debounce(fn, wait) {
+  let timeout;
+
+  return (...args) => {
+    const later = () => {
+      clearTimeout(timeout);
+      fn(...args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  }
+}
+
+/**
+ * Parse a cell value
+ * @param  {String} value Cell text
+ * @return {number | string}       Parsed value
+ */
+export function parseCell(value = '') {
+  if (value.startsWith('=')) {
+    const result = eval(value.slice(1));
+    return result;
+  }
+
+  return value;
+}

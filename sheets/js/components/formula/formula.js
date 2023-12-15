@@ -16,8 +16,8 @@ export class Formula extends Component {
 
     this.$formulaInput = this.$root.querySelector('#formula-input');
 
-    this.$on('table:select', (data) => {
-      this.$formulaInput.textContent = data;
+    this.$on('table:select', ($cell) => {
+      this.$formulaInput.textContent = $cell.dataset.value;
     });
 
     this.$subscribe((state) => {
@@ -35,7 +35,8 @@ export class Formula extends Component {
 
     if (keys.includes(event.key)) {
       event.preventDefault();
-      this.$emit('formula:enter');
+      const text = event.target.textContent;
+      this.$emit('formula:enter', text);
     }
   }
 
