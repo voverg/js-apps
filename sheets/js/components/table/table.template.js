@@ -1,4 +1,4 @@
-import { parseCell } from "../../core/utils.js";
+import { parseCell } from "./table.helpers.js";
 
 const DEFAULT_WIDTH = 120;
 const DEFAULT_HEIGHT = 24;

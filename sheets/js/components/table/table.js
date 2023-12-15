@@ -1,5 +1,4 @@
 import { Component } from '../../core/component.js';
-import { parseCell } from '../../core/utils.js';
 import * as actions from '../../store/actions.js';
 
 import { createTable } from './table.template.js';
@@ -10,6 +9,7 @@ import {
   isCell,
   getRangeId,
   parseId,
+  parseCell,
   getNextSelector
 } from './table.helpers.js';
 
@@ -106,7 +106,7 @@ export class Table extends Component {
     if (keys.includes(event.key) && !event.shiftKey) {
       event.preventDefault();
       // Set parsed text in the current cell
-      const text = event.target.textContent;
+      const text = this.selection.current.textContent;
       this.selection.current.textContent = parseCell(text);
       // Get and select next cell
       const {key} = event;
@@ -117,7 +117,8 @@ export class Table extends Component {
   }
 
   onInput(event) {
-    const text = event.target.dataset.value;
+    const text = event.target.textContent;
+    event.target.dataset.value = text;
     this.updateTextInStore(text);
   }
 

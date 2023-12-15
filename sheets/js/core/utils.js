@@ -52,16 +52,3 @@ export function debounce(fn, wait) {
   }
 }
 
-/**
- * Parse a cell value
- * @param  {String} value Cell text
- * @return {number | string}       Parsed value
- */
-export function parseCell(value = '') {
-  if (value.startsWith('=')) {
-    const result = eval(value.slice(1));
-    return result;
-  }
-
-  return value;
-}

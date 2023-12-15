@@ -80,3 +80,18 @@ export function getNextSelector(key, {col, row}) {
   
   return `[data-id="${row}:${col}"]`;
 }
+
+
+/**
+ * Parse a cell value
+ * @param  {String} value Cell text
+ * @return {number | string}       Parsed value
+ */
+export function parseCell(value = '') {
+  if (value.startsWith('=')) {
+    const result = eval(value.slice(1));
+    return result;
+  }
+
+  return value;
+}
