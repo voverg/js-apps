@@ -1,19 +1,23 @@
 import { Page } from "../core/page.js";
 
 export class NotFoundPage extends Page {
-  constructor($root) {
-    super($root);
+  constructor($root, params) {
+    super($root, params);
     this.setTitle('Страница не найдена');
   }
 
-  render() {
-    super.render(this.template());
-  }
-
-  template() {
+  getPage() {
     const template = 'Страница не найдена';
+
+    this.page = {
+      init() {},
+      destroy() {}
+    };
     
-    return template;
+    const $page = document.createElement('div');
+    $page.innerHTML = template;
+
+    return $page;
   }
 
 }

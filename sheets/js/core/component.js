@@ -66,7 +66,10 @@ export class Component extends DomListener {
   destroy() {
     this.removeDomListeners();
     this.unsubscribers.forEach( (unsub) => unsub() );
-    this.storeSub.unsubscibe();
+
+    if (this.storeSub?.unsubscribe) {
+      this.storeSub.unsubscribe();
+    }
   }
 
   // Return the component template
