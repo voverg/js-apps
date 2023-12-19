@@ -1,7 +1,7 @@
 import { Router } from "./core/router.js";
-import { DashboardPage } from "./pages/dashboard.js";
-import { NotFoundPage } from "./pages/not-found.js";
-import { TablePage } from "./pages/table.js";
+import { DashboardPage } from "./pages/dashboard.page.js";
+import { NotFoundPage } from "./pages/not-found.page.js";
+import { TablePage } from "./pages/table.page.js";
 
 export class App {
   routes = [

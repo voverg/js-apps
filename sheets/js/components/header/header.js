@@ -23,9 +23,9 @@ export class Header extends Component {
         <button class="btn sheet__header-btn" title="Удалить таблицу">
           <i class="material-icons">delete</i>
         </button>
-        <button class="btn sheet__header-btn" title="Назад к списку таблиц">
+        <a href="#dashboard" class="btn sheet__header-btn" title="Назад к списку таблиц">
           <i class="material-icons">exit_to_app</i>
-        </button>
+        </a>
       </div>
     `;
   }
