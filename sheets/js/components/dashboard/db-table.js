@@ -83,16 +83,13 @@ export class DbTable extends Component {
       </div>
 
       <ul class="db__list">
-        ${records}
+        ${records.length ? records : noRecords}
       </ul>
 
       <!-- Add a new table button -->
       <a href="#table/${newId}" class="db__new" title="Создать новую таблицу">+</a>
-    `;
 
-    const html = records.length ? table : noRecords;
-
-    return html;
+    return table;
   }
 
 }
