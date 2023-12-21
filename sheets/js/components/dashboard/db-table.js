@@ -88,6 +88,7 @@ export class DbTable extends Component {
 
       <!-- Add a new table button -->
       <a href="#table/${newId}" class="db__new" title="Создать новую таблицу">+</a>
+    `;
 
     return table;
   }
