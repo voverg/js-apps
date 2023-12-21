@@ -7,7 +7,7 @@
   <meta name="keywords" content="html, css, javascript">
   <!-- <meta name="og:image" content="img/sheets.jpg"> -->
   <title>Sheets</title>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/main.css">
@@ -20,36 +20,53 @@
     <div class="db">
 
       <div class="db__header">
-        <h1>Таблицы</h1>
+        <h1 class="db__header-title">
+          <img src="../img/sheets.svg" alt="logo" class="db__header-logo">
+          <span>Таблицы</span>
+        </h1>
+        <form class="db__search">
+          <i class="material-icons db__search-icon">search</i>
+          <input type="search" class="db__search-input" placeholder="Поиск">
+        </form>
       </div>
 
-      <div class="db__new">
-        <div class="db__view">
-          <a href="#" class="db__create">Новая <br> таблица</a>
-        </div>
-      </div>
-
-      <div class="db__table db__view">
+      <div class="db__table">
         <div class="db__list-header">
           <span>Название</span>
           <span>Дата открытия</span>
         </div>
 
         <ul class="db__list">
+
           <li class="db__record">
-            <a href="#">Таблица номер 1</a>
-            <strong>23.11.2020</strong>
+            <a href="#table" class="db__record-link">
+              <span class="db__record-title">
+                <img src="../img/favicon.ico" alt="" class="db__record-icon">
+                <span class="db__record-text">Таблица номер 1</span>
+              </span>
+              <span class="db__record-date">23.11.2020</span>
+            </a>
           </li>
+
           <li class="db__record">
-            <a href="#">Таблица номер 2</a>
-            <strong>23.11.2020</strong>
+            <a href="#table" class="db__record-link">
+              <span class="db__record-title">
+                <img src="../img/favicon.ico" alt="" class="db__record-icon">
+                <span class="db__record-text">Таблица номер 2</span>
+              </span>
+              <span class="db__record-date">23.11.2020</span>
+            </a>
           </li>
+
         </ul>
       </div>
+      <!-- Add a new table button -->
+      <a href="#table" class="db__new">+</a>
 
     </div>
+
     
-    <!-- End of app -->
+    <!-- End of db app -->
   </div>
 
   

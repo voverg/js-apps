@@ -19,7 +19,7 @@ export class Table extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Table',
-      listeners: ['pointerdown', 'keydown', 'input'],
+      listeners: ['pointerdown', 'keydown', 'input', 'focusout'],
       ...props
     });
   }
@@ -51,6 +51,10 @@ export class Table extends Component {
 
     this.$on('formula:enter', (text) => {
       this.selection.current.textContent = parseCell(text);
+      this.selection.current.focus();
+    });
+
+    this.$on('header:enter', () => {
       this.selection.current.focus();
     });
   }
@@ -105,9 +109,6 @@ export class Table extends Component {
 
     if (keys.includes(event.key) && !event.shiftKey) {
       event.preventDefault();
-      // Set parsed text in the current cell
-      const text = this.selection.current.textContent;
-      this.selection.current.textContent = parseCell(text);
       // Get and select next cell
       const {key} = event;
       const id = parseId(this.selection.currentId)
@@ -120,6 +121,12 @@ export class Table extends Component {
     const text = event.target.textContent;
     event.target.dataset.value = text;
     this.updateTextInStore(text);
+  }
+
+  onFocusout(event) {
+    // Set parsed text in the current cell for apply math operations
+    const text = this.selection.current.textContent;
+    this.selection.current.textContent = parseCell(text);
   }
 
 }

@@ -10,7 +10,8 @@
   --db-header-height: 64px;
   --border-color: #c0c0c0;
   --primary-color: #3c74ff;
-  --accent-green: #09c720;
+  --accent-green: #0F9D58;
+  --second-green: #09c720;
 }
 
 *,
@@ -31,6 +32,11 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 
@@ -59,4 +65,37 @@ ul {
 }
 .footer__link:hover {
   color: var(--primary-color);
+}
+
+
+/*Not found page*/
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.not-found__title {
+  font-size: 36px;
+}
+.not-found__link {
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+.not-found__link:hover {
+  opacity: 0.7;
+}
+
+/*Responsive*/
+@media (max-width: 480px) {
+  .not-found__title {
+    font-size: 24px;
+  }
+  .not-found__link {
+    font-size: 16px;
+  }
 }

@@ -1,4 +1,4 @@
-import { storage } from '../core/utils.js';
+import { storage, cloneObject } from '../core/utils.js';
 
 const defaultState = {
   title: 'Новая таблица',
@@ -8,6 +8,7 @@ const defaultState = {
   currentText: '',
   toolbarStyles: {},
   cellStyleList: {},
+  openedDate: new Date().toJSON(),
   defaultStyles: {
     'text-align': 'left',
     'font-weight': 'normal',
@@ -16,4 +17,6 @@ const defaultState = {
   },
 };
 
-export const initialState = storage('sheets-state') || defaultState;
+export function getInitialState(tableName) {
+  return storage(tableName) || cloneObject(defaultState);
+}

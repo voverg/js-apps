@@ -7,7 +7,7 @@ export class Header extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Header',
-      listeners: ['input', 'keydown'],
+      listeners: ['input', 'keydown', 'click'],
       ...props
     });
   }
@@ -20,8 +20,8 @@ export class Header extends Component {
     return `
       <input type="text" class="sheet__header-input" value="${this.title}">
       <div class="sheet__header-btns">
-        <button class="btn sheet__header-btn" title="Удалить таблицу">
-          <i class="material-icons">delete</i>
+        <button class="btn sheet__header-btn" data-btn="delete" title="Удалить таблицу">
+          <i class="material-icons" data-btn="delete">delete</i>
         </button>
         <a href="#dashboard" class="btn sheet__header-btn" title="Назад к списку таблиц">
           <i class="material-icons">exit_to_app</i>
@@ -40,7 +40,19 @@ export class Header extends Component {
 
     if (keys.includes(event.key)) {
       event.preventDefault();
-      this.$emit('formula:enter');
+      this.$emit('header:enter');
+    }
+  }
+
+  onClick(event) {
+    if (event.target.dataset.btn === 'delete') {
+      const isDelite = confirm('Точно хочешь удалить эту таблицу?');
+
+      if (isDelite) {
+        const tableKey = window.location.hash.slice(1).split('/').join(':');
+        localStorage.removeItem(tableKey);
+        window.location.hash = '';
+      }
     }
   }
 

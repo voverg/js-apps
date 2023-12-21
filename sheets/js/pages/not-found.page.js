@@ -7,17 +7,24 @@ export class NotFoundPage extends Page {
   }
 
   getPage() {
-    const template = 'Страница не найдена';
-
     this.page = {
       init() {},
       destroy() {}
     };
     
     const $page = document.createElement('div');
-    $page.innerHTML = template;
+    $page.innerHTML = this.template();
 
     return $page;
+  }
+
+  template() {
+    return `
+      <div class="not-found">
+        <h2 class="not-found__title">Страница не найдена</h2>
+        <a href="#dashboard" class="not-found__link">Вернуться на главную страницу<a>
+      </div>
+    `;
   }
 
 }

@@ -3,6 +3,7 @@ import {
   CHANGE_TEXT,
   CHANGE_TITLE,
   TABLE_RESIZE,
+  UPDATE_DATE,
 } from './action-types.js';
 
 export function rootReducer(state, {type, payload}) {
@@ -25,6 +26,8 @@ export function rootReducer(state, {type, payload}) {
 
       const newStyleList = {...state.cellStyleList, ...cellStyles};
       return {...state, cellStyleList: newStyleList};
+    case UPDATE_DATE:
+      return {...state, openedDate: new Date().toJSON()};
     default:
       return state;
   }

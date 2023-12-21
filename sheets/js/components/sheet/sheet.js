@@ -1,4 +1,5 @@
 import { Emitter } from '../../core/emitter.js';
+import * as actions from '../../store/actions.js';
 
 export class Sheet {
   constructor(props) {
@@ -35,6 +36,8 @@ export class Sheet {
   }
 
   init() {
+    this.store.dispatch(actions.updateDate());
+    
     this.components.forEach((component) => {
       component.init();
     });

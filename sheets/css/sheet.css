@@ -221,3 +221,14 @@
   outline: 2px solid var(--primary-color);
   z-index: 2;
 }
+
+
+/*Responsive*/
+@media (max-width: 480px) {
+  .sheet__header-btns {
+    margin-right: 5px;
+  }
+  .sheet__header-btn {
+    width: 28px;
+  }
+}

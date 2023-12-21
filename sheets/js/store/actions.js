@@ -3,6 +3,7 @@ import {
   CHANGE_TEXT,
   CHANGE_TITLE,
   CHANGE_CELL_STYLES,
+  UPDATE_DATE,
 } from './action-types.js';
 
 /**
@@ -34,4 +35,8 @@ export function changeTitle(text) {
 
 export function changeCellStyles(data) {
   return {type: CHANGE_CELL_STYLES, payload: data};
+}
+
+export function updateDate() {
+  return {type: UPDATE_DATE};
 }
