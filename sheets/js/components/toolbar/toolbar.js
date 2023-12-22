@@ -8,7 +8,7 @@ export class Toolbar extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Toolbar',
-      listeners: ['click'],
+      listeners: ['click', 'change'],
       ...props
     });
   }
@@ -23,10 +23,6 @@ export class Toolbar extends Component {
     this.$on('table:setStyle', (styles) => {
       this.setState(styles);
     });
-
-    // this.$subscribe((state) => {
-    //   this.setState(state.toolbarStyles);
-    // }, ['toolbarStyles']);
   }
 
   toHtml() {
@@ -35,10 +31,17 @@ export class Toolbar extends Component {
 
   onClick(event) {
     if (event.target.dataset.type === 'btn') {
+
       const valueObj = JSON.parse(event.target.dataset.value);
       this.$emit('toolbar:setStyle', {...this.state, ...valueObj});
     }
   }
 
+  onChange(event) {
+    if (event.target.dataset.type === 'input') {
+      const valueObj = {[event.target.id]: event.target.value};
+      this.$emit('toolbar:setStyle', {...this.state, ...valueObj});
+    }
+  }
 
 }

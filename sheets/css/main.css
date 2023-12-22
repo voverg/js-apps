@@ -121,7 +121,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: #fff;
   font-size: 36px;
   border: 1px solid #777;
   border-radius: 50%;
@@ -168,6 +168,9 @@ ul {
 
 /*Responsive*/
 @media (max-width: 480px) {
+  .modal__close {
+    position: fixed;
+  }
   .modal__content {
     width: 100%;
     max-width: 100%;

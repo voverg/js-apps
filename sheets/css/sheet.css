@@ -92,6 +92,22 @@
 .toolbar__btn:active {
   color: var(--accent-green);
 }
+.toolbar__label {
+  padding: 4px;
+  cursor: pointer;
+}
+.toobar_label:first-child {
+  margin-right: 3px;
+}
+.toolbar__label:hover {
+  background-color: #eee;
+}
+.toolbar__input {
+  display: none;
+}
+.toolbar__input-icon {
+  font-size: 16px;
+}
 
 /*--- sheet formula ---*/
 .sheet__formula {

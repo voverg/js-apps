@@ -14,6 +14,8 @@ const defaultState = {
     'font-weight': 'normal',
     'font-style': 'normal',
     'text-decoration': 'none',
+    'background-color': '#ffffff',
+    'color': '#000000',
   },
 };
 

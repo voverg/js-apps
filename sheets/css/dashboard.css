@@ -64,25 +64,28 @@
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 10px;
-  padding: 0 12px;
+  padding: 0 40px 0 12px;
 }
 
 .db__record {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
+  padding-right: 12px;
+}
+.db__record:hover {
+  background: #e6f4ea;
+  border-radius: 25px;
 }
 .db__record-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 12px 14px 12px 16px;
+  padding: 12px 12px 12px 16px;
   text-decoration: none;
   color: #202124;
   font-size: 14px;
-}
-.db__record-link:hover {
-  background: #e6f4ea;
-  border-radius: 25px;
 }
 .db__record-title {
   display: flex;
@@ -93,7 +96,16 @@
   width: 20px;
 }
 .db__record-date {
+  flex-shrink: 0;
   color: #777;
+}
+.db__record-delete {
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+}
+.db__record-delete:hover {
+  color: #000;
 }
 .db__no-records {
   padding: 30vh 0;

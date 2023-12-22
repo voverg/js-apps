@@ -15,8 +15,22 @@ function createBtn(btn) {
   `;
 }
 
+function createInput(input) {
+  return `
+    <label class="toolbar__label" title="${input.title}">
+      <i class="material-icons toolbar__input-icon">${input.icon}</i>
+      <input
+        type="${input.type}"
+        value="${input.value}"
+        id="${input.id}"
+        class="toolbar__input"
+        data-type="input"
+      >
+    </label>
+  `;
+}
+
 export function createToolbar(state) {
-  // console.log(state);
   const btns = [
     {
       id: 'toolbar-btn-left',
@@ -61,6 +75,27 @@ export function createToolbar(state) {
       value: {'text-decoration': state['text-decoration'] === 'underline' ? 'none' : 'underline'},
     },
   ];
+
+  const inputs = [
+    {
+      id: 'color',
+      type: 'color',
+      icon: 'border_color',
+      title: 'Цвет текста',
+      value: state['color'],
+    },
+    {
+      id: 'background-color',
+      type: 'color',
+      icon: 'format_color_fill',
+      title: 'Цвет заливки',
+      value: state['background-color'],
+    },
+  ];
+
+  const btnsHtml = btns.map((btn) => createBtn(btn)).join('');
+  const inputsHtml = inputs.map((input) => createInput(input)).join('');
+  const html = btnsHtml + inputsHtml;
   
-  return btns.map((btn) => createBtn(btn)).join('');
+  return html;
 }

@@ -7,7 +7,7 @@ export class DbTable extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Header',
-      listeners: [],
+      listeners: ['click'],
       ...props
     });
 
@@ -22,6 +22,8 @@ export class DbTable extends Component {
   }
 
   init() {
+    super.init();
+
     this.$on('db:search', (text) => {
       this.search = text;
       this.$root.innerHTML = this.toHtml();
@@ -64,6 +66,7 @@ export class DbTable extends Component {
           </span>
           <span class="db__record-date">${table.openedDate}</span>
         </a>
+        <i class="material-icons db__record-delete" data-key="${table.key}" data-type="delete">delete</i>
       </li>
     `;
   }
@@ -91,6 +94,20 @@ export class DbTable extends Component {
     `;
 
     return table;
+  }
+
+  onClick(event) {
+    if (event.target.dataset.type === 'delete') {
+      const tableKey = event.target.dataset.key;
+      const tableTitle = this.tableList.find((table) => table.key === tableKey).title;
+      const isDelite = confirm(`Точно хочешь удалить таблицу "${tableTitle}"?`);
+
+      if (isDelite) {
+        localStorage.removeItem(tableKey);
+        const hash = window.location.hash;
+        window.location.hash = hash === '#dashboard' ? '' : '#dashboard';
+      }
+    }
   }
 
 }
