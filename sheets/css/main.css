@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
 
 :root {
-  --header-height: 34px;
+  --header-height: 38px;
   --toolbar-height: 40px;
   --formula-height: 24px;
   --info-cell-width: 40px;
@@ -67,6 +67,82 @@ ul {
   color: var(--primary-color);
 }
 
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.modal__content {
+  position: relative;
+  min-width: 50%;
+  min-height: 50%;
+  max-width: 80%;
+  max-height: 100vh;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow-y: auto;
+  z-index: 10;
+}
+.modal__head {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.moda__body {}
+.modal__item {
+  margin-bottom: 10px;
+}
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 36px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal__show {
+  visibility: visible;
+  opacity: 1;
+}
+.modal__key {
+  display: inline-block;
+  min-width: 25px;
+  height: 25px;
+  padding: 3px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  line-height: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #999;
+}
 
 /*Not found page*/
 .not-found {
@@ -92,6 +168,12 @@ ul {
 
 /*Responsive*/
 @media (max-width: 480px) {
+  .modal__content {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
   .not-found__title {
     font-size: 24px;
   }

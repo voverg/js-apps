@@ -56,9 +56,18 @@
 .sheet__header-input:focus {
   border: 2px solid var(--primary-color);
 }
+.sheet__header-btns {
+  margin-right: 5px;
+}
+.sheet__header-btn {
+  height: 28px;
+}
 .sheet__header-btn:active,
 .sheet__header-btn.active {
   color: red;
+}
+.btn > i.sheet__header-icon {
+  font-size: 22px;
 }
 
 /*--- sheet toolbar ---*/
@@ -212,8 +221,8 @@
   border-right: 1px solid #e2e3e3;
   border-bottom: 1px solid #e2e3e3;
   outline: none;
-  white-space: nowrap;
   color: #111;
+  overflow: hidden;
 }
 
 .selected {
@@ -225,9 +234,6 @@
 
 /*Responsive*/
 @media (max-width: 480px) {
-  .sheet__header-btns {
-    margin-right: 5px;
-  }
   .sheet__header-btn {
     width: 28px;
   }

@@ -4,6 +4,7 @@ import { Toolbar } from '../components/toolbar/toolbar.js';
 import { Formula } from '../components/formula/formula.js';
 import { Table } from '../components/table/table.js';
 import { Footer } from '../components/footer/footer.js';
+import { Modal } from '../components/modal/modal.js';
 
 import { Page } from "../core/page.js";
 // import { Emitter } from '../core/emitter.js';
@@ -30,7 +31,7 @@ export class TablePage extends Page {
     store.subscribe(stateListener);
 
     this.page = new Sheet({
-      components: [Header, Toolbar, Formula, Table, Footer],
+      components: [Header, Toolbar, Formula, Table, Footer, Modal],
       store,
     });
 

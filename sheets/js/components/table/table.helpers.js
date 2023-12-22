@@ -77,7 +77,7 @@ export function getNextSelector(key, {col, row}) {
       col = Math.max(col - 1, MIN_VALUE);
       break;
   }
-  
+
   return `[data-id="${row}:${col}"]`;
 }
 
@@ -89,8 +89,12 @@ export function getNextSelector(key, {col, row}) {
  */
 export function parseCell(value = '') {
   if (value.startsWith('=')) {
-    const result = eval(value.slice(1));
-    return result;
+    try {
+      const result = eval(value.slice(1));
+      return result;
+    } catch(e) {
+      return 'Ошибка!';
+    }
   }
 
   return value;
