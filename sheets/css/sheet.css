@@ -57,6 +57,7 @@
   border: 2px solid var(--primary-color);
 }
 .sheet__header-btns {
+  flex-shrink: 0;
   margin-right: 5px;
 }
 .sheet__header-btn {
