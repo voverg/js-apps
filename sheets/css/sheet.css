@@ -252,11 +252,13 @@
 /*Responsive*/
 @media (max-width: 480px) {
   .sheet__header {
+    justify-content: space-around;
     padding: 6px 10px 0 4px;
   }
   .sheet__header-input {
-    flex-grow: 1;
-    flex-shrink: 1;
+    max-width: 70%;
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
   }
   .sheet__header-btns {
     flex-grow: 1;
