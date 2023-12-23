@@ -254,6 +254,12 @@
   .sheet__header {
     padding: 6px 10px 0 4px;
   }
+  .sheet__header-input {
+    flex-grow: 2;
+  }
+  .sheet__header-btns {
+    flex-grow: 1;
+  }
   .sheet__header-btn {
     width: 28px;
   }
