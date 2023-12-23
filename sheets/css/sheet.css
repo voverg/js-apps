@@ -72,9 +72,6 @@
 }
 
 /*--- sheet toolbar ---*/
-.sheet__header-btns {
-  margin-right: 15px;
-}
 .sheet__toolbar {
   position: absolute;
   top: var(--header-height);
@@ -254,6 +251,9 @@
 
 /*Responsive*/
 @media (max-width: 480px) {
+  .sheet__header {
+    padding: 6px 10px 0 4px;
+  }
   .sheet__header-btn {
     width: 28px;
   }
