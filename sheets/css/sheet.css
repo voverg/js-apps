@@ -72,6 +72,9 @@
 }
 
 /*--- sheet toolbar ---*/
+.sheet__header-btns {
+  margin-right: 15px;
+}
 .sheet__toolbar {
   position: absolute;
   top: var(--header-height);
