@@ -235,6 +235,7 @@
   min-width: 40px;
   width: var(--cell-width);
   height: 100%;
+  display: flex;
   border-right: 1px solid #e2e3e3;
   border-bottom: 1px solid #e2e3e3;
   outline: none;
@@ -257,8 +258,6 @@
   }
   .sheet__header-input {
     max-width: 70%;
-    /* flex-grow: 1; */
-    /* flex-shrink: 1; */
   }
   .sheet__header-btns {
     flex-grow: 1;

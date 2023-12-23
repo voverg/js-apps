@@ -31,27 +31,57 @@ function createInput(input) {
 }
 
 export function createToolbar(state) {
+  const boxShadow = '0 0 2px #000, -1px -1px 1px #777 inset';
+
   const btns = [
     {
       id: 'toolbar-btn-left',
       icon: 'format_align_left',
       title: 'По левому краю',
-      active: state['text-align'] === 'left',
-      value: {'text-align': 'left'},
+      active: state['justify-content'] === 'start',
+      value: {'justify-content': 'start'},
     },
     {
       id: 'toolbar-btn-center',
       icon: 'format_align_center',
       title: 'По центру',
-      active:  state['text-align'] === 'center',
-      value: {'text-align': 'center'},
+      active:  state['justify-content'] === 'center',
+      value: {'justify-content': 'center'},
     },
     {
       id: 'toolbar-btn-right',
       icon: 'format_align_right',
       title: 'По правому краю',
-      active:  state['text-align'] === 'right',
-      value: {'text-align': 'right'},
+      active:  state['justify-content'] === 'end',
+      value: {'justify-content': 'end'},
+    },
+    {
+      id: 'toolbar-btn-top',
+      icon: 'align_vertical_top',
+      title: 'По верхнему краю',
+      active:  state['align-items'] === 'start',
+      value: {'align-items': 'start'},
+    },
+    {
+      id: 'toolbar-btn-center',
+      icon: 'vertical_distribute',
+      title: 'По центру',
+      active:  state['align-items'] === 'center',
+      value: {'align-items': 'center'},
+    },
+    {
+      id: 'toolbar-btn-bottom',
+      icon: 'align_vertical_bottom',
+      title: 'По нижниму краю',
+      active:  state['align-items'] === 'end',
+      value: {'align-items': 'end'},
+    },
+    {
+      id: 'toolbar-box-shadow',
+      icon: 'border_all',
+      title: 'Границы',
+      active: state['box-shadow'] === boxShadow,
+      value: {'box-shadow': state['box-shadow'] === boxShadow ? 'none' : boxShadow},
     },
     {
       id: 'toolbar-btn-bold',

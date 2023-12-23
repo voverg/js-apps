@@ -7,7 +7,7 @@
 
 ---
 
-![image](../main/img/sheets.png)
+![image](img/sheets.png)
 
 ## <a name='description'>Описание</a>
 Приложение "Таблицы":
@@ -16,13 +16,3 @@
 -
 
 [Назад к заглавию](#nav)
-
-## <a name='description_eng'>App description</a>
-This is a simple application written by html, css and clean javascript. You can see this app demo version on [GitHub Pages this link](https://voverg.github.io/js-apps/sheets 'Look at demo')
-
-Habits tracker app:
--
--
--
-
-[Back to menu](#nav)
