@@ -255,7 +255,8 @@
     padding: 6px 10px 0 4px;
   }
   .sheet__header-input {
-    flex-grow: 2;
+    flex-grow: 1;
+    flex-shrink: 1;
   }
   .sheet__header-btns {
     flex-grow: 1;
