@@ -242,6 +242,7 @@
   color: #111;
   word-break: break-all;
   overflow: hidden;
+  /*touch-action: none;*/
 }
 .cell.selected {
   overflow: visible;
@@ -254,6 +255,7 @@
 }
 .selector {
   position: relative;
+  /*touch-action: none;*/
 }
 .selector::after {
   content: '';
@@ -265,6 +267,7 @@
   background-color: var(--primary-color);
   border-radius: 50%;
   cursor: pointer;
+  touch-action: none;
 }
 .selector-selection {
   position: fixed;

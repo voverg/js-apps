@@ -22,7 +22,7 @@ export function isCell(event) {
  * @return {boolean}       Return true if it is selected cell else false
  */
 export function isSelected(event) {
-  return event.target.classList.contains('selected');
+  return event.target.classList.contains('selector');
 }
 
 /**
