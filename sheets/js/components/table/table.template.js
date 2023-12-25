@@ -91,8 +91,8 @@ function createCol({content, index, width}) {
 }
 
 function createRow({ rowIndex, content, className, rowHeight }) {
-  const resizer = rowIndex ? `<div class="row-resize" data-resize="row"></div>` : '';
   const rowInfo = typeof rowIndex === 'number' ? rowIndex + 1 : '';
+  const resizer = rowInfo ? `<div class="row-resize" data-resize="row"></div>` : '';
 
   return `
     <div

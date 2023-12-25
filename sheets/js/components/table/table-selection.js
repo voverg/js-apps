@@ -1,5 +1,6 @@
 export class TableSelection {
   static className = 'selected';
+  static selectorClassName = 'selector';
 
   constructor() {
     this.group = [];
@@ -10,6 +11,7 @@ export class TableSelection {
     this.clear();
     $el.focus();
     $el.classList.add(TableSelection.className);
+    $el.classList.add(TableSelection.selectorClassName);
     this.group.push($el);
     this.current = $el;
   }
@@ -23,14 +25,20 @@ export class TableSelection {
   }
 
   clear() {
-    this.group.forEach(($el) => $el.classList.remove(TableSelection.className));
+    this.group.forEach(($el) => {
+      $el.classList.remove(TableSelection.className);
+      $el.classList.remove(TableSelection.selectorClassName);
+    });
     this.group = [];
   }
 
   selectGroup(cells) {
     this.clear();
-    this.group = cells.map( ($cell) => {
+    this.group = cells.map( ($cell, index) => {
       $cell.classList.add(TableSelection.className);
+      if (index === cells.length - 1) {
+        $cell.classList.add(TableSelection.selectorClassName);
+      }
       return $cell;
     });
   }

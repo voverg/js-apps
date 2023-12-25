@@ -3,6 +3,7 @@ import * as actions from '../../store/actions.js';
 
 import { createTable } from './table.template.js';
 import { resizeHandler } from './table.resize.js';
+import { selectorHandler } from './table.selector.js';
 import { TableSelection } from './table-selection.js';
 import {
   shouldTableResize,
@@ -10,7 +11,8 @@ import {
   getRangeId,
   parseId,
   parseCell,
-  getNextSelector
+  getNextSelector,
+  isSelected
 } from './table.helpers.js';
 
 export class Table extends Component {
@@ -26,6 +28,7 @@ export class Table extends Component {
 
   prepare() {
     this.selection = new TableSelection();
+    this.targetSelector = null;
   }
 
   init() {
@@ -68,15 +71,6 @@ export class Table extends Component {
     this.$emit('table:setStyle', styles);
   }
 
-  async resizeTable(event) {
-    try {
-      const data = await resizeHandler(this.$root, event);
-      this.$dispatch(actions.tableResize(data));
-    } catch (e) {
-      console.error('Resize error:', e.message);
-    }
-  }
-
   toHtml() {
     return createTable(30, this.store.getState());
   }
@@ -88,16 +82,41 @@ export class Table extends Component {
     }));
   }
 
+  async resizeTable(event) {
+    try {
+      const data = await resizeHandler(this.$root, event);
+      this.$dispatch(actions.tableResize(data));
+    } catch (e) {
+      console.error('Resize error:', e.message);
+    }
+  }
+
+  async getTargetSelector(event) {
+    try {
+      this.targetSelector = await selectorHandler(this.$root, event);
+      const targetId = this.targetSelector.dataset.id;
+      this.selectCellGroup(targetId);
+    } catch (e) {
+      console.error('Selector error:', e.message);
+    }
+  }
+
+  selectCellGroup(targetId) {
+    const currentId = this.selection.currentId;
+    const rangeId = getRangeId(currentId, targetId);
+    const cells = rangeId.map((id) => this.$root.querySelector(`[data-id="${id}"]`));
+    this.selection.selectGroup(cells);
+  }
+
   onPointerdown(event) {
     if (shouldTableResize(event)) {
       this.resizeTable(event)
-   }  else if (isCell(event)) {
+    } else if (isCell(event)) {
       if (event.shiftKey) {
-        const currentId = this.selection.currentId;
         const targetId = event.target.dataset.id;
-        const rangeId = getRangeId(currentId, targetId);
-        const cells = rangeId.map((id) => this.$root.querySelector(`[data-id="${id}"]`));
-        this.selection.selectGroup(cells);
+        this.selectCellGroup(targetId);
+      } else if (isSelected(event)) {
+        this.getTargetSelector(event);
       } else {
         this.selectCell(event.target);
       }

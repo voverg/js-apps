@@ -17,6 +17,15 @@ export function isCell(event) {
 }
 
 /**
+ * Is it celected cell?
+ * @param  {Event}  event Receive event
+ * @return {boolean}       Return true if it is selected cell else false
+ */
+export function isSelected(event) {
+  return event.target.classList.contains('selected');
+}
+
+/**
  * Get range of ids
  * @param  {string} currentId [description]
  * @param  {string} targetId  [description]

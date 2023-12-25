@@ -240,13 +240,35 @@
   border-bottom: 1px solid #e2e3e3;
   outline: none;
   color: #111;
+  word-break: break-all;
   overflow: hidden;
+}
+.cell.selected {
+  overflow: visible;
 }
 
 .selected {
   border: none;
   outline: 2px solid var(--primary-color);
   z-index: 2;
+}
+.selector {
+  position: relative;
+}
+.selector::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.selector-selection {
+  position: fixed;
+  border: 2px dashed var(--primary-color);
 }
 
 
