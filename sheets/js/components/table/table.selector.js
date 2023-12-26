@@ -60,5 +60,5 @@ export function selectorHandler($root, event) {
       document.onpointerup = null;
     }
   });
-  
+
 }

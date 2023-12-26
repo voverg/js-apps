@@ -255,7 +255,7 @@
 }
 .selector {
   position: relative;
-  /*touch-action: none;*/
+  /* touch-action: none; */
 }
 .selector::after {
   content: '';
@@ -272,6 +272,7 @@
 .selector-selection {
   position: fixed;
   border: 2px dashed var(--primary-color);
+  touch-action: none;
 }
 
 
