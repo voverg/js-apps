@@ -145,9 +145,10 @@
   top: calc( var(--header-height) + var(--toolbar-height) + var(--formula-height) );
   left: 0;
   right: 0;
+  height: calc( 75vh - var(--header-height) + var(--toolbar-height) + var(--formula-height) );
   overflow-x: auto;
   padding-bottom: 20px;
-  height: calc( 75vh - var(--header-height) + var(--toolbar-height) + var(--formula-height) );
+  /* touch-action: none; */
 }
 
 .row {
@@ -294,7 +295,4 @@
     width: 28px;
   }
 
-  .table {
-    touch-action: none;
-  }
 }
