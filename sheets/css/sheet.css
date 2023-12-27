@@ -293,4 +293,8 @@
   .sheet__header-btn {
     width: 28px;
   }
+
+  .table {
+    touch-action: none;
+  }
 }
