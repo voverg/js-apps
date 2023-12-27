@@ -21,7 +21,7 @@ export function isCell(event) {
  * @param  {Event}  event Receive event
  * @return {boolean}       Return true if it is selected cell else false
  */
-export function isSelected(event) {
+export function isSelector(event) {
   return event.target.classList.contains('selector');
 }
 

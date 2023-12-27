@@ -242,7 +242,7 @@
   color: #111;
   word-break: break-all;
   overflow: hidden;
-  /*touch-action: none;*/
+  pointer-events: auto;
 }
 .cell.selected {
   overflow: visible;
@@ -255,7 +255,6 @@
 }
 .selector {
   position: relative;
-  /* touch-action: none; */
 }
 .selector::after {
   content: '';
@@ -266,13 +265,16 @@
   height: 10px;
   background-color: var(--primary-color);
   border-radius: 50%;
-  cursor: pointer;
-  touch-action: none;
+  cursor: crosshair;
 }
 .selector-selection {
   position: fixed;
   border: 2px dashed var(--primary-color);
+  pointer-events: none;
+}
+.touch-action-none {
   touch-action: none;
+  pointer-events: none;
 }
 
 

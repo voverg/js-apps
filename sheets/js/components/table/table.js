@@ -12,7 +12,7 @@ import {
   parseId,
   parseCell,
   getNextSelector,
-  isSelected
+  isSelector
 } from './table.helpers.js';
 
 export class Table extends Component {
@@ -93,9 +93,13 @@ export class Table extends Component {
 
   async getTargetSelector(event) {
     try {
+      // const $table = document.querySelector('.table');
+
       this.targetSelector = await selectorHandler(this.$root, event);
       const targetId = this.targetSelector.dataset.id;
       this.selectCellGroup(targetId);
+
+      // $table.classList.remove('touch-action-none');
     } catch (e) {
       console.error('Selector error:', e.message);
     }
@@ -109,19 +113,20 @@ export class Table extends Component {
   }
 
   onPointerdown(event) {
+    event.preventDefault();
     if (shouldTableResize(event)) {
       this.resizeTable(event)
     } else if (isCell(event)) {
       if (event.shiftKey) {
         const targetId = event.target.dataset.id;
         this.selectCellGroup(targetId);
-      } else if (isSelected(event)) {
+      } else if (isSelector(event)) {
         this.getTargetSelector(event);
       } else {
         this.selectCell(event.target);
       }
     }
-  } 
+  }
 
   onKeydown(event) {
     const keys = ['Enter', 'Tab', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
