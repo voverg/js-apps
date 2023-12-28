@@ -1,5 +1,6 @@
 import { Component } from '../../core/component.js';
 import { getModalContent } from './modal-content.js';
+import { getTabList } from './modal-tab-list.js';
 
 export class Modal extends Component {
   static className = 'modal';
@@ -10,6 +11,10 @@ export class Modal extends Component {
       listeners: ['keydown', 'click'],
       ...props
     });
+  }
+
+  prepare() {
+    this.useState({activeTab: 'description'})
   }
 
   init() {
@@ -24,9 +29,13 @@ export class Modal extends Component {
     return `
       <div class="modal__overlay" data-type="close"></div>
       <div class="modal__content">
-        <div class="modal__head">Помощь</div>
-        <div class="modal__body">${getModalContent()}</div>
-        <button class="modal__close" data-type="close">&times;</button>
+        <div class="modal__head">
+          <span class="modal__title">Помощь</span>
+          <button class="modal__close" data-type="close">&times;</button>
+        </div>
+        <nav class="modal__tabs">${getTabList(this.state.activeTab)}</nav>
+        <div class="modal__body">${getModalContent(this.state.activeTab)}</div>
+        
       </div>
     `;
   }
@@ -46,6 +55,9 @@ export class Modal extends Component {
   onClick(event) {
     if (event.target.dataset.type === 'close') {
       this.$root.classList.remove('modal__show');
+    } else if (event.target.dataset.tab) {
+      const activeTab = event.target.dataset.tab;
+      this.setState({ activeTab });
     }
   }
 

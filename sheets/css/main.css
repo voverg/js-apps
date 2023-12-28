@@ -93,31 +93,73 @@ ul {
 }
 .modal__content {
   position: relative;
-  min-width: 50%;
+  width: 80%;
   min-height: 50%;
-  max-width: 80%;
+  height: 80%;
   max-height: 100vh;
-  padding: 15px;
   background-color: #fff;
   border-radius: 10px;
   overflow-y: auto;
   z-index: 10;
 }
 .modal__head {
+  position: sticky;
+  top: 0;
+  padding: 10px;
   text-align: center;
   font-size: 24px;
-  margin-bottom: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #777;
 }
-.moda__body {}
+
+.modal__tabs {
+  position: sticky;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px;
+  background-color: #fff;
+  border-bottom: 1px solid #777;
+}
+.modal__tab {
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+.modal__tab:hover {
+  border-bottom: 1px solid #777;
+}
+.modal__tab--active {
+  color: var(--primary-color);
+}
+.modal__tab--active:hover {
+  border-bottom: 1px solid transparent;
+  cursor: default;
+}
+
+
+.modal__body {
+  padding: 15px;
+}
+.modal__body-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.modal__body-description {
+  margin-bottom: 10px;
+}
 .modal__item {
   margin-bottom: 10px;
 }
 .modal__close {
   position: absolute;
-  top: 10px;
+  top: 7px;
   right: 15px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,9 +210,6 @@ ul {
 
 /*Responsive*/
 @media (max-width: 480px) {
-  .modal__close {
-    position: fixed;
-  }
   .modal__content {
     width: 100%;
     max-width: 100%;

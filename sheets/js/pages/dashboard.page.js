@@ -8,7 +8,7 @@ import { Footer } from '../components/footer/footer.js';
 export class DashboardPage extends Page {
   constructor($root, params) {
     super($root, params);
-    this.setTitle('Дашборд');
+    this.setTitle('Таблицы');
   }
 
   getPage() {

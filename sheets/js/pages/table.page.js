@@ -16,7 +16,6 @@ import { getInitialState } from '../store/initial-state.js';
 export class TablePage extends Page {
   constructor($root, params) {
     super($root, params);
-    this.setTitle('Таблица');
   }
 
   getPage() {
@@ -29,6 +28,8 @@ export class TablePage extends Page {
     }, 500);
 
     store.subscribe(stateListener);
+    // Set page title
+    this.setTitle(store.getState().title);
 
     this.page = new Sheet({
       components: [Header, Toolbar, Formula, Table, Footer, Modal],
