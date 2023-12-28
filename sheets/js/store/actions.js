@@ -1,6 +1,7 @@
 import {
   TABLE_RESIZE,
   CHANGE_TEXT,
+  CHANGE_VISIBLE_TEXT,
   CHANGE_TITLE,
   CHANGE_CELL_STYLES,
   UPDATE_DATE,
@@ -22,6 +23,15 @@ export function tableResize(data) {
  */
 export function changeText(data) {
   return {type: CHANGE_TEXT, payload: data};
+}
+
+/**
+ * Create change cell visible data action
+ * @param  {{text: string, id: string}} data Get cell data
+ * @return {{type: string, payload: data}}      Return changed cell data action
+ */
+export function changeVisibleText(data) {
+  return {type: CHANGE_VISIBLE_TEXT, payload: data};
 }
 
 /**

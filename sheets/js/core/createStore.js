@@ -1,3 +1,5 @@
+import { cloneObject } from "./utils.js";
+
 export function createStore(rootReducer, initialState = {}) {
   let state = rootReducer(initialState, {type: '__INIT__'});
   let subscribers = [];
@@ -16,7 +18,7 @@ export function createStore(rootReducer, initialState = {}) {
       };
     },
     getState() {
-      return state;
+      return cloneObject(state);
     }
   };
 }

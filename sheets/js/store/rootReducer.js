@@ -2,6 +2,7 @@ import {
   CHANGE_CELL_STYLES,
   CHANGE_TEXT,
   CHANGE_TITLE,
+  CHANGE_VISIBLE_TEXT,
   TABLE_RESIZE,
   UPDATE_DATE,
 } from './action-types.js';
@@ -15,6 +16,9 @@ export function rootReducer(state, {type, payload}) {
     case CHANGE_TEXT:
       const newDataState = {...state.dataState, [payload.id]: payload.text};
       return {...state, currentText: payload.text, dataState: newDataState};
+    case CHANGE_VISIBLE_TEXT:
+      const newVisibleDataState = {...state.visibleDataState, [payload.id]: payload.visibleText};
+      return {...state, visibleDataState: newVisibleDataState};
     case CHANGE_TITLE:
       return {...state, title: payload};
     case CHANGE_CELL_STYLES:

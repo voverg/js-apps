@@ -1,5 +1,6 @@
 export const TABLE_RESIZE = 'TABLE_RESIZE';
 export const CHANGE_TEXT = 'CHANGE_TEXT';
+export const CHANGE_VISIBLE_TEXT = 'CHANGE_VISIBLE_TEXT';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const CHANGE_CELL_STYLES = 'CHANGE_CELL_STYLES';
 export const UPDATE_DATE = 'UPDATE_DATE';

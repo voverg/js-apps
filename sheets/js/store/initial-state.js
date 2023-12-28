@@ -5,6 +5,7 @@ const defaultState = {
   colState: {},
   rowState: {},
   dataState: {},
+  visibleDataState: {},
   currentText: '',
   toolbarStyles: {},
   cellStyleList: {},

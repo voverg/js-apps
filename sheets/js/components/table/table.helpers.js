@@ -1,3 +1,5 @@
+import { TableParser } from "./table.parser.js";
+
 /**
  * Should table resize
  * @param  {Event} event Receive event
@@ -90,21 +92,20 @@ export function getNextSelector(key, {col, row}) {
   return `[data-id="${row}:${col}"]`;
 }
 
-
 /**
  * Parse a cell value
  * @param  {String} value Cell text
  * @return {number | string}       Parsed value
  */
-export function parseCell(value = '') {
-  if (value.startsWith('=')) {
-    try {
-      const result = eval(value.slice(1));
-      return result;
-    } catch(e) {
-      return 'Ошибка!';
-    }
-  }
+export function parseCell(value = '', state = {}) {
+  const parser = new TableParser(value, state);
+  const result = parser.parse();
+  return result;
+}
 
-  return value;
+export function getColIdLIst() {
+  const cols = {};
+  const colList = 'abcdefghigklmnopqrstuvwxyz'.split('');
+  colList.forEach((col, index) => cols[col] = index.toString());
+  return cols;
 }

@@ -38,7 +38,7 @@ export function selectorHandler($root, event) {
     }
 
     document.onpointerover = (e) => {
-      console.log('over')
+      // console.log('over')
       if (e.target.dataset.type === 'cell') {
         $targetSelector = e.target;
         target = $targetSelector.getBoundingClientRect();
@@ -49,15 +49,15 @@ export function selectorHandler($root, event) {
 
     document.onpointermove = (e) => {
       // const $el = document.elementFromPoint(e.pageX, e.pageY);
-      console.log('move:');
+      // console.log('move:');
     }
 
     document.onpointercancel = (e) => {
-      console.log('Pointer cancel')
+      // console.log('Pointer cancel')
     }
 
     document.onpointerup = (e) => {
-      console.log('up')
+      // console.log('up')
       resolve($targetSelector);
 
       // Reset selection block

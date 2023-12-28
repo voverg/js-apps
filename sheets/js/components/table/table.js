@@ -53,13 +53,28 @@ export class Table extends Component {
     });
 
     this.$on('formula:enter', (text) => {
-      this.selection.current.textContent = parseCell(text);
+      this.updateCurrentSelection(text);
       this.selection.current.focus();
     });
 
     this.$on('header:enter', () => {
       this.selection.current.focus();
     });
+  }
+
+  getVisibleText(text) {
+    return parseCell(text, this.store.getState());
+  }
+
+  updateCurrentSelection(text) {
+    if (!text) return;
+
+    const visibleText = this.getVisibleText(text);
+    this.selection.current.textContent = visibleText;
+    this.$dispatch(actions.changeVisibleText({
+      visibleText,
+      id: this.selection.currentId,
+    }));
   }
 
   selectCell($cell) {
@@ -149,8 +164,8 @@ export class Table extends Component {
 
   onFocusout(event) {
     // Set parsed text in the current cell for apply math operations
-    const text = this.selection.current.textContent;
-    this.selection.current.textContent = parseCell(text);
+    const text = this.selection.current.dataset.value;
+    this.updateCurrentSelection(text);
   }
 
 }

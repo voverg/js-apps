@@ -71,7 +71,7 @@ function createCell(rowIndex, state) {
         style="${styles} width: ${colData.width}"
         data-value="${content}"
         contenteditable
-      >${parseCell(content)}</div>
+      >${parseCell(content, state)}</div>
     `;
   }
 }
