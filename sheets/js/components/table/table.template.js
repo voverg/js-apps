@@ -82,6 +82,7 @@ function createCol({content, index, width}) {
       class="column"
       data-type="resizable"
       data-col="${index}"
+      data-initial-col="${index}"
       style="width: ${width}"
     >
       ${content}
@@ -101,7 +102,7 @@ function createRow({ rowIndex, content, className, rowHeight }) {
       data-row="${rowIndex}"
       style="height: ${rowHeight}"
     >
-      <div class="row-info">
+      <div class="row-info" data-initial-row="${rowInfo ? rowIndex : 'all-cells'}">
         ${rowInfo}
         ${resizer}
       </div>
@@ -110,7 +111,8 @@ function createRow({ rowIndex, content, className, rowHeight }) {
   `;
 }
 
-export function createTable(rowsCount = 5, state = {}) {
+export function createTable(state = {}) {
+  const rowsCount = state.rowsCount || 5;
   const colsCount = CODES.Z - CODES.A + 1;
   const rows = [];
 
@@ -148,5 +150,20 @@ export function createTable(rowsCount = 5, state = {}) {
     }) );
   }
 
-  return rows.join('');
+  // Create table
+  const rowsHtml = rows.join('');
+  const addRows = `
+    <form class="add-rows" data-type="add">
+      <button type="submit" class="add-rows__btn">Добавить</button>
+      <input type="number" name="rowCount" value="10" min="1" max="1000" class="add-rows__input">
+      <span class="add-rows__text">строк</span>
+    </form>
+  `;
+
+  const table = `
+    <div class="rows-wrapper">${rowsHtml}</div>
+    ${addRows}
+  `;
+
+  return table;
 }

@@ -251,8 +251,13 @@
 
 .selected {
   border: none;
-  outline: 2px solid var(--primary-color);
+  outline: 1px solid var(--primary-color);
   z-index: 2;
+}
+.selected--main {
+  position: relative;
+  outline-width: 2px;
+  z-index: 10;
 }
 .selector {
   position: relative;
@@ -272,6 +277,7 @@
   position: fixed;
   border: 2px dashed var(--primary-color);
   pointer-events: none;
+  z-index: 10;
 }
 .touch-action-none {
   touch-action: none;

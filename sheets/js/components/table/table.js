@@ -8,6 +8,9 @@ import { TableSelection } from './table-selection.js';
 import {
   shouldTableResize,
   isCell,
+  isCol,
+  isRow,
+  isAllCells,
   getRangeId,
   parseId,
   parseCell,
@@ -29,7 +32,8 @@ export class Table extends Component {
   prepare() {
     this.selection = new TableSelection();
     this.targetSelector = null;
-    this.useState({rowCount: this.store.getState().rowCount});
+    this.colsCount = 26;
+    this.useState({rowsCount: this.store.getState().rowsCount});
   }
 
   init() {
@@ -88,23 +92,7 @@ export class Table extends Component {
   }
 
   toHtml() {
-    // const rowCount = this.store.getState().rowCount;
-    const rowCount = this.state.rowCount;
-    const rows = createTable(rowCount, this.store.getState());
-    const addRows = `
-      <form class="add-rows" data-type="add">
-        <button type="submit" class="add-rows__btn">Добавить</button>
-        <input type="number" name="rowCount" value="10" min="1" max="1000" class="add-rows__input">
-        <span class="add-rows__text">строк</span>
-      </form>
-    `;
-
-    const table = `
-      <div class="rows-wrapper">${rows}</div>
-      ${addRows}
-    `;
-
-    return table;
+    return createTable(this.store.getState());
   }
 
   updateTextInStore(text) {
@@ -137,8 +125,8 @@ export class Table extends Component {
     }
   }
 
-  selectCellGroup(targetId) {
-    const currentId = this.selection.currentId;
+  selectCellGroup(targetId, currentId) {
+    currentId = currentId ? currentId : this.selection.currentId;
     const rangeId = getRangeId(currentId, targetId);
     const cells = rangeId.map((id) => this.$root.querySelector(`[data-id="${id}"]`));
     this.selection.selectGroup(cells);
@@ -156,6 +144,20 @@ export class Table extends Component {
       } else {
         this.selectCell(event.target);
       }
+    }  else if (isCol(event)) {
+      const colNumber = event.target.dataset.initialCol;
+      const currentId = `0:${colNumber}`;
+      const targetId = `${this.state.rowsCount - 1}:${colNumber}`;
+      this.selectCellGroup(targetId, currentId);
+    } else if (isRow(event)) {
+      const rowNumber = event.target.dataset.initialRow;
+      const currentId = `${rowNumber}:0`;
+      const targetId = `${rowNumber}:${this.colsCount - 1}`;
+      this.selectCellGroup(targetId, currentId);
+    } else if (isAllCells(event)) {
+      const currentId = `0:0`;
+      const targetId = `${this.state.rowsCount - 1}:${this.colsCount - 1}`;
+      this.selectCellGroup(targetId, currentId);
     }
   }
 
@@ -170,7 +172,7 @@ export class Table extends Component {
       // Get and select next cell
       const {key} = event;
       const id = parseId(this.selection.currentId)
-      const $nextCell = this.$root.querySelector(getNextSelector(key, id));
+      const $nextCell = this.$root.querySelector(getNextSelector(this.state.rowsCount, key, id));
       this.selectCell($nextCell);
     }
   }
@@ -194,8 +196,8 @@ export class Table extends Component {
     const form = event.target.closest(`[data-type="add"`);
 
     const addingRows = +form.rowCount.value;
-    this.$dispatch(actions.changeRowCount({data: addingRows}));
-    this.setState({rowCount: this.store.getState().rowCount});
+    this.$dispatch(actions.changeRowsCount({data: addingRows}));
+    this.setState({rowsCount: this.store.getState().rowsCount});
   }
 
 }

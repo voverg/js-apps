@@ -1,6 +1,7 @@
 export class TableSelection {
   static className = 'selected';
   static selectorClassName = 'selector';
+  static mainSelectionClassName = 'selected--main';
 
   constructor() {
     this.group = [];
@@ -12,6 +13,7 @@ export class TableSelection {
     $el.focus();
     $el.classList.add(TableSelection.className);
     $el.classList.add(TableSelection.selectorClassName);
+    // $el.classList.add(TableSelection.mainSelectionClassName);
     this.group.push($el);
     this.current = $el;
   }
@@ -28,6 +30,7 @@ export class TableSelection {
     this.group.forEach(($el) => {
       $el.classList.remove(TableSelection.className);
       $el.classList.remove(TableSelection.selectorClassName);
+      // $el.classList.remove(TableSelection.mainSelectionClassName);
     });
     this.group = [];
   }
@@ -38,6 +41,9 @@ export class TableSelection {
       $cell.classList.add(TableSelection.className);
       if (index === cells.length - 1) {
         $cell.classList.add(TableSelection.selectorClassName);
+      } else if ($cell) {
+        // console.dir($cell.onfocus);
+        // $cell.classList.add(TableSelection.mainSelectionClassName);
       }
       return $cell;
     });
