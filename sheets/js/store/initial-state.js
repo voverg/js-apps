@@ -4,6 +4,7 @@ const defaultState = {
   title: 'Новая таблица',
   colState: {},
   rowState: {},
+  rowCount: 10,
   dataState: {},
   visibleDataState: {},
   currentText: '',

@@ -1,6 +1,7 @@
 import {
   CHANGE_CELL_STYLES,
   CHANGE_TEXT,
+  CHANGE_ROW_COUNT,
   CHANGE_TITLE,
   CHANGE_VISIBLE_TEXT,
   TABLE_RESIZE,
@@ -16,6 +17,8 @@ export function rootReducer(state, {type, payload}) {
     case CHANGE_TEXT:
       const newDataState = {...state.dataState, [payload.id]: payload.text};
       return {...state, currentText: payload.text, dataState: newDataState};
+    case CHANGE_ROW_COUNT:
+      return {...state, rowCount: state.rowCount + payload.data};
     case CHANGE_VISIBLE_TEXT:
       const newVisibleDataState = {...state.visibleDataState, [payload.id]: payload.visibleText};
       return {...state, visibleDataState: newVisibleDataState};

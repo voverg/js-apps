@@ -1,6 +1,7 @@
 import {
   TABLE_RESIZE,
   CHANGE_TEXT,
+  CHANGE_ROW_COUNT,
   CHANGE_VISIBLE_TEXT,
   CHANGE_TITLE,
   CHANGE_CELL_STYLES,
@@ -23,6 +24,15 @@ export function tableResize(data) {
  */
 export function changeText(data) {
   return {type: CHANGE_TEXT, payload: data};
+}
+
+/**
+ * Create change change row count action
+ * @param {number} number to add rows
+ * @return {{type: string, payload: data}}      Return number of row count to add rows action
+ */
+export function changeRowCount(data) {
+  return {type: CHANGE_ROW_COUNT, payload: data};
 }
 
 /**

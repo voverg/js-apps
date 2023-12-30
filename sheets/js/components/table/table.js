@@ -21,7 +21,7 @@ export class Table extends Component {
   constructor($root, props) {
     super($root, {
       name: 'Table',
-      listeners: ['pointerdown', 'keydown', 'input', 'focusout'],
+      listeners: ['pointerdown', 'keydown', 'input', 'focusout', 'submit'],
       ...props
     });
   }
@@ -29,6 +29,7 @@ export class Table extends Component {
   prepare() {
     this.selection = new TableSelection();
     this.targetSelector = null;
+    this.useState({rowCount: this.store.getState().rowCount});
   }
 
   init() {
@@ -87,7 +88,23 @@ export class Table extends Component {
   }
 
   toHtml() {
-    return createTable(30, this.store.getState());
+    // const rowCount = this.store.getState().rowCount;
+    const rowCount = this.state.rowCount;
+    const rows = createTable(rowCount, this.store.getState());
+    const addRows = `
+      <form class="add-rows" data-type="add">
+        <button type="submit" class="add-rows__btn">Добавить</button>
+        <input type="number" name="rowCount" value="10" min="1" max="1000" class="add-rows__input">
+        <span class="add-rows__text">строк</span>
+      </form>
+    `;
+
+    const table = `
+      <div class="rows-wrapper">${rows}</div>
+      ${addRows}
+    `;
+
+    return table;
   }
 
   updateTextInStore(text) {
@@ -128,7 +145,6 @@ export class Table extends Component {
   }
 
   onPointerdown(event) {
-    event.preventDefault();
     if (shouldTableResize(event)) {
       this.resizeTable(event)
     } else if (isCell(event)) {
@@ -146,7 +162,10 @@ export class Table extends Component {
   onKeydown(event) {
     const keys = ['Enter', 'Tab', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'];
 
-    if (keys.includes(event.key) && !event.shiftKey) {
+    if (keys.includes(event.key) && event.target.closest(`[data-type="add"`)) {
+      // This statment block for handle adding rows form
+      return;
+    } else if (keys.includes(event.key) && !event.shiftKey) {
       event.preventDefault();
       // Get and select next cell
       const {key} = event;
@@ -157,15 +176,26 @@ export class Table extends Component {
   }
 
   onInput(event) {
-    const text = event.target.textContent;
-    event.target.dataset.value = text;
-    this.updateTextInStore(text);
+    if (event.target.dataset.type === 'cell') {
+      const text = event.target.textContent;
+      event.target.dataset.value = text;
+      this.updateTextInStore(text);
+    }
   }
 
   onFocusout(event) {
     // Set parsed text in the current cell for apply math operations
     const text = this.selection.current.dataset.value;
     this.updateCurrentSelection(text);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    const form = event.target.closest(`[data-type="add"`);
+
+    const addingRows = +form.rowCount.value;
+    this.$dispatch(actions.changeRowCount({data: addingRows}));
+    this.setState({rowCount: this.store.getState().rowCount});
   }
 
 }

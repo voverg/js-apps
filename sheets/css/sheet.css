@@ -278,6 +278,26 @@
   pointer-events: none;
 }
 
+/*Add rows block*/
+.add-rows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+.add-rows__btn {
+  padding: 5px;
+  cursor: pointer;
+}
+.add-rows__input {
+  padding: 5px;
+  width: 100px;
+}
+.add-rows__text {
+  font-size: 18px;
+}
+
 
 /*Responsive*/
 @media (max-width: 480px) {
